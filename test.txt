@@ -1,2 +1,2 @@
-assam,sonia,CM,lamsade
-cohen,haya,CM,lamsade
+assam,sonia,8 allée de l'université,92000,Nanterre,,0782984176,zs.assam@gmail.com,zineb.assam@dauphine.eu,CM,,amphi 8
+sersour,katia,11 bis Avenue Auguste Rodin,94350,Villiers sur Marne,,0769360298,ser-katia@hotmail.fr,katia.sersour@dauphine.eu,TD,,B126
