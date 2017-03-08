@@ -1,11 +1,8 @@
 package ioUtils;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Scanner;
-
-
+import com.opencsv.CSVReader;
 import teacherUtils.Teacher;
 
 
@@ -26,25 +23,27 @@ public class TeacherReader
 	 * @return list of the read teachers
 	 * @throws FileNotFoundException
 	 */
-	public static ArrayList <Teacher> readTeacher(String fileName) throws FileNotFoundException
+	public static Teacher readTeacherData(String fileName) throws Exception
 	{
-		File file = new File(fileName);
-		ArrayList <Teacher> teachers = new ArrayList<Teacher>();
-		Scanner scn = new Scanner(new File(file.getAbsolutePath()));
-		while (scn.hasNext()) teachers.add(new Teacher(scn.nextLine().split(",")));
-		return teachers;
-			
+		FileReader reader = new FileReader(fileName);
+		CSVReader csv = new CSVReader(reader, ',');
+		return new Teacher(csv.readNext());	
 	}
 	
-	public static void main (String [] args)
+	public static ArrayList <Teacher> readTeachersData(String fileName) throws Exception
 	{
-		try {
-			ArrayList<Teacher> teachers = readTeacher("test.txt");
-			for (Teacher tech : teachers) System.out.println(tech);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		ArrayList <Teacher> teachers = new ArrayList <Teacher>();
+		FileReader reader = new FileReader(fileName);
+		@SuppressWarnings("resource")
+		CSVReader csv = new CSVReader(reader, ',');
+		
+		for (String [] teach : csv.readAll()) teachers.add(new Teacher(teach)) ;
+		return teachers;
+	}
+	
+	public static void main (String [] args) throws Exception
+	{
+		for (Teacher tech : readTeachersData("test.txt"))  System.out.println(tech);
 	}
 	
 }
