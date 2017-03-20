@@ -14,11 +14,7 @@ public class CsvFile {
 	public static void WriteTeacher (String fileName, Teacher t) throws Exception{
 			FileWriter fichier = new FileWriter(fileName);
 			String line="";
-			//Scanner word;
 			
-			//System.out.println("Fisrt Name? ");
-			//word= new Scanner (System.in);
-			//if (word==null ) throw new Exception ("The first name can't be null");
 			line+= t.getFirstName();
 			line+=",";
 			line+= t.getLastName();
@@ -40,17 +36,6 @@ public class CsvFile {
 			line+= t.getDauphinePhone();
 			line+=",";
 			line+= t.getOffice();
-		
-			
-			
-			
-			/*System.out.println("Last Name? ");
-			word= new Scanner (System.in);
-			if (word==null ) throw new Exception ("The last name can't be null");
-			line+= word.nextLine();
-			line+=",";
-			*/
-			
 			
 			fichier.write (line);
 			fichier.close();
