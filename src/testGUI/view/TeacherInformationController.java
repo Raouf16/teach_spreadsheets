@@ -5,14 +5,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import testGUI.model.Person;
+import testGUI.model.teacherUtils.Teacher;
 
 /**
- * Dialog to edit details of a person.
+ * Dialog to set personal information
  *
- * @author Marco Jakob
+ * @author Sonia ASSAM
  */
-public class PersoOverviewControler
+public class TeacherInformationController
 {
 
     @FXML
@@ -21,12 +21,24 @@ public class PersoOverviewControler
     private TextField lastNameField;
     @FXML
     private TextField numEnField;
+    @FXML
+    private TextField adressField;
+    @FXML
+    private TextField personalEmailField;
+    @FXML
+    private TextField mobilePhoneField;
+    @FXML
+    private TextField officeField;
+    @FXML
+    private TextField  dauphinePhoneField;
+    @FXML
+    private TextField  dauphineEmailField;
    
 
 
     private Stage dialogStage;
-    private Person person;
     private boolean okClicked = false;
+	private Teacher teacher;
 
     /**
      * Initializes the controller class. This method is automatically called
@@ -51,13 +63,13 @@ public class PersoOverviewControler
      *
      * @param person
      */
-    public void setPerson(Person person) 
+    public void setTeacher(Teacher teacher)
     {
-        this.person = person;
+        this.teacher = teacher;
 
-        firstNameField.setText(person.getFirstName());
-        lastNameField.setText(person.getLastName());
-        numEnField.setText(person.getNumEn());
+        firstNameField.setText(teacher.getFirstName());
+        lastNameField.setText(teacher.getFirstName());
+        numEnField.setText(teacher.getNumEn());
     }
 
     /**
@@ -78,9 +90,16 @@ public class PersoOverviewControler
     {
         if (isInputValid()) 
         {
-            person.setFirstName(firstNameField.getText());
-            person.setLastName(lastNameField.getText());
-            person.setNumEn(numEnField.getText());
+            teacher.setFirstName(firstNameField.getText());
+            teacher.setLastName(lastNameField.getText());
+            teacher.setNumEn(numEnField.getText());
+            System.out.println("ok");
+            teacher.setAdress(adressField.getText());
+            teacher.setDauphineEmail(dauphineEmailField.getText());
+            teacher.setOffice(officeField.getText());
+            teacher.setDauphinePhone(dauphinePhoneField.getText());
+            teacher.setMobilePhone(mobilePhoneField.getText());
+            teacher.setPersonalEmail(personalEmailField.getText());
             okClicked = true;
             dialogStage.close();
         }
@@ -132,5 +151,9 @@ public class PersoOverviewControler
             return false;
         }
     }
+
+	public Teacher getTeacher() {
+		return teacher;
+	}
     
 }

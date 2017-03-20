@@ -9,14 +9,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import testGUI.model.Person;
-import testGUI.view.PersoOverviewControler;
+import testGUI.model.teacherUtils.Teacher;
+import testGUI.view.TeacherInformationController;
 
 public class Main extends Application 
 {
 	
 	private Stage primaryStage;
     private BorderPane rootLayout;
+    private static TeacherInformationController controller ;
     
     
     /**
@@ -27,27 +28,27 @@ public class Main extends Application
      * @param person the person object to be edited
      * @return true if the user clicked OK, false otherwise.
      */
-    public boolean showPersonEditDialog(Person person)
+    public boolean showPersonEditDialog(Teacher teacher)
     {
         try
         {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/PersoOverview.fxml"));
+            loader.setLocation(Main.class.getResource("view/TeacherInformation.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
-            // Create the dialog Stage.
+            // Create the dialog Stage
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Edit Person");
+            dialogStage.setTitle("Informations personnelles");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
             // Set the person into the controller.
-            PersoOverviewControler controller = loader.getController();
+            controller = loader.getController();
             controller.setDialogStage(dialogStage);
-            controller.setPerson(person);
+            controller.setTeacher(teacher);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
@@ -68,7 +69,7 @@ public class Main extends Application
         this.primaryStage.setTitle("Teach spreadsheets");
         
         initRootLayout();
-        showPersonEditDialog(new Person());
+        showPersonEditDialog(new Teacher());
 	}
 
 	public Stage getPrimaryStage() {
@@ -102,5 +103,6 @@ public class Main extends Application
 	public static void main(String[] args)
 	{
 		launch(args);
+		System.out.println(controller.getTeacher());
 	}
 }
