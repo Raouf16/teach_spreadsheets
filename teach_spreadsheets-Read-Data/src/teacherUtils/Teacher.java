@@ -7,8 +7,9 @@ public class Teacher
 	 * Class Teacher which contains attributes of teachers  
 	 */
 	
-	public final String firstName;
-	public final String lastName;
+	public String firstName;
+	public String lastName;
+	public String numEn;
 	private String adress;
 	private String postalCode;
 	private String city;
@@ -25,10 +26,10 @@ public class Teacher
 	
 	public Teacher (String [] infos) throws Exception
 	{
-		if (infos == null) throw new IllegalArgumentException("Erreur ! entrÃ©e incorrecte");
-		if (infos[0] == "") throw new Exception("Nom pas renseignÃ©");
+		if (infos == null) throw new IllegalArgumentException("Erreur ! entrée incorrecte");
+		if (infos[0] == "") throw new Exception("Nom pas renseigné");
 		else firstName = infos[0];
-		if (infos[1] == "") throw new Exception("Nom pas renseignÃ©");
+		if (infos[1] == "") throw new Exception("Nom pas renseigné");
 		else lastName = infos[1];
 		adress = infos[2].equals("") ? null : infos[2] ;
 		postalCode = infos[3].equals("") ? null : infos[3] ;
@@ -41,6 +42,8 @@ public class Teacher
 		dauphinePhone = infos[10].equals("") ? null : infos[10] ;
 		office = infos[11].equals("") ? null : infos[11] ;
 	}
+	
+	public Teacher() {}
 
 	
 	
@@ -51,6 +54,9 @@ public class Teacher
 	
 	public String getAdress() {
 		return adress;
+	}
+	public String getLastName() {
+		return lastName;
 	}
 
 	public void setAdress(String adress) {
@@ -145,6 +151,29 @@ public class Teacher
 		if (dauphinePhone != null) s += "Dauphine phone : "+personalPhone+"\n";
 		if (office != null) s += "Office : "+office+"\n";
 		return s;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getNumEn() {
+		return numEn;
+	}
+
+	public void setFirstName(String text) {
+		firstName = text;
+		
+	}
+
+	public void setNumEn(String text) {
+		numEn = text;
+		
+	}
+
+	public void setLastName(String text) {
+		lastName = text;
+		
 	}
 	
 
