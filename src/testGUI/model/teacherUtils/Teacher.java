@@ -105,6 +105,10 @@ public class Teacher
 		return mobilePhone;
 	}
 
+	public String getLastName() {
+		return lastName;
+	}
+
 	public void setMobilePhone(String mobilePhone) {
 		this.mobilePhone = mobilePhone;
 	}
