@@ -1,4 +1,4 @@
-package com.github.Raouf16;
+package com.github.Raouf16.model.excelRead;
 
 
 import org.jopendocument.dom.spreadsheet.Sheet;
@@ -22,7 +22,7 @@ public class ReadData {
 	
 	//This method takes the name of the course program and returns the ID and Name of all courses by semester
 	public void readCourses(String filiere) throws IOException{
-		File file = new File("src/main/resources/com/github/Raouf16/Saisie_voeux.ods");
+		File file = new File("src/main/resources/com/github/Raouf16/Lire_saisie_voeux.ods");
 		 //Getting sheet of the special year 
         Sheet sheet = SpreadSheet.createFromFile(file).getSheet(filiere);
          //ArrayList that will contain the courses of the semestre 1
