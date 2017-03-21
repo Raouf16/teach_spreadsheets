@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -5,15 +6,138 @@
   <groupId>com.github.Raouf16</groupId>
   <artifactId>teach_spreadsheets</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>maven-archetype</packaging>
 
   <name>teach_spreadsheets</name>
-  <url>http://maven.apache.org</url>
-
+  <url>https://github.com/Raouf16/teach_spreadsheets/</url>
+  <licenses>
+		<license>
+			<name>MIT License</name>
+			<url>https://opensource.org/licenses/MIT</url>
+		</license>
+	</licenses>
+  <developers>
+		<developer>
+			<name>Raouf HADDAD</name>
+			<email>haddad.raouf@live.fr</email>
+		</developer>
+		<developer>
+			<name>Zineb Sonia ASSAM</name>
+			<email>zs.assam@gmail.com</email>
+		</developer>
+		<developer>
+			<name>Haya COHEN</name>
+			<email>cohenhaya@hotmail.fr</email>
+		</developer>
+		<developer>
+			<name>Lynda BOULILA</name>
+			<email>lyndaboulila@hotmail.fr</email>
+		</developer>
+		<developer>
+			<name>Nathan SELLAM</name>
+			<email>sellam.nathan@gmail.com</email>
+		</developer>
+	</developers>
+	
+	<scm>
+		<connection>scm:git:git://github.com/Raouf16/teach_spreadsheets.git</connection>
+		<developerConnection>scm:git:ssh://github.com/Raouf16/teach_spreadsheets.git</developerConnection>
+		<url>http://github.com/Raouf16/teach_spreadsheets/tree/master</url>
+	</scm>
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<archetype.test.skip>true</archetype.test.skip>
+		<gpg.executable>gpg2</gpg.executable>
+	</properties>
+  <distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+  <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.4</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>false</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+		</plugins>
+		
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.archetype</groupId>
+				<artifactId>archetype-packaging</artifactId>
+				<version>2.4</version>
+			</extension>
+		</extensions>
 
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.0.1</version>
+					<configuration>
+						<!-- Required so that .gitignore gets included in archetypes; see http://stackoverflow.com/a/37322323/859604 
+							and https://issues.apache.org/jira/browse/MRESOURCES-190 -->
+						<addDefaultExcludes>false</addDefaultExcludes>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-archetype-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
