@@ -26,7 +26,7 @@ public class Main extends Application
      * clicks OK, the changes are saved into the provided person object and true
      * is returned.
      *
-     * @param person the person object to be edited
+     * @param teacher the person object to be edited
      * @return true if the user clicked OK, false otherwise.
      */
     public boolean showPersonEditDialog(Teacher teacher)
@@ -68,8 +68,6 @@ public class Main extends Application
 	{
 		this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Teach spreadsheets");
-        
-        initRootLayout();
         showPersonEditDialog(new Teacher());
 	}
 
@@ -86,8 +84,7 @@ public class Main extends Application
 		try
 		{
             // Load root layout from fxml file.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("../view/RootLayout.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
