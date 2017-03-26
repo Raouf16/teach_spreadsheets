@@ -14,31 +14,32 @@
 package writeInFile;
 
 import java.io.File;
-import java.util.Date;
+
 
 import org.jopendocument.dom.OOUtils;
 import org.jopendocument.dom.spreadsheet.Sheet;
 import org.jopendocument.dom.spreadsheet.SpreadSheet;
 
+import teacherUtils.Teacher;
 
 public class SpreadSheetFill {
-	public void GenerateFS(){
+	public void GenerateFS(Teacher t){
+		
 		try {
             // Load the file.
             File file = new File("./Fservice.ods");
             final Sheet sheet = SpreadSheet.createFromFile(file).getSheet("Feuille1");
             // Change date.  
-            //sheet.setRowCount(30);
+            
            
             //sheet.getCellAt("I10").setValue(new Date());
             // Change strings.
             //sheet.setValueAt("Filling test", 0, 0);
-            sheet.getCellAt("A3").setValue("M");
-            // Change number.
-            //sheet.getCellAt("F24").setValue(3);
-            // Or better yet use a named range
-            // (relative to the first cell of the range, wherever it might be).
-            //sheet.getSpreadSheet().getTableModel("Products").setValueAt(1, 5, 4);
+            sheet.getCellAt("A3").setValue(t.CIV);
+            sheet.getCellAt("B3").setValue(t.getFirstName());
+            sheet.getCellAt("C3").setValue(t.getLastName());
+            sheet.getCellAt("B4").setValue(t.getStatus());
+            
             // Save to file and open it.
             File outputFile = new File("test.ods");
             OOUtils.open(sheet.getSpreadSheet().saveAs(outputFile));
@@ -47,9 +48,10 @@ public class SpreadSheetFill {
         }
 	}
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
     	SpreadSheetFill s= new SpreadSheetFill();
-    	s.GenerateFS();
+    	Teacher t=new Teacher(args);
+    	s.GenerateFS(t);
         /*try {
             // Load the file.
             File file = new File("./Fservice.ods");
