@@ -13,6 +13,7 @@ import com.github.Raouf16.model.teacherUtils.Teacher;
 import com.github.Raouf16.controller.TeacherInformationController;
 import com.github.Raouf16.model.writeCsv.*;
 import com.github.Raouf16.model.excelWrite.*;
+
 public class Main extends Application 
 {
 	
@@ -106,6 +107,6 @@ public class Main extends Application
 		launch(args);
 		Teacher t = controller.getTeacher();
 		CsvFile.WriteTeacher("src/main/resources/com/github/Raouf16/test", t);
-		TestWrite.writeInformations(t);
+		WriteInformations.write(t);
 	}
 }
