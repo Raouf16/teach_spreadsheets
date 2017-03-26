@@ -20,7 +20,7 @@
                   <Label layoutX="87.0" layoutY="46.0" />
                   <Label layoutX="87.0" layoutY="84.0" />
                   <ListView layoutY="111.0" prefHeight="293.0" prefWidth="174.0" />
-                  <Label layoutX="-1.0" layoutY="111.0" prefHeight="16.0" prefWidth="174.0" text="Choix" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" />
+                  <Label layoutX="-1.0" layoutY="111.0" prefHeight="16.0" prefWidth="174.0" text="Choix :" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -33,9 +33,15 @@
                       <MenuItem mnemonicParsing="false" text="L3 Math" />
                       <MenuItem mnemonicParsing="false" text="M1 Info" />
                       <MenuItem mnemonicParsing="false" text="M1 Math" />
+                      <MenuItem mnemonicParsing="false" text="LSO" />
                     </items>
                   </SplitMenuButton>
-                  <SplitMenuButton layoutX="42.0" layoutY="225.0" mnemonicParsing="false" />
+                  <SplitMenuButton layoutX="21.0" layoutY="74.0" mnemonicParsing="false" text="Enseignement">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Analyse" />
+                      <MenuItem mnemonicParsing="false" text="Probabilités" />
+                    </items>
+                  </SplitMenuButton>
                </children></AnchorPane>
         </items>
       </SplitPane>
