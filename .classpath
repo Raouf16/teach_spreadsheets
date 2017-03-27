@@ -25,11 +25,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib"/>
-	<classpathentry kind="lib" path="C:/Users/Raouf/Downloads/iri-0.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Raouf/Downloads/jOpenDocument-1.3.jar"/>
-	<classpathentry kind="lib" path="D:/projectJava/teach_spreadsheets/lib/itextpdf-5.1.0.jar"/>
-	<classpathentry kind="lib" path="D:/projectJava/teach_spreadsheets/lib/opencsv-3.9.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
