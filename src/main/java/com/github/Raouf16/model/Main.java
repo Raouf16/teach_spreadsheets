@@ -103,7 +103,7 @@ public class Main extends Application
 	{
 		launch(args);
 		Teacher t = controller.getTeacher();
-		CsvFile.WriteTeacher("src/main/resources/com/github/Raouf16/test", t);
+		CsvTeacher.WriteTeacher("src/main/resources/com/github/Raouf16/test", t);
 		WriteInformations.write(t);
 	}
 }

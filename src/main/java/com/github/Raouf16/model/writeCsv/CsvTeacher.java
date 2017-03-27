@@ -9,10 +9,10 @@ import com.github.Raouf16.model.teacherUtils.Teacher;
  * @author haya
  *
  */
-public class CsvFile {
+public class CsvTeacher {
 
 	public static void WriteTeacher (String fileName, Teacher t) throws Exception{
-			FileWriter fichier = new FileWriter(fileName);
+			FileWriter fichier = new FileWriter(fileName, true);
 			String line="";
 			
 			line+= t.getFirstName();

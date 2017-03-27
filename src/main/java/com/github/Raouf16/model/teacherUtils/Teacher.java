@@ -22,30 +22,47 @@ public class Teacher
 	private String office;
 	
 	
-	//Constructor
 	
-	public Teacher (String [] infos) throws Exception
-	{
-		if (infos == null) throw new IllegalArgumentException("Erreur ! entrée incorrecte");
-		if (infos[0] == "") throw new Exception("Nom pas renseigné");
-		else firstName = infos[0];
-		if (infos[1] == "") throw new Exception("Nom pas renseigné");
-		else lastName = infos[1];
-		adress = infos[2].equals("") ? null : infos[2] ;
-		postalCode = infos[3].equals("") ? null : infos[3] ;
-		city = infos[4].equals("") ? null : infos[4] ;
-		personalPhone = infos[5].equals("") ? null : infos[5] ;
-		mobilePhone = infos[6].equals("") ? null : infos[6] ;
-		personalEmail = infos[7].equals("") ? null : infos[7] ;
-		dauphineEmail = infos[8].equals("") ? infos[8] : null ;
-		status = infos[9].equals("") ? null : infos[9] ;
-		dauphinePhone = infos[10].equals("") ? null : infos[10] ;
-		office = infos[11].equals("") ? null : infos[11] ;
+	
+	/**
+	 * Constructor by default
+	 */
+	public Teacher() {
+		firstName="";
+		lastName="";
+		numEn="";
+		adress="";
+		postalCode="";
+		city="";
+		status=""; 
+		dauphineEmail="";
+		personalEmail="";
+		personalPhone="";
+		mobilePhone="";
+		dauphinePhone="";
+		office="";
 	}
-	
-	public Teacher() {}
 
+	//Constructor we will remove soon but we have to do some modifications before
 	
+		public Teacher (String [] infos) 
+		{
+			if (infos == null) throw new IllegalArgumentException("Erreur ! entrée incorrecte");
+			if (infos[0] == "") throw new IllegalArgumentException("Nom pas renseigné");
+			else firstName = infos[0];
+			if (infos[1] == "") throw new IllegalArgumentException("Nom pas renseigné");
+			else lastName = infos[1];
+			adress = infos[2].equals("") ? null : infos[2] ;
+			postalCode = infos[3].equals("") ? null : infos[3] ;
+			city = infos[4].equals("") ? null : infos[4] ;
+			personalPhone = infos[5].equals("") ? null : infos[5] ;
+			mobilePhone = infos[6].equals("") ? null : infos[6] ;
+			personalEmail = infos[7].equals("") ? null : infos[7] ;
+			dauphineEmail = infos[8].equals("") ? infos[8] : null ;
+			status = infos[9].equals("") ? null : infos[9] ;
+			dauphinePhone = infos[10].equals("") ? null : infos[10] ;
+			office = infos[11].equals("") ? null : infos[11] ;
+		}
 	
 	public String getStatus()
 	{
@@ -61,6 +78,7 @@ public class Teacher
 	}
 
 	public void setAdress(String adress) {
+		if (adress==null || adress=="") throw new IllegalArgumentException();
 		this.adress = adress;
 	}
 
@@ -70,6 +88,7 @@ public class Teacher
 	
 
 	public void setPostalCode(String postalCode) {
+		if (postalCode==null || postalCode=="") throw new IllegalArgumentException();
 		this.postalCode = postalCode;
 	}
 
@@ -78,6 +97,7 @@ public class Teacher
 	}
 
 	public void setCity(String city) {
+		if (city==null || city=="") throw new IllegalArgumentException();
 		this.city = city;
 	}
 
@@ -86,6 +106,7 @@ public class Teacher
 	}
 
 	public void setDauphineEmail(String dauphineEmail) {
+		if (dauphineEmail==null || dauphineEmail=="") throw new IllegalArgumentException();
 		this.dauphineEmail = dauphineEmail;
 	}
 
@@ -94,6 +115,7 @@ public class Teacher
 	}
 
 	public void setPersonalEmail(String personalEmail) {
+		if (personalEmail==null || personalEmail=="") throw new IllegalArgumentException();
 		this.personalEmail = personalEmail;
 	}
 
@@ -102,6 +124,7 @@ public class Teacher
 	}
 
 	public void setPersonalPhone(String personalPhone) {
+		if (personalPhone==null || personalPhone=="") throw new IllegalArgumentException();
 		this.personalPhone = personalPhone;
 	}
 
@@ -110,6 +133,7 @@ public class Teacher
 	}
 
 	public void setMobilePhone(String mobilePhone) {
+		if (mobilePhone==null || mobilePhone=="") throw new IllegalArgumentException();
 		this.mobilePhone = mobilePhone;
 	}
 
@@ -118,6 +142,7 @@ public class Teacher
 	}
 
 	public void setDauphinePhone(String dauphinePhone) {
+		if (dauphinePhone==null || dauphinePhone=="") throw new IllegalArgumentException();
 		this.dauphinePhone = dauphinePhone;
 	}
 
@@ -126,10 +151,12 @@ public class Teacher
 	}
 
 	public void setOffice(String office) {
+		if (office==null || office=="") throw new IllegalArgumentException();
 		this.office = office;
 	}
 
 	public void setStatus(String status) {
+		if (status==null || status=="") throw new IllegalArgumentException();
 		this.status = status;
 	}
 
@@ -163,16 +190,19 @@ public class Teacher
 	}
 
 	public void setFirstName(String text) {
+		if (text==null || text=="") throw new IllegalArgumentException();
 		firstName = text;
 		
 	}
 
 	public void setNumEn(String text) {
+		if (text==null || text=="") throw new IllegalArgumentException();
 		numEn = text;
 		
 	}
 
 	public void setLastName(String text) {
+		if (text==null || text=="") throw new IllegalArgumentException();
 		lastName = text;
 		
 	}

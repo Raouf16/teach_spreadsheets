@@ -3,7 +3,6 @@ package com.github.Raouf16.model.preferenceUtils;
 
 /**
  * This class contains information about a preference for a teacher.
- *@author haya
  *
  */
 public class Preference {
@@ -14,76 +13,77 @@ public class Preference {
     private String choiceCourse;
     private String choiceTD;
     private String choiceTP;
-    private String nbrTD;
-    private String nbrYear;
-
-
-    //Constructor
-
-    public Preference() {}
-
-    public Preference (String [] infos) throws Exception
-    {
-        if (infos == null) throw new IllegalArgumentException("Erreur ! entrée incorrecte");
-        if (infos[0] == "") throw new Exception("Numen pas renseigné");
-        else numEn = infos[0];
-        year = infos[1].equals("") ? null : infos[1] ;;
-        subject = infos[2].equals("") ? null : infos[2] ;
-        choiceCourse = infos[3].equals("") ? null : infos[3] ;
-        choiceTD = infos[4].equals("") ? null : infos[4] ;
-        choiceTP = infos[5].equals("") ? null : infos[5] ;
-        nbrTD = infos[6].equals("") ? null : infos[6] ;
-        nbrYear = infos[7].equals("") ? null : infos[7] ;
+    private int nbrTD;
+    private int nbrYear;
+    
+/**
+ * Constructor by default
+ */
+    public Preference() {
+    	this.numEn="";
+    	this.year="";
+    	this.subject="";
+    	this.choiceCourse= "";
+    	this.choiceTD="";
+    	this.choiceTP="";
+    	this.nbrTD=0;
+    	this.nbrYear=0;
     }
 
-
+   
     public String getNumEn() {
         return numEn;
     }
 
     public void setNumEn(String numEn) {
-        this.numEn = numEn;
+    	if (numEn==null || numEn== "") throw new IllegalArgumentException();
+        this.numEn =  numEn; // we should convert null into "" with guava 
     }
     public String getYear() {
         return year;
     }
     public void setYear(String year) {
+    	if (year==null || year=="") throw new IllegalArgumentException();
         this.year = year;
     }
     public String getSubject() {
         return subject;
     }
     public void setSubject(String subject) {
+    	if (subject==null || subject=="") throw new IllegalArgumentException();
         this.subject = subject;
     }
     public String getChoiceCourse() {
         return choiceCourse;
     }
     public void setChoiceCourse(String choiceCourse) {
+    	if (choiceCourse==null || choiceCourse=="") throw new IllegalArgumentException();
         this.choiceCourse = choiceCourse;
     }
     public String getChoiceTD() {
         return choiceTD;
     }
     public void setChoiceTD(String choiceTD) {
+    	if (choiceTD==null || choiceTD=="") throw new IllegalArgumentException();
         this.choiceTD = choiceTD;
     }
     public String getChoiceTP() {
         return choiceTP;
     }
     public void setChoiceTP(String choiceTP) {
+    	if (choiceTP==null || choiceTP=="") throw new IllegalArgumentException();
         this.choiceTP = choiceTP;
     }
-    public String getNbrTD() {
+    public int getNbrTD() {
         return nbrTD;
     }
-    public void setNbrTD(String nbrTD) {
+    public void setNbrTD(int nbrTD) {
         this.nbrTD = nbrTD;
     }
-    public String getNbrYear() {
+    public int getNbrYear() {
         return nbrYear;
     }
-    public void setNbrYear(String nbrYear) {
+    public void setNbrYear(int nbrYear) {
         this.nbrYear = nbrYear;
     }
 
