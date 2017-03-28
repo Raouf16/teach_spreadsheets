@@ -11,6 +11,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import com.github.Raouf16.model.teacherUtils.Teacher;
 import com.github.Raouf16.controller.TeacherInformationController;
+import com.github.Raouf16.controller.TeacherPrefencesController;
 import com.github.Raouf16.model.writeCsv.*;
 import com.github.Raouf16.model.excelWrite.*;
 
@@ -18,8 +19,9 @@ public class Main extends Application
 {
 	
 	private Stage primaryStage;
-    private BorderPane rootLayout;
-    private static TeacherInformationController controller ;
+    @SuppressWarnings("unused")
+	private BorderPane rootLayout;
+    private static TeacherPrefencesController controller ;
     
     
     /**
@@ -62,14 +64,41 @@ public class Main extends Application
             return false;
         }
     }
+    public void showTeacherPreference() throws IOException
+    {
+       
+            // Load the fxml file and create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("../view/TeacherPreferences.fxml"));
+            
+            AnchorPane page = (AnchorPane) loader.load();
+
+            // Create the dialog Stage
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Preferences");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the person into the controller.
+            System.out.println("OK");
+            controller = loader.getController();
+            
+            controller.setDialogStage(dialogStage);
+           // controller.setTeacher(teacher);
+
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+    }
    
     
 	@Override
-	public void start(Stage primaryStage) 
+	public void start(Stage primaryStage) throws IOException 
 	{
 		this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Teach spreadsheets");
-        showPersonEditDialog(new Teacher());
+        showTeacherPreference();
 	}
 
 	public Stage getPrimaryStage() {
@@ -80,30 +109,13 @@ public class Main extends Application
 		this.primaryStage = primaryStage;
 	}
 
-	private void initRootLayout()
-	{
-		try
-		{
-            // Load root layout from fxml file.
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/RootLayout.fxml"));
-            rootLayout = (BorderPane) loader.load();
-
-            // Show the scene containing the root layout.
-            Scene scene = new Scene(rootLayout);
-            primaryStage.setScene(scene);
-            //primaryStage.show();
-        } catch (IOException e)
-		{
-            e.printStackTrace();
-        }
-
-	}
+	
 
 	public static void main(String[] args) throws Exception
 	{
-		launch(args);
-		Teacher t = controller.getTeacher();
+		launch();
+		/**Teacher t = controller.getTeacher();
 		CsvFile.WriteTeacher("src/main/resources/com/github/Raouf16/test", t);
-		WriteInformations.write(t);
+		WriteInformations.write(t);**/
 	}
 }

@@ -8,7 +8,7 @@ package com.github.Raouf16.model.preferenceUtils;
  */
 public class Preference {
 
-    public String numEn;
+    public String numEn; // inutile
     private String year;
     private String subject;
     private String choiceCourse;
