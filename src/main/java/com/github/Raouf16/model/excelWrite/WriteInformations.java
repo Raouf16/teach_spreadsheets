@@ -7,7 +7,7 @@ import org.jopendocument.dom.spreadsheet.SpreadSheet;
 
 
 import com.github.Raouf16.model.teacherUtils.Teacher;
-
+import com.github.Raouf16.model.excelWrite.WritePreferences;
 /**
  * This class write general informations about the teacher 
  *
@@ -15,11 +15,11 @@ import com.github.Raouf16.model.teacherUtils.Teacher;
 
 public class WriteInformations {
 
-	public static void write(Teacher t) throws Exception{
+	public static File write(Teacher t) throws Exception{
 		 
-		try{
+		
 			 
-			 File outputFile = new File("src/main/resources/com/github/Raouf16/Ecrire_saisie_voeux.ods");
+			 File outputFile = new File("Ecrire_saisie_voeux.ods");
 			 // Load the sheet
 			 final SpreadSheet spreadSheet = SpreadSheet.createFromFile(outputFile);
 		 
@@ -55,12 +55,10 @@ public class WriteInformations {
 			 if(t.getOffice() != null) secondSheet.getCellAt("H11").setValue(t.getOffice());	
 		 
 		 	// Save the file
-		 	File endFile = new File("src/main/resources/com/github/Raouf16/Voeuxtestinformation.ods");
+		 	File endFile = new File(Str+".ods");
 		 	spreadSheet.saveAs(endFile);
-		}catch(NullPointerException e){
-			 System.out.println("Fichier source introuvable !");
-		} 
-		 
+		 	return endFile;
+		
 		 
 	}
 }

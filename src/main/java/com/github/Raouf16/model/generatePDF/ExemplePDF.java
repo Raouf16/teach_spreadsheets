@@ -37,8 +37,7 @@ public class ExemplePDF{
         return document;
 	}
  
-    public static void main(String[] args)
-         throws DocumentException, IOException {
+    public static void generate() throws DocumentException, IOException {
         ExemplePDF pdf=new ExemplePDF();
     	Document document=pdf.createPDF();
         

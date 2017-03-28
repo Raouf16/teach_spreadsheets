@@ -10,7 +10,7 @@ import org.jopendocument.dom.spreadsheet.SpreadSheet;
  */
 public class GenerateEmptyFile {
 	
-	public void generate() throws Exception {
+	public static void generate() throws Exception {
 
 		try{
 			// Load the file.

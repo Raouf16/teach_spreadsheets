@@ -53,14 +53,14 @@
             <TextField fx:id="adressField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="personalEmailField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField fx:id="mobilePhoneField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="dauphinePhoneField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <TextField fx:id="officeField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="dauphinePhoneField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="officeField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <TextField fx:id="dauphineEmailField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
          </children>
       </GridPane>
       <ToolBar layoutX="439.0" layoutY="260.0" prefHeight="40.0" prefWidth="161.0">
         <items>
-          <Button mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" prefWidth="70.0" text="Cancer" />
+          <Button mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
             <Button mnemonicParsing="false" onAction="#handleOk" prefHeight="25.0" prefWidth="72.0" text="OK" />
         </items>
       </ToolBar>

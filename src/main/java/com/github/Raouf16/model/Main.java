@@ -1,6 +1,7 @@
 package com.github.Raouf16.model;
 
 
+import java.io.File;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,16 +11,19 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import com.github.Raouf16.model.teacherUtils.Teacher;
+import com.github.Raouf16.model.preferenceUtils.Preference;
 import com.github.Raouf16.controller.TeacherInformationController;
+import com.github.Raouf16.controller.HomeController;
 import com.github.Raouf16.model.writeCsv.*;
 import com.github.Raouf16.model.excelWrite.*;
 
 public class Main extends Application 
 {
 	
-	private Stage primaryStage;
+	private static Stage primaryStage;
     private BorderPane rootLayout;
-    private static TeacherInformationController controller ;
+    private static HomeController controller1;
+    private static TeacherInformationController controller2;
     
     
     /**
@@ -29,8 +33,9 @@ public class Main extends Application
      *
      * @param teacher the person object to be edited
      * @return true if the user clicked OK, false otherwise.
+     * @throws IOException 
      */
-    public boolean showPersonEditDialog(Teacher teacher)
+    public static boolean showPersonEditDialog(Teacher teacher)
     {
         try
         {
@@ -48,28 +53,53 @@ public class Main extends Application
             dialogStage.setScene(scene);
 
             // Set the person into the controller.
-            controller = loader.getController();
-            controller.setDialogStage(dialogStage);
-            controller.setTeacher(teacher);
+            controller2 = loader.getController();
+            controller2.setDialogStage(dialogStage);
+            controller2.setTeacher(teacher);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
 
-            return controller.isOkClicked();
+            return controller2.isOkClicked();
         } catch (IOException e)
         {
             e.printStackTrace();
             return false;
         }
     }
+    
+    public void showHome() throws IOException
+    {
+        
+            // Load the fxml file and create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("../view/Home.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+
+            // Create the dialog Stage
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Home title");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the person into the controller.
+            controller1 = loader.getController();
+            controller1.setDialogStage(dialogStage);
+
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+          
+    }     
    
     
 	@Override
-	public void start(Stage primaryStage) 
+	public void start(Stage primaryStage) throws IOException 
 	{
 		this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Teach spreadsheets");
-        showPersonEditDialog(new Teacher());
+        showHome();
 	}
 
 	public Stage getPrimaryStage() {
@@ -102,8 +132,6 @@ public class Main extends Application
 	public static void main(String[] args) throws Exception
 	{
 		launch(args);
-		Teacher t = controller.getTeacher();
-		CsvFile.WriteTeacher("src/main/resources/com/github/Raouf16/test", t);
-		WriteInformations.write(t);
+
 	}
 }
