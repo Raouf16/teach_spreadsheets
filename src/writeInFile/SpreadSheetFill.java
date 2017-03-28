@@ -24,10 +24,16 @@ public class SpreadSheetFill {
             
             // Change strings.
             
-            sheet.getCellAt("A3").setValue(t.CIV);
-            sheet.getCellAt("B3").setValue(t.getFirstName());
-            sheet.getCellAt("C3").setValue(t.getLastName());
-            sheet.getCellAt("B4").setValue(t.getStatus());
+            sheet.getCellAt("A4").setValue(t.getCiv());
+            sheet.getCellAt("B4").setValue(t.getFirstName());
+            sheet.getCellAt("C4").setValue(t.getLastName());
+            sheet.getCellAt("B6").setValue(t.getStatus());
+            sheet.getCellAt("D6").setValue("");
+            //System.out.println(t.getDauphineEmail());
+            sheet.getCellAt("B8").setValue(t.getDauphineEmail());
+            sheet.getCellAt("A11").setValue(t.getDauphinePhone());
+            sheet.getCellAt("B11").setValue(t.getMobilePhone());
+            sheet.getCellAt("C11").setValue(t.getOffice());
             
             // Save to file and open it.
             File outputFile = new File("test.ods");

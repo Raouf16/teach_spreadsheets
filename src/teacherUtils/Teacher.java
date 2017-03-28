@@ -36,7 +36,7 @@ public class Teacher
 		personalPhone = infos[5].equals("") ? null : infos[5] ;
 		mobilePhone = infos[6].equals("") ? null : infos[6] ;
 		personalEmail = infos[7].equals("") ? null : infos[7] ;
-		dauphineEmail = infos[8].equals("") ? infos[8] : null ;
+		dauphineEmail = infos[8].equals("") ? null : infos[8] ;
 		status = infos[9].equals("") ? null : infos[9] ;
 		dauphinePhone = infos[10].equals("") ? null : infos[10] ;
 		office = infos[11].equals("") ? null : infos[11] ;
