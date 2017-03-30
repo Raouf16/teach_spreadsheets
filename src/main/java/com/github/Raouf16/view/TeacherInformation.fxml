@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -9,23 +12,16 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.Raouf16.controller.TeacherInformationController">
+<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.Raouf16.controller.TeacherInformationController">
    <children>
-      <GridPane layoutX="12.0" layoutY="27.0" prefHeight="240.0" prefWidth="530.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="27.0">
+      <GridPane prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="257.0" minWidth="10.0" prefWidth="133.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="10.0" prefWidth="397.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="94.0" minHeight="0.0" prefHeight="25.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="259.0" minHeight="10.0" prefHeight="237.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="58.0" minHeight="6.0" prefHeight="27.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label prefHeight="34.0" prefWidth="276.0" text="First name" textAlignment="CENTER" />
@@ -61,8 +57,84 @@
       <ToolBar layoutX="439.0" layoutY="260.0" prefHeight="40.0" prefWidth="161.0">
         <items>
           <Button mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
-            <Button mnemonicParsing="false" onAction="#handleOk" prefHeight="25.0" prefWidth="72.0" text="OK" />
+            <Button mnemonicParsing="false" onAction="#handleOk" prefHeight="25.0" prefWidth="72.0" text="OK"/>
         </items>
       </ToolBar>
+=======
+            <MenuBar prefHeight="29.0" prefWidth="600.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <GridPane prefHeight="241.0" prefWidth="600.0" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="257.0" minWidth="10.0" prefWidth="133.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="10.0" prefWidth="397.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="34.0" prefWidth="276.0" text="First name" textAlignment="CENTER" />
+                  <Label prefHeight="37.0" prefWidth="305.0" GridPane.columnIndex="1" />
+                  <Label prefHeight="34.0" prefWidth="247.0" text="Last name" GridPane.rowIndex="1" />
+                  <Label prefHeight="37.0" prefWidth="305.0" text="NUMEN " GridPane.rowIndex="2" />
+                  <Label prefHeight="37.0" prefWidth="305.0" text="adresse" GridPane.rowIndex="3" />
+                  <Label prefHeight="37.0" prefWidth="305.0" text="mail personnel" GridPane.rowIndex="4" />
+                  <Label prefHeight="37.0" prefWidth="305.0" text="mobile" GridPane.rowIndex="5" />
+                  <Label prefHeight="37.0" prefWidth="305.0" text="bureau" GridPane.rowIndex="6" />
+                  <Label prefHeight="37.0" prefWidth="305.0" text="téléphone dauphine" GridPane.rowIndex="7" />
+                  <Label prefHeight="37.0" prefWidth="305.0" text="email dauphine" GridPane.rowIndex="8" />
+                  <Label prefHeight="26.0" prefWidth="410.0" GridPane.columnIndex="1" />
+                  <Label prefHeight="26.0" prefWidth="396.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label prefHeight="26.0" prefWidth="399.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label prefHeight="27.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label prefHeight="27.0" prefWidth="405.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Label prefHeight="27.0" prefWidth="405.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Label prefHeight="27.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <Label prefHeight="27.0" prefWidth="399.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label prefHeight="27.0" prefWidth="405.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="firstNameField" GridPane.columnIndex="1" />
+                  <TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="numEnField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="adressField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="personalEmailField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="mobilePhoneField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="dauphinePhoneField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <TextField fx:id="officeField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <TextField fx:id="dauphineEmailField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+               </children>
+            </GridPane>
+            <ToolBar prefHeight="40.0" prefWidth="161.0" GridPane.rowIndex="2">
+              <items>
+                <Button mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" prefWidth="70.0" text="Cancer" />
+                  <Button mnemonicParsing="false" onAction="#handleOk" prefHeight="25.0" prefWidth="72.0" text="OK" textAlignment="RIGHT" />
+              </items>
+            </ToolBar>
+         </children>
+      </GridPane>
+>>>>>>> 8d9aeedffa652339736afd31709f79943b712876
    </children>
 </AnchorPane>

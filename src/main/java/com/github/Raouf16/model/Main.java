@@ -1,7 +1,6 @@
 package com.github.Raouf16.model;
 
 
-import java.io.File;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,19 +10,18 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import com.github.Raouf16.model.teacherUtils.Teacher;
-import com.github.Raouf16.model.preferenceUtils.Preference;
 import com.github.Raouf16.controller.TeacherInformationController;
-import com.github.Raouf16.controller.HomeController;
+import com.github.Raouf16.controller.TeacherPrefencesController;
 import com.github.Raouf16.model.writeCsv.*;
 import com.github.Raouf16.model.excelWrite.*;
 
 public class Main extends Application 
 {
 	
-	private static Stage primaryStage;
-    private BorderPane rootLayout;
-    private static HomeController controller1;
-    private static TeacherInformationController controller2;
+	private Stage primaryStage;
+    @SuppressWarnings("unused")
+	private BorderPane rootLayout;
+    private static TeacherPrefencesController controller ;
     
     
     /**
@@ -33,9 +31,8 @@ public class Main extends Application
      *
      * @param teacher the person object to be edited
      * @return true if the user clicked OK, false otherwise.
-     * @throws IOException 
      */
-    public static boolean showPersonEditDialog(Teacher teacher)
+    public boolean showPersonEditDialog(Teacher teacher)
     {
         try
         {
@@ -53,45 +50,47 @@ public class Main extends Application
             dialogStage.setScene(scene);
 
             // Set the person into the controller.
-            controller2 = loader.getController();
-            controller2.setDialogStage(dialogStage);
-            controller2.setTeacher(teacher);
+            controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            controller.setTeacher(teacher);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
 
-            return controller2.isOkClicked();
+            return controller.isOkClicked();
         } catch (IOException e)
         {
             e.printStackTrace();
             return false;
         }
     }
-    
-    public void showHome() throws IOException
+    public void showTeacherPreference() throws IOException
     {
-        
+       
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("../view/Home.fxml"));
+            loader.setLocation(Main.class.getResource("../view/TeacherPreferences.fxml"));
+            
             AnchorPane page = (AnchorPane) loader.load();
 
             // Create the dialog Stage
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Home title");
+            dialogStage.setTitle("Preferences");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
             // Set the person into the controller.
-            controller1 = loader.getController();
-            controller1.setDialogStage(dialogStage);
+            System.out.println("OK");
+            controller = loader.getController();
+            
+            controller.setDialogStage(dialogStage);
+           // controller.setTeacher(teacher);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
-          
-    }     
+    }
    
     
 	@Override
@@ -99,7 +98,7 @@ public class Main extends Application
 	{
 		this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Teach spreadsheets");
-        showHome();
+        showTeacherPreference();
 	}
 
 	public Stage getPrimaryStage() {
@@ -110,28 +109,13 @@ public class Main extends Application
 		this.primaryStage = primaryStage;
 	}
 
-	private void initRootLayout()
-	{
-		try
-		{
-            // Load root layout from fxml file.
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/RootLayout.fxml"));
-            rootLayout = (BorderPane) loader.load();
-
-            // Show the scene containing the root layout.
-            Scene scene = new Scene(rootLayout);
-            primaryStage.setScene(scene);
-            //primaryStage.show();
-        } catch (IOException e)
-		{
-            e.printStackTrace();
-        }
-
-	}
+	
 
 	public static void main(String[] args) throws Exception
 	{
-		launch(args);
-
+		launch();
+		/**Teacher t = controller.getTeacher();
+		CsvFile.WriteTeacher("src/main/resources/com/github/Raouf16/test", t);
+		WriteInformations.write(t);**/
 	}
 }

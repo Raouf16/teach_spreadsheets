@@ -46,6 +46,6 @@ public class HomeController {
 	}
 	
 	public void enterInfo() throws Exception{
-		Main.showPersonEditDialog(new Teacher());
+		//Main.showPersonEditDialog(new Teacher());
 	}
 }

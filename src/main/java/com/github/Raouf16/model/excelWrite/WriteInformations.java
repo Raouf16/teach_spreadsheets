@@ -55,7 +55,7 @@ public class WriteInformations {
 			 if(t.getOffice() != null) secondSheet.getCellAt("H11").setValue(t.getOffice());	
 		 
 		 	// Save the file
-		 	File endFile = new File(Str+".ods");
+		 	File endFile = new File("Spreadsheet.ods");
 		 	spreadSheet.saveAs(endFile);
 		 	return endFile;
 		
