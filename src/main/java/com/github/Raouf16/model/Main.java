@@ -11,7 +11,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import com.github.Raouf16.model.teacherUtils.Teacher;
 import com.github.Raouf16.controller.TeacherInformationController;
-import com.github.Raouf16.controller.TeacherPrefencesController;
+import com.github.Raouf16.controller.TeacherPreferencesController;
 import com.github.Raouf16.model.writeCsv.*;
 import com.github.Raouf16.model.excelWrite.*;
 
@@ -21,7 +21,7 @@ public class Main extends Application
 	private Stage primaryStage;
     @SuppressWarnings("unused")
 	private BorderPane rootLayout;
-    private static TeacherPrefencesController controller ;
+    private static TeacherInformationController controller ;
     
     
     /**
@@ -32,7 +32,7 @@ public class Main extends Application
      * @param teacher the person object to be edited
      * @return true if the user clicked OK, false otherwise.
      */
-    public boolean showPersonEditDialog(Teacher teacher)
+    public boolean showTeacherEditDialog()
     {
         try
         {
@@ -52,7 +52,6 @@ public class Main extends Application
             // Set the person into the controller.
             controller = loader.getController();
             controller.setDialogStage(dialogStage);
-            controller.setTeacher(teacher);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
@@ -98,7 +97,7 @@ public class Main extends Application
 	{
 		this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Teach spreadsheets");
-        showTeacherPreference();
+        showTeacherEditDialog();
 	}
 
 	public Stage getPrimaryStage() {
@@ -114,7 +113,9 @@ public class Main extends Application
 	public static void main(String[] args) throws Exception
 	{
 		launch();
-		/**Teacher t = controller.getTeacher();
+		Teacher t = controller.getTeacher();
+		System.out.println(t);
+		/**
 		CsvFile.WriteTeacher("src/main/resources/com/github/Raouf16/test", t);
 		WriteInformations.write(t);**/
 	}

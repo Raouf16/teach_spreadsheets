@@ -12,15 +12,15 @@ import com.github.Raouf16.model.teacherUtils.Teacher;
  *
  * @author Sonia ASSAM
  */
-public class TeacherPrefencesController
+public class TeacherPreferencesController
 {
-
+	
     @FXML
-    private Text firstNameField;
+    private Label firstNameField;
     @FXML
-    private Text lastNameField;
+    private Label lastNameField;
     @FXML
-    private Text numEnField;
+    private Label numEnField;
     
     
    

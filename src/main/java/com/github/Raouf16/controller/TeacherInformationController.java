@@ -14,6 +14,7 @@ import com.github.Raouf16.model.teacherUtils.Teacher;
  */
 public class TeacherInformationController
 {
+	
 
     @FXML
     private TextField firstNameField;
@@ -38,14 +39,15 @@ public class TeacherInformationController
 
     private Stage dialogStage;
     private boolean okClicked = false;
-	private Teacher teacher;
+	private Teacher teacher = new Teacher();
 
     /**
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
      */
     @FXML
-    private void initialize() {
+    private void initialize() 
+    {
     }
 
     /**
@@ -58,19 +60,6 @@ public class TeacherInformationController
         this.dialogStage = dialogStage;
     }
 
-    /**
-     * Sets the person to be edited in the dialog.
-     *
-     * @param person
-     */
-    public void setTeacher(Teacher teacher)
-    {
-        this.teacher = teacher;
-
-        firstNameField.setText(teacher.getFirstName());
-        lastNameField.setText(teacher.getFirstName());
-        numEnField.setText(teacher.getNumEn());
-    }
 
     /**
      * Returns true if the user clicked OK, false otherwise.
@@ -93,7 +82,6 @@ public class TeacherInformationController
             teacher.setFirstName(firstNameField.getText());
             teacher.setLastName(lastNameField.getText());
             teacher.setNumEn(numEnField.getText());
-            System.out.println("ok");
             teacher.setAdress(adressField.getText());
             teacher.setDauphineEmail(dauphineEmailField.getText());
             teacher.setOffice(officeField.getText());
@@ -109,7 +97,8 @@ public class TeacherInformationController
      * Called when the user clicks cancel.
      */
     @FXML
-    private void handleCancel() {
+    private void handleCancel() 
+    {
         dialogStage.close();
     }
 
@@ -124,15 +113,19 @@ public class TeacherInformationController
 
         if (firstNameField.getText() == null || firstNameField.getText().length() == 0) 
         {
-        	errorMessage += "No valid first name!\n";
+        	errorMessage += "Prenom invalide!\n";
         }
         if (lastNameField.getText() == null || lastNameField.getText().length() == 0) 
         {
-            errorMessage += "No valid last name!\n";
+            errorMessage += "Nom invalide\n";
         }
         if (numEnField.getText() == null || numEnField.getText().length() == 0) 
         {
-            errorMessage += "No valid street!\n";
+            errorMessage += "NUMEN invalide\n";
+        }
+        if (dauphineEmailField.getText() == null || numEnField.getText().length() == 0) 
+        {
+            errorMessage += "Mail Dauphine invalide!\n";
         }
 
 
@@ -143,16 +136,15 @@ public class TeacherInformationController
             Alert alert = new Alert(AlertType.ERROR);
             alert.initOwner(dialogStage);
             alert.setTitle("Invalid Fields");
-            alert.setHeaderText("Please correct invalid fields");
+            alert.setHeaderText("Corrigez les champs incorrectes");
             alert.setContentText(errorMessage);
-
             alert.showAndWait();
-
             return false;
         }
     }
 
-	public Teacher getTeacher() {
+	public Teacher getTeacher() 
+	{
 		return teacher;
 	}
     
