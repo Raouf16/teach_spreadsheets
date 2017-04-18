@@ -19,10 +19,9 @@ public class WriteInformations {
 		 
 		
 			 
-			 File outputFile = new File("Ecrire_saisie_voeux.ods");
+			 File outputFile = new File("src/main/resources/com/github/Raouf16/Ecrire_saisie_voeux.ods");
 			 // Load the sheet
 			 final SpreadSheet spreadSheet = SpreadSheet.createFromFile(outputFile);
-		 
 			 final Sheet sheet = spreadSheet.getSheet("Coordonnées");
 			 //Change the name
 			 sheet.getCellAt("B2").setValue(t.getLastName());
@@ -55,10 +54,10 @@ public class WriteInformations {
 			 if(t.getOffice() != null) secondSheet.getCellAt("H11").setValue(t.getOffice());	
 		 
 		 	// Save the file
-		 	File endFile = new File("Spreadsheet.ods");
+			String newFileName = t.firstName+"_"+t.lastName+".ods";
+		 	File endFile = new File(newFileName);
 		 	spreadSheet.saveAs(endFile);
 		 	return endFile;
-		
 		 
 	}
 }

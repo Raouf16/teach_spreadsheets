@@ -2,6 +2,7 @@ package com.github.Raouf16.model.excelWrite;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.jopendocument.dom.spreadsheet.Sheet;
 import org.jopendocument.dom.spreadsheet.SpreadSheet;
@@ -11,7 +12,7 @@ import com.github.Raouf16.model.preferenceUtils.Preference;
 
 public class WritePreferences {
 	public static void write(File f, Preference p) throws IOException{
-		/*try{
+		/**try{
 			 
 			 File outputFile = f;
 			 // Load the sheet
@@ -32,6 +33,11 @@ public class WritePreferences {
 		 	spreadSheet.saveAs(endFile);
 		}catch(NullPointerException e){
 			 System.out.println("Fichier source introuvable !");
-		} */
+		} **/
+	}
+	
+	public static void write(File f, ArrayList<Preference> preferences)
+	{
+		return;
 	}
 }

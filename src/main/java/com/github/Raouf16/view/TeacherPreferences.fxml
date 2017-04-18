@@ -70,8 +70,8 @@
                                     <Label fx:id="numEnField" prefHeight="33.0" prefWidth="87.0" GridPane.columnIndex="1" />
                                     <Label prefHeight="31.0" prefWidth="89.0" text="Nom :" GridPane.rowIndex="1" />
                                     <Label prefHeight="31.0" prefWidth="87.0" text="Prenom :" GridPane.rowIndex="2" />
-                                    <Label prefHeight="31.0" prefWidth="87.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Label prefHeight="35.0" prefWidth="87.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label fx:id="lastNameField" prefHeight="31.0" prefWidth="87.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label fx:id="firstNameField" prefHeight="35.0" prefWidth="87.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                  </children>
                               </GridPane>
                            </children>
@@ -82,20 +82,39 @@
                      <children>
                         <GridPane prefHeight="336.0" prefWidth="416.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
                           <rowConstraints>
-                              <RowConstraints maxHeight="105.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="105.0" minHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
                             <RowConstraints maxHeight="105.0" minHeight="0.0" prefHeight="26.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="224.0" minHeight="9.0" prefHeight="29.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="286.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="286.0" minHeight="10.0" prefHeight="223.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="224.0" minHeight="9.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="286.0" minHeight="3.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="286.0" minHeight="0.0" prefHeight="29.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="286.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="286.0" minHeight="0.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="286.0" minHeight="0.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="286.0" minHeight="0.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="286.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <ComboBox prefWidth="150.0" promptText="Formation" GridPane.rowIndex="1" />
-                              <Label prefHeight="33.0" prefWidth="416.0" text="Saisie des préférences" />
-                              <ComboBox prefWidth="150.0" promptText="Enseignement" GridPane.rowIndex="2" />
-                              <ComboBox prefWidth="150.0" promptText="Cours" GridPane.rowIndex="3" />
+                           	  <Label prefHeight="33.0" prefWidth="416.0" text="  Saisie des préférences" />
+                              <ComboBox fx:id="formations" prefWidth="150.0" promptText="Selectionner" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="semester" prefWidth="150.0" promptText="Selectionner" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="courses" prefWidth="150.0" promptText="Selectionner" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label prefHeight="34.0" prefWidth="207.0" text="  Formations" GridPane.rowIndex="1" />
+                              <Label prefHeight="26.0" prefWidth="208.0" text="  Semestre" GridPane.rowIndex="2" />
+                              <Label prefHeight="32.0" prefWidth="208.0" text="  Matière" GridPane.rowIndex="3" />
+                              <Label prefHeight="31.0" prefWidth="208.0" text="  Choix Cours" GridPane.rowIndex="4" />
+                              <Label prefHeight="38.0" prefWidth="208.0" text="  Choix TD/CMTD" GridPane.rowIndex="5" />
+                              <Label prefHeight="29.0" prefWidth="208.0" text="  Choix TP" GridPane.rowIndex="6" />
+                              <Label prefHeight="34.0" prefWidth="208.0" text="  Nombre de groupes souhaité" GridPane.rowIndex="7" />
+                              <Label prefHeight="33.0" prefWidth="208.0" text="  Nombre d'année d'enseignements de la matièere" GridPane.rowIndex="8" />
+                              <TextField fx:id="experience" prefHeight="29.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <ComboBox fx:id="courseChoice" prefHeight="25.0" prefWidth="151.0" promptText="Selectionner" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <ComboBox fx:id="cmTDChoice" prefHeight="25.0" prefWidth="151.0" promptText="Selectionner" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <ComboBox fx:id="tpChoice" prefHeight="25.0" prefWidth="151.0" promptText="Selectionner" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <ComboBox fx:id="groupNumber" prefHeight="25.0" prefWidth="151.0" promptText="Selectionner" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                            </children>
                         </GridPane>
                      </children>
@@ -104,8 +123,8 @@
             </SplitPane>
             <ToolBar prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="2">
               <items>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Ajouter" />
-                  <Button mnemonicParsing="false" text="Valider" />
+                  <Button mnemonicParsing="false" onAction="#addPreference" prefHeight="25.0" prefWidth="73.0" text="Ajouter" />
+                  <Button mnemonicParsing="false" onAction="#handleOk" text="Valider" />
                 <Button mnemonicParsing="false" text="Annuler" />
               </items>
             </ToolBar>

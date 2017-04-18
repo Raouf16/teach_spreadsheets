@@ -123,10 +123,6 @@ public class TeacherInformationController
         {
             errorMessage += "NUMEN invalide\n";
         }
-        if (dauphineEmailField.getText() == null || numEnField.getText().length() == 0) 
-        {
-            errorMessage += "Mail Dauphine invalide!\n";
-        }
 
 
         if (errorMessage.length() == 0) return true;

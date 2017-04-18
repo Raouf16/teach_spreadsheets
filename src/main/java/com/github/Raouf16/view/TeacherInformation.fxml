@@ -55,9 +55,9 @@
                         <Label prefHeight="37.0" prefWidth="305.0" text="    Adresse" GridPane.rowIndex="3" />
                         <Label prefHeight="37.0" prefWidth="305.0" text="    Mail personnel" GridPane.rowIndex="4" />
                         <Label prefHeight="37.0" prefWidth="305.0" text="    Mobile" GridPane.rowIndex="5" />
-                        <Label prefHeight="37.0" prefWidth="305.0" text="    Bureau" GridPane.rowIndex="6" />
-                        <Label prefHeight="37.0" prefWidth="305.0" text="    Téléphone dauphine" GridPane.rowIndex="7" />
-                        <Label prefHeight="28.0" prefWidth="193.0" text="    Email dauphine" GridPane.rowIndex="8" />
+                        <Label prefHeight="37.0" prefWidth="305.0" text="   Bureau" GridPane.rowIndex="6" />
+                        <Label prefHeight="37.0" prefWidth="305.0" text="   Téléphone dauphine" GridPane.rowIndex="7" />
+                        <Label prefHeight="28.0" prefWidth="193.0" text="   Email dauphine" GridPane.rowIndex="8" />
                         <Label prefHeight="26.0" prefWidth="410.0" GridPane.columnIndex="1" />
                         <Label prefHeight="26.0" prefWidth="396.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label prefHeight="26.0" prefWidth="399.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />

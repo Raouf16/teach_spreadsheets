@@ -1,12 +1,12 @@
 package com.github.Raouf16.model;
 
 
+import java.io.File;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import com.github.Raouf16.model.teacherUtils.Teacher;
@@ -18,10 +18,14 @@ import com.github.Raouf16.model.excelWrite.*;
 public class Main extends Application 
 {
 	
+	
+	public static File fileReadingData = new File("src/main/resources/com/github/Raouf16/Lire_saisie_voeux.ods");
+	
 	private Stage primaryStage;
-    @SuppressWarnings("unused")
-	private BorderPane rootLayout;
-    private static TeacherInformationController controller ;
+    private static TeacherInformationController teacherController ;
+    private static TeacherPreferencesController prefController;
+    
+    public static Teacher teacher ;
     
     
     /**
@@ -50,20 +54,20 @@ public class Main extends Application
             dialogStage.setScene(scene);
 
             // Set the person into the controller.
-            controller = loader.getController();
-            controller.setDialogStage(dialogStage);
+            teacherController = loader.getController();
+            teacherController.setDialogStage(dialogStage);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
 
-            return controller.isOkClicked();
+            return teacherController.isOkClicked();
         } catch (IOException e)
         {
             e.printStackTrace();
             return false;
         }
     }
-    public void showTeacherPreference() throws IOException
+    public boolean showTeacherPreference() throws IOException
     {
        
             // Load the fxml file and create a new stage for the popup dialog.
@@ -81,15 +85,14 @@ public class Main extends Application
             dialogStage.setScene(scene);
 
             // Set the person into the controller.
-            System.out.println("OK");
-            controller = loader.getController();
-            
-            controller.setDialogStage(dialogStage);
-           // controller.setTeacher(teacher);
+            prefController = loader.getController();
+            prefController.setDialogStage(dialogStage);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
+            return prefController.isOkClicked();
     }
+   
    
     
 	@Override
@@ -98,6 +101,8 @@ public class Main extends Application
 		this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Teach spreadsheets");
         showTeacherEditDialog();
+        teacher = teacherController.getTeacher();
+        System.out.println(showTeacherPreference())                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ;
 	}
 
 	public Stage getPrimaryStage() {
@@ -113,10 +118,8 @@ public class Main extends Application
 	public static void main(String[] args) throws Exception
 	{
 		launch();
-		Teacher t = controller.getTeacher();
-		System.out.println(t);
-		/**
-		CsvFile.WriteTeacher("src/main/resources/com/github/Raouf16/test", t);
-		WriteInformations.write(t);**/
+		CsvFile.WriteTeacher("src/main/resources/com/github/Raouf16/test", teacher);
+		File teacherFile = WriteInformations.write(teacher);
+		WritePreferences.write(teacherFile, teacher.getPreferences());
 	}
 }

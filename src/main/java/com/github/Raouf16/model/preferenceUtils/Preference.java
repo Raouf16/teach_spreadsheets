@@ -6,10 +6,11 @@ package com.github.Raouf16.model.preferenceUtils;
  *@author haya
  *
  */
-public class Preference {
+public class Preference 
+{
 
-    public String numEn; // inutile
     private String year;
+    private String semester;
     private String subject;
     private String choiceCourse;
     private String choiceTD;
@@ -22,28 +23,20 @@ public class Preference {
 
     public Preference() {}
 
-    public Preference (String [] infos) throws Exception
+    public Preference (String [] infos) throws IllegalArgumentException
     {
         if (infos == null) throw new IllegalArgumentException("Erreur ! entrée incorrecte");
-        if (infos[0] == "") throw new Exception("Numen pas renseigné");
-        else numEn = infos[0];
-        year = infos[1].equals("") ? null : infos[1] ;;
+        year = infos[0].equals("") ? null : infos[0] ;
+        setSemester(infos[1].equals("") ? null : infos[1]) ;
         subject = infos[2].equals("") ? null : infos[2] ;
-        choiceCourse = infos[3].equals("") ? null : infos[3] ;
-        choiceTD = infos[4].equals("") ? null : infos[4] ;
-        choiceTP = infos[5].equals("") ? null : infos[5] ;
-        nbrTD = infos[6].equals("") ? null : infos[6] ;
-        nbrYear = infos[7].equals("") ? null : infos[7] ;
+        choiceCourse = infos[3] == null || infos[3].equals("") ? null : infos[3] ;
+        choiceTD = infos[4] == null || infos[4].equals("") ? null : infos[4] ;
+        choiceTP = infos[5] == null || infos[5].equals("") ? null : infos[5] ;
+        nbrTD = infos[6] == null || infos[6].equals("") ? null : infos[6] ;
+        nbrYear = infos[7] == null || infos[7].equals("") ? null : infos[7] ;
     }
 
 
-    public String getNumEn() {
-        return numEn;
-    }
-
-    public void setNumEn(String numEn) {
-        this.numEn = numEn;
-    }
     public String getYear() {
         return year;
     }
@@ -86,6 +79,14 @@ public class Preference {
     public void setNbrYear(String nbrYear) {
         this.nbrYear = nbrYear;
     }
+
+	public String getSemester() {
+		return semester;
+	}
+
+	public void setSemester(String semester) {
+		this.semester = semester;
+	}
 
 
 
