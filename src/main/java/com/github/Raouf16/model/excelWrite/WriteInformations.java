@@ -7,10 +7,10 @@ import org.jopendocument.dom.spreadsheet.SpreadSheet;
 
 
 import com.github.Raouf16.model.teacherUtils.Teacher;
-import com.github.Raouf16.model.excelWrite.WritePreferences;
 /**
  * This class write general informations about the teacher 
- *
+ * return a File 
+ * @author Raouf HADDAD
  */
 
 public class WriteInformations {

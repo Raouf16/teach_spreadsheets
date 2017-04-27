@@ -120,6 +120,6 @@ public class Main extends Application
 		launch();
 		CsvFile.WriteTeacher("src/main/resources/com/github/Raouf16/test", teacher);
 		File teacherFile = WriteInformations.write(teacher);
-		WritePreferences.write(teacherFile, teacher.getPreferences());
+		WritePreferences.write(teacher, teacherFile, teacher.getPreferences());
 	}
 }

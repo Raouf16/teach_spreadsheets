@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 /**
  * This class is a test about reading courses from excel file
- * 
+ * @author Raouf HADDAD & Sonia ASSAM
  *
  */
 public class ReadData 

@@ -23,7 +23,7 @@ import com.github.Raouf16.model.teacherUtils.Teacher;
 /**
  * Dialog to set personal information
  *
- * @author Sonia ASSAM
+ * @author Sonia ASSAM & Raouf HADDAD
  */
 public class TeacherPreferencesController
 {
@@ -193,8 +193,9 @@ public class TeacherPreferencesController
 			preference[7] = experience.getText();
 			teacher.addPreference(new Preference(preference));
 			refresh();
+			
 			//addToListChoice
-			System.out.println("PREF ADDED");
+			System.out.println("The preference was added");
 		}		
 	}
 	
@@ -202,6 +203,10 @@ public class TeacherPreferencesController
 	{
 		semester.getItems().clear();
 		courses.getItems().clear();
+		courseChoice.getItems().clear();
+		cmTDChoice.getItems().clear();
+		tpChoice.getItems().clear();
+		groupNumber.getItems().clear();
 	}
 	
 	
