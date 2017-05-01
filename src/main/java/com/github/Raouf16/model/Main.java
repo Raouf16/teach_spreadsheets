@@ -118,7 +118,8 @@ public class Main extends Application
 	public static void main(String[] args) throws Exception
 	{
 		launch();
-		CsvFile.WriteTeacher("src/main/resources/com/github/Raouf16/test", teacher);
+		CsvFile.WriteTeacher("src/main/resources/com/github/Raouf16/CSVteacher", teacher);
+		CsvFile.WritePreference("src/main/resources/com/github/Raouf16/CSVpref", teacher);
 		File teacherFile = WriteInformations.write(teacher);
 		WritePreferences.write(teacher, teacherFile, teacher.getPreferences());
 	}

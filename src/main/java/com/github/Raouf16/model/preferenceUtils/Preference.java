@@ -9,20 +9,24 @@ package com.github.Raouf16.model.preferenceUtils;
 public class Preference 
 {
 
-    private String year;
+    private String year; // example DE1
     private String semester;
-    private String subject;
-    private String choiceCourse;
-    private String choiceTD;
-    private String choiceTP;
-    private String nbrTD;
-    private String nbrYear;
-
+    private String subject; // the title of the course
+    private String choiceCourse; // between A and C
+    private String choiceTD; // between A and C	
+    private String choiceTP; // between A and C
+    private int nbrTD;  // the number of td you want
+    private int nbrYear; // the number of year of experience
 
     //Constructor
 
     public Preference() {}
-
+    
+    /**
+     * This method will not be used for the moment.
+     * @param infos
+     * @throws IllegalArgumentException
+     */
     public Preference (String [] infos) throws IllegalArgumentException
     {
         if (infos == null) throw new IllegalArgumentException("Erreur ! entrée incorrecte");
@@ -32,8 +36,8 @@ public class Preference
         choiceCourse = infos[3] == null || infos[3].equals("") ? null : infos[3] ;
         choiceTD = infos[4] == null || infos[4].equals("") ? null : infos[4] ;
         choiceTP = infos[5] == null || infos[5].equals("") ? null : infos[5] ;
-        nbrTD = infos[6] == null || infos[6].equals("") ? null : infos[6] ;
-        nbrYear = infos[7] == null || infos[7].equals("") ? null : infos[7] ;
+        nbrTD = infos[6] == null || infos[6].equals("") ? null : Integer.parseInt(infos[6]) ;
+        nbrYear = infos[7] == null || infos[7].equals("") ? null : Integer.parseInt(infos[7]) ;
     }
 
 
@@ -67,16 +71,16 @@ public class Preference
     public void setChoiceTP(String choiceTP) {
         this.choiceTP = choiceTP;
     }
-    public String getNbrTD() {
+    public int getNbrTD() {
         return nbrTD;
     }
-    public void setNbrTD(String nbrTD) {
+    public void setNbrTD(int nbrTD) {
         this.nbrTD = nbrTD;
     }
-    public String getNbrYear() {
+    public int getNbrYear() {
         return nbrYear;
     }
-    public void setNbrYear(String nbrYear) {
+    public void setNbrYear(int nbrYear) {
         this.nbrYear = nbrYear;
     }
 
@@ -87,7 +91,19 @@ public class Preference
 	public void setSemester(String semester) {
 		this.semester = semester;
 	}
-
+	public String toString()
+	{
+		String s = "";
+		if (year != null) s += "Year : "+year+"\n";
+		if (semester != null)s += "Semester : "+semester+"\n";
+		if (subject != null)s += "Subject : "+subject+"\n";
+		if (choiceCourse != null) s += "Choice course : "+choiceCourse+"\n";
+		if (choiceTD != null) s += "Choice TD : "+choiceTD+"\n";
+		if (choiceTP != null) s += "Choice TP : "+choiceTP+"\n";
+		s += "Nbr TD : "+nbrTD+"\n";
+		s += "Nbr year : "+nbrYear+"\n";
+		return s;
+	}
 
 
 }

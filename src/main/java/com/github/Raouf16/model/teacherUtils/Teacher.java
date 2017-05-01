@@ -146,6 +146,7 @@ public class Teacher
 		String s = "";
 		if (firstName != null) s += "Fist name : "+firstName+"\n";
 		if (lastName != null)s += "Last name : "+lastName+"\n";
+		if (numEn != null)s += "Numen : "+numEn+"\n";
 		if (status != null) s += "Status : "+status+"\n";
 		if (adress != null) s += "Adress : "+adress+"\n";
 		if (postalCode != null) s += "Postal Code : "+postalCode+"\n";
@@ -156,6 +157,11 @@ public class Teacher
 		if (mobilePhone != null) s += "Mobile phone : "+mobilePhone+"\n";
 		if (dauphinePhone != null) s += "Dauphine phone : "+personalPhone+"\n";
 		if (office != null) s += "Office : "+office+"\n";
+		s+="Preference:\n";
+		for (int i=0; i<preferences.size(); i++){
+			s+="numero "+Integer.toString(i+1)+'\n';
+			s+=preferences.get(i).toString();
+		}
 		return s;
 	}
 
