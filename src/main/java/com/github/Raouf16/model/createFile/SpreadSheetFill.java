@@ -10,7 +10,10 @@ import org.jopendocument.dom.spreadsheet.SpreadSheet;
 
 import com.github.Raouf16.model.teacherUtils.Teacher;
 import com.github.Raouf16.model.writeCsv.*;
-
+/**
+ * This class is able to generate a service card with information about a teacher
+ *
+ */
 public class SpreadSheetFill {
 	public void GenerateFS(Teacher t) throws FileNotFoundException, IOException{
 		
