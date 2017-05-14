@@ -182,18 +182,17 @@ public class TeacherPreferencesController
 	{
 		if (isInputValid())
 		{
-			String [] preference = new String[8];
-			preference[0] = formations.getSelectionModel().getSelectedItem();
-			preference[1] = semester.getSelectionModel().getSelectedItem();
-			preference[2] = courses.getSelectionModel().getSelectedItem();
-			preference[3] = courseChoice.getSelectionModel().getSelectedItem();
-			preference[4] = cmTDChoice.getSelectionModel().getSelectedItem();
-			preference[5] = tpChoice.getSelectionModel().getSelectedItem();
-			preference[6] = groupNumber.getSelectionModel().getSelectedItem();
-			preference[7] = experience.getText();
-			teacher.addPreference(new Preference(preference));
+			Preference preference = new Preference();
+			preference.setYear(formations.getSelectionModel().getSelectedItem());
+			preference.setSemester(semester.getSelectionModel().getSelectedItem());
+			preference.setSubject(courses.getSelectionModel().getSelectedItem());
+			preference.setChoiceCourse(courseChoice.getSelectionModel().getSelectedItem());
+			preference.setChoiceTD(cmTDChoice.getSelectionModel().getSelectedItem());
+			preference.setChoiceTP(tpChoice.getSelectionModel().getSelectedItem());
+			preference.setNbrTD(groupNumber.getSelectionModel().getSelectedItem());
+			preference.setNbrYear(experience.getText());
+			teacher.addPreference(preference);
 			refresh();
-			
 			//addToListChoice
 			System.out.println("The preference was added");
 		}		
