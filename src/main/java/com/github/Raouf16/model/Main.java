@@ -13,6 +13,7 @@ import com.github.Raouf16.model.teacherUtils.Teacher;
 import com.github.Raouf16.controller.TeacherInformationController;
 import com.github.Raouf16.controller.TeacherPreferencesController;
 import com.github.Raouf16.model.writeCsv.*;
+import com.github.Raouf16.model.createFile.SpreadSheetFill;
 import com.github.Raouf16.model.excelWrite.*;
 
 public class Main extends Application 
@@ -122,5 +123,7 @@ public class Main extends Application
 		CsvFile.WritePreference("src/main/resources/com/github/Raouf16/CSVpref", teacher);
 		File teacherFile = WriteInformations.write(teacher);
 		WritePreferences.write(teacher, teacherFile, teacher.getPreferences());
+		SpreadSheetFill s= new SpreadSheetFill();
+    	s.GenerateFS(teacher);
 	}
 }

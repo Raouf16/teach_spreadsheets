@@ -54,7 +54,7 @@ public class WriteInformations {
 			 if(t.getOffice() != null) secondSheet.getCellAt("H11").setValue(t.getOffice());	
 		 
 		 	// Save the file
-			String newFileName = t.firstName+"_"+t.lastName+".ods";
+			String newFileName = t.getFirstName()+"_"+t.getLastName()+".ods";
 		 	File endFile = new File(newFileName);
 		 	spreadSheet.saveAs(endFile);
 		 	return endFile;

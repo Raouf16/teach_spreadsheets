@@ -14,7 +14,7 @@ import com.opencsv.CSVWriter;
  */
 public class CsvFile {
 	/**
-	 * This method can write a line in tha csv file "filename" about a teacher.
+	 * This method can write a line in the csv file "filename" about a teacher.
 	 * @param fileName
 	 * @param t
 	 * @throws Exception
@@ -135,9 +135,9 @@ public class CsvFile {
 		t.setNumEn("1234");
 		//WriteTeacher("test.txt",t);
 		
-		 test: 
-		//ReadTeacher("src/main/resources/com/github/Raouf16/CSVteacher","1234");
+		t=ReadTeacher("src/main/resources/com/github/Raouf16/CSVteacher","1234");
+		System.out.println(t);
 		
-		ReadPreference("src/main/resources/com/github/Raouf16/CSVpref",t);
+		//ReadPreference("src/main/resources/com/github/Raouf16/CSVpref",t);
 	}
 }

@@ -201,4 +201,9 @@ public class Teacher
 		if (pref != null) preferences.add(pref);
 	}
 
+	public boolean equals(Teacher t) {
+		return numEn.equals(t);
+	}
+	
+
 }
