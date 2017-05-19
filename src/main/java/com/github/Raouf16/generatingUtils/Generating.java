@@ -1,33 +1,37 @@
 package com.github.Raouf16.generatingUtils;
 
-import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.JavaSparkContext;
-import org.apache.spark.sql.DataFrame;
-import org.apache.spark.sql.SQLContext;
+import org.apache.spark.sql.Dataset;
+import org.apache.spark.sql.RelationalGroupedDataset;
+import org.apache.spark.sql.Row;
+import org.apache.spark.sql.SparkSession;
+import org.apache.spark.sql.catalog.Column;
+
 
 /***
  * 
  * @author Sonia ASSAM
- * Classe ayant pour but de générer les fichier agrégés
+ * Classe ayant pour but de générer les fichiers agrégés
  *
  */
 public class Generating 
 {
 	public static void generateAgregatedFile()
 	{
-		SparkConf conf = new SparkConf().setAppName("Workshop").setMaster("local[*]");
-        JavaSparkContext sc = new JavaSparkContext(conf);
-		SQLContext sqlContext = new SQLContext(sc);
-		DataFrame df = sqlContext.read()
-		    .format("com.databricks.spark.csv")
-		    .option("inferSchema", "true")
-		    .option("header", "true")
-		    .load("test.txt");
-		df.show();
+		//TODO implement
 	}
 
 	public static void main (String []args)
 	{
-		Generating.generateAgregatedFile();
+		SparkSession spark = SparkSession
+				  .builder()
+				  .appName("Java Spark SQL basic example")
+				  .config("spark.master", "local")
+				  .getOrCreate();
+
+		Dataset<Row> df = spark.read().option("header", true).csv("src/main/resources/com/github/Raouf16/testpref");
+		
+		df.show();
+		RelationalGroupedDataset df_group = df.groupBy("NUMEN");
+		df_group.sum("semester").show();
 	}
 }
