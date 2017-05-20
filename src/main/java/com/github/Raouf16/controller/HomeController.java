@@ -1,9 +1,9 @@
 package com.github.Raouf16.controller;
-import com.github.Raouf16.model.excelWrite.*;
-import com.github.Raouf16.model.generatePDF.*;
+import com.github.Raouf16.model.spreadsheet.write.*;
+import com.github.Raouf16.model.pdf.generate.*;
 import com.github.Raouf16.model.Main;
 import javafx.fxml.FXML;
-import com.github.Raouf16.model.teacherUtils.Teacher;
+import com.github.Raouf16.model.utils.teacher.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;

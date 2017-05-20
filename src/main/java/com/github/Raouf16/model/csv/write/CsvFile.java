@@ -1,9 +1,9 @@
-package com.github.Raouf16.model.writeCsv;
+package com.github.Raouf16.model.csv.write;
 
 import java.io.*;
 
-import com.github.Raouf16.model.preferenceUtils.Preference;
-import com.github.Raouf16.model.teacherUtils.Teacher;
+import com.github.Raouf16.model.utils.preference.*;
+import com.github.Raouf16.model.utils.teacher.*;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
@@ -70,6 +70,7 @@ public class CsvFile {
 	        }
 	     }
 	     //System.out.println(t);
+	    reader.close();
 		return t;
 	}
 	/**
@@ -127,6 +128,7 @@ public class CsvFile {
 	        }
 	     }
 	     System.out.println(t);
+	    reader.close();
 		return t;
 	}
 	

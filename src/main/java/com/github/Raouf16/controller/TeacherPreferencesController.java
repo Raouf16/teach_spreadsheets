@@ -11,14 +11,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-import org.jopendocument.dom.spreadsheet.SpreadSheet;
+import org.odftoolkit.simple.SpreadsheetDocument;
 
 import com.github.Raouf16.model.Main;
-import com.github.Raouf16.model.excelRead.ReadData;
-import com.github.Raouf16.model.preferenceUtils.Preference;
-import com.github.Raouf16.model.teacherUtils.Teacher;
+import com.github.Raouf16.model.spreadsheet.read.ReadData;
+import com.github.Raouf16.model.utils.preference.*;
+import com.github.Raouf16.model.utils.teacher.*;
 
 /**
  * Dialog to set personal information
@@ -58,17 +57,17 @@ public class TeacherPreferencesController
     private Stage dialogStage;
     private boolean okClicked = false;
 	private Teacher teacher = Main.teacher;
-	private SpreadSheet spreadSheetReadingData;	
+	private SpreadsheetDocument spreadSheetReadingData;	
 
 	/**
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
-	 * @throws IOException 
+	 * @throws Exception 
      */
 	
-	public TeacherPreferencesController() throws IOException
+	public TeacherPreferencesController() throws Exception
 	{
-		spreadSheetReadingData = SpreadSheet.createFromFile(Main.fileReadingData);
+		spreadSheetReadingData = SpreadsheetDocument.loadDocument(Main.fileReadingData);
 	}
     @FXML
     private void initialize() throws IOException 

@@ -11,12 +11,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import com.github.Raouf16.model.teacherUtils.Teacher;
+import com.github.Raouf16.model.utils.teacher.*;
 import com.github.Raouf16.controller.TeacherInformationController;
 import com.github.Raouf16.controller.TeacherPreferencesController;
-import com.github.Raouf16.model.writeCsv.*;
-import com.github.Raouf16.model.createFile.SpreadSheetFill;
-import com.github.Raouf16.model.excelWrite.*;
+import com.github.Raouf16.model.csv.write.*;
+import com.github.Raouf16.model.spreadsheet.write.*;
 
 import org.apache.spark.sql.Column;
 import org.apache.spark.sql.SparkSession;
@@ -25,8 +24,8 @@ import org.apache.spark.sql.SparkSession;
 public class Main extends Application 
 {
 	
-	
-	public static File fileReadingData = new File("src/main/resources/com/github/Raouf16/Lire_saisie_voeux.ods");
+	public static String canevasFolderPath = "src/main/resources/com/github/Raouf16/canevas/";
+	public static File fileReadingData = new File("src/main/resources/com/github/Raouf16/canevas/Lire_saisie_voeux.ods");
 	public static String teachersFilePath = "src/main/resources/com/github/Raouf16/teachers";
 	public static String preferencesFilePath = "src/main/resources/com/github/Raouf16/preferences";
 	private Stage primaryStage;
@@ -138,8 +137,8 @@ public class Main extends Application
 		launch();
 		CsvFile.WriteTeacher("src/main/resources/com/github/Raouf16/teachers", teacher);
 		CsvFile.WritePreference("src/main/resources/com/github/Raouf16/preferences", teacher);
-		//File teacherFile = WriteInformations.write(teacher);
-		//WritePreferences.write(teacher, teacherFile, teacher.getPreferences());
+		File teacherFile = WriteInformations.write(teacher);
+		WritePreferences.write(teacher, teacherFile, teacher.getPreferences());
 		//SpreadSheetFill s= new SpreadSheetFill();
     	//s.GenerateFS(teacher);
 	}

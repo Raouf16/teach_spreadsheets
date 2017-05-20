@@ -1,4 +1,4 @@
-package com.github.Raouf16.model.generatePDF;
+package com.github.Raouf16.model.pdf.generate;
 
 
 
@@ -23,7 +23,9 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
  
-
+/**
+ * @author Lynda BOULILA, Katia SERSOUR, Haya COHEN
+ */
 
 public class ExemplePDF{
 	public Document createPDF()throws DocumentException, FileNotFoundException{

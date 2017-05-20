@@ -1,8 +1,8 @@
-package com.github.Raouf16.model.teacherUtils;
+package com.github.Raouf16.model.utils.teacher;
 
 import java.util.ArrayList;
 
-import com.github.Raouf16.model.preferenceUtils.Preference;
+import com.github.Raouf16.model.utils.preference.*;
 
 public class Teacher 
 {

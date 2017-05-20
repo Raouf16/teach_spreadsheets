@@ -1,9 +1,9 @@
-package com.github.Raouf16.model.ioUtils;
+package com.github.Raouf16.model.utils.io;
 
 import java.io.FileReader;
 import java.util.ArrayList;
 import com.opencsv.CSVReader;
-import com.github.Raouf16.model.teacherUtils.Teacher;
+import com.github.Raouf16.model.utils.teacher.*;
 
 
 /***

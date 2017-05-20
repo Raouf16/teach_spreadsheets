@@ -1,4 +1,4 @@
-package com.github.Raouf16.generatingUtils;
+package com.github.Raouf16.model.utils.generating;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.RelationalGroupedDataset;

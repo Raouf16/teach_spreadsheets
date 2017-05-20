@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import org.apache.spark.sql.Column;
 
 import com.github.Raouf16.model.Main;
-import com.github.Raouf16.model.teacherUtils.Teacher;
+import com.github.Raouf16.model.utils.teacher.*;
 
 /**
  * Dialog to set personal information

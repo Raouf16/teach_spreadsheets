@@ -1,4 +1,4 @@
-package com.github.Raouf16.model.preferenceUtils;
+package com.github.Raouf16.model.utils.preference;
 
 public class Teaching 
 {
