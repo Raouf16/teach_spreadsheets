@@ -5,6 +5,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import org.apache.spark.sql.Column;
+
+import com.github.Raouf16.model.Main;
 import com.github.Raouf16.model.teacherUtils.Teacher;
 
 /**
@@ -124,6 +128,8 @@ public class TeacherInformationController
         {
             errorMessage += "NUMEN invalide\n";
         }
+        
+        //TODO check if the numen isnt registred yet 
 
 
         if (errorMessage.length() == 0) return true;

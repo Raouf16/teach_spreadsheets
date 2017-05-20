@@ -3,6 +3,8 @@ package com.github.Raouf16.model;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,15 +18,32 @@ import com.github.Raouf16.model.writeCsv.*;
 import com.github.Raouf16.model.createFile.SpreadSheetFill;
 import com.github.Raouf16.model.excelWrite.*;
 
+import org.apache.spark.sql.Column;
+import org.apache.spark.sql.SparkSession;
+
+
 public class Main extends Application 
 {
 	
 	
 	public static File fileReadingData = new File("src/main/resources/com/github/Raouf16/Lire_saisie_voeux.ods");
-	
+	public static String teachersFilePath = "src/main/resources/com/github/Raouf16/teachers";
+	public static String preferencesFilePath = "src/main/resources/com/github/Raouf16/preferences";
 	private Stage primaryStage;
     private static TeacherInformationController teacherController ;
     private static TeacherPreferencesController prefController;
+    private static SparkSession spark = SparkSession
+			  .builder()
+			  .appName("Java Spark SQL basic example")
+			  .config("spark.master", "local")
+			  .getOrCreate();
+
+    //TODO 
+    /**public static List<String> existingNumen = spark.read()
+    		.option("header", true)
+    		.csv(teachersFilePath)
+    		.col("numen")
+    		.coll*/
     
     public static Teacher teacher ;
     
@@ -93,8 +112,6 @@ public class Main extends Application
             dialogStage.showAndWait();
             return prefController.isOkClicked();
     }
-   
-   
     
 	@Override
 	public void start(Stage primaryStage) throws IOException 
@@ -119,11 +136,11 @@ public class Main extends Application
 	public static void main(String[] args) throws Exception
 	{
 		launch();
-		CsvFile.WriteTeacher("src/main/resources/com/github/Raouf16/CSVteacher", teacher);
-		CsvFile.WritePreference("src/main/resources/com/github/Raouf16/CSVpref", teacher);
-		File teacherFile = WriteInformations.write(teacher);
-		WritePreferences.write(teacher, teacherFile, teacher.getPreferences());
-		SpreadSheetFill s= new SpreadSheetFill();
-    	s.GenerateFS(teacher);
+		CsvFile.WriteTeacher("src/main/resources/com/github/Raouf16/teachers", teacher);
+		CsvFile.WritePreference("src/main/resources/com/github/Raouf16/preferences", teacher);
+		//File teacherFile = WriteInformations.write(teacher);
+		//WritePreferences.write(teacher, teacherFile, teacher.getPreferences());
+		//SpreadSheetFill s= new SpreadSheetFill();
+    	//s.GenerateFS(teacher);
 	}
 }
