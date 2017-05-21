@@ -82,7 +82,9 @@ public class TeacherPreferencesController
     	formations.setItems(formationsData);
     	formations.setOnAction((event) -> {
     	    String formation = formations.getSelectionModel().getSelectedItem();
-    	    try {loadSemesters(formation);}
+    	    try {
+    	    	if (formation != null) loadSemesters(formation);
+    	    }
     	    catch (IOException e) {}
     	});
     	
