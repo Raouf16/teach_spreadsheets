@@ -96,6 +96,7 @@ public class TeacherPreferencesController
     	choices[1] = "B";
     	choices[2] = "C";
     	
+    	
     	courseChoice.getItems().setAll(choices);
     	cmTDChoice.getItems().setAll(choices);
     	tpChoice.getItems().setAll(choices);
@@ -177,7 +178,7 @@ public class TeacherPreferencesController
 	}
 	
 	@FXML 
-	private void addPreference()
+	private void addPreference() throws IOException
 	{
 		if (isInputValid())
 		{
@@ -194,11 +195,13 @@ public class TeacherPreferencesController
 			refresh();
 			//addToListChoice
 			System.out.println("The preference was added");
+			initialize();
 		}		
 	}
 	
 	private void refresh()
 	{
+		formations.getItems().clear();
 		semester.getItems().clear();
 		courses.getItems().clear();
 		courseChoice.getItems().clear();
