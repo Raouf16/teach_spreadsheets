@@ -15,6 +15,7 @@ import java.io.IOException;
 import org.odftoolkit.simple.SpreadsheetDocument;
 
 import com.github.Raouf16.model.Main;
+import com.github.Raouf16.model.spreadsheet.read.ReadBorder;
 import com.github.Raouf16.model.spreadsheet.read.ReadData;
 import com.github.Raouf16.model.utils.preference.*;
 import com.github.Raouf16.model.utils.teacher.*;
@@ -91,20 +92,17 @@ public class TeacherPreferencesController
     	    loadCourses(sem);
     	});
     	
-    	String [] choices = new String[3];
-    	choices[0] = "A";
-    	choices[1] = "B";
-    	choices[2] = "C";
-    	
-    	
-    	courseChoice.getItems().setAll(choices);
-    	cmTDChoice.getItems().setAll(choices);
-    	tpChoice.getItems().setAll(choices);
-    	
-    	choices = new String[4];
-    	for (int i=1; i<5; i++) choices[i-1] = ""+i;
-    	
-    	groupNumber.getItems().setAll(choices);
+    	courses.setOnAction((event) -> {
+    	    String course = courses.getSelectionModel().getSelectedItem();
+    	    String sem = semester.getSelectionModel().getSelectedItem();
+    	    String formation = formations.getSelectionModel().getSelectedItem();
+    	    try {
+				loadChoices(formation, sem, course);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+    	});
+    
     }
 
     
@@ -122,6 +120,36 @@ public class TeacherPreferencesController
 		semester.getItems().clear();
     	semester.getItems().addAll(ReadData.getSemesters(spreadSheetReadingData, formation));
     	courses.getItems().clear();
+    }
+	
+	private void loadChoices(String formation, String semester, String course) throws IOException
+    {
+		String [] choices = new String[3];
+    	choices[0] = "A";
+    	choices[1] = "B";
+    	choices[2] = "C";
+    	
+    	courseChoice.getItems().clear();
+		cmTDChoice.getItems().clear();
+		tpChoice.getItems().clear();
+		
+    	if (ReadBorder.isCourseDiagonalBorder(spreadSheetReadingData, formation, semester, course) == false)
+    	{
+    		courseChoice.getItems().setAll(choices);
+    	}
+    	if (ReadBorder.isTdDiagonalBorder(spreadSheetReadingData, formation, semester, course) == false)
+    	{
+    		cmTDChoice.getItems().setAll(choices);
+    	}
+    	if (ReadBorder.isTpDiagonalBorder(spreadSheetReadingData, formation, semester, course) == false)
+    	{
+    		tpChoice.getItems().setAll(choices);
+    	}
+    	
+    	choices = new String[4];
+    	for (int i=1; i<5; i++) choices[i-1] = ""+i;
+    	
+    	groupNumber.getItems().setAll(choices);
     }
     /**
      * Sets the stage of this dialog.
@@ -208,6 +236,7 @@ public class TeacherPreferencesController
 		cmTDChoice.getItems().clear();
 		tpChoice.getItems().clear();
 		groupNumber.getItems().clear();
+		experience.clear();
 	}
 	
 	
