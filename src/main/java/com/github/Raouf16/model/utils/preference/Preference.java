@@ -60,7 +60,9 @@ public class Preference
         this.nbrTD = nbrTD;
     }
     
-    public void setNbrTD(String nbrTD) {
+    public void setNbrTD(String nbrTD) 
+    {
+    	if (nbrTD == null || nbrTD.length() == 0) return;
         this.nbrTD = Integer.parseInt(nbrTD);
     }
     public int getNbrYear() {
@@ -72,6 +74,7 @@ public class Preference
     }
     
     public void setNbrYear(String nbrYear) {
+    	if (nbrYear == null || nbrYear.length() == 0) return ;
         this.nbrYear = Integer.parseInt(nbrYear);
     }
 
