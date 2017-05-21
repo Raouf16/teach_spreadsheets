@@ -1,12 +1,1 @@
-"Raouf","ODF","Test","",,,,"","",,"","",""
-"Raouf","ODF","test","",,,,"","",,"","",""
-"RAouf","ODF","test","",,,,"","",,"","",""
-,,,,,,,,,,,,
-"Raouf","test","213123","",,,,"","",,"","",""
-"Raouf","test","231231","",,,,"","",,"","",""
-"Test","Rafa","12312","",,,,"","",,"","",""
-"Raouf","test","12312","",,,,"","",,"","",""
-"raf","raf","raf","",,,,"","",,"","",""
-"Raouf","test","test","",,,,"","",,"","",""
-"Raf","test","2222","",,,,"","",,"","",""
-"Last","Test","1231","Anatle France",,,,"daudau@daudau.fr","dsqdqs@sqdqsd.fr",,"1231293812","31829381293","91823912839"
+firstName,lastName,numen,adress,postalCode,city,status,dauphineMail,personalMail,personalPhone,mobilePhone,dauphinePhone,office
