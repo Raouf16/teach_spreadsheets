@@ -9,7 +9,7 @@ import org.apache.spark.sql.catalog.Column;
 
 /***
  * 
- * @author Sonia ASSAM
+ * @author Sonia & katia
  * Classe ayant pour but de générer les fichiers agrégés
  *
  */
@@ -24,7 +24,7 @@ public class Generating {
 		
 		df.show();
 		df.select("semester").show();
-		df.groupBy("zip_code").count().show();
+		df.groupBy("semester").count().show();
 	}
 
 	public static void main (String []args){
