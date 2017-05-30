@@ -1,0 +1,179 @@
+package com.github.Raouf16.model.swt;
+
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Text;
+
+public class Teacher {
+
+	protected Shell shell;
+	private Text text;
+	private Text text_1;
+	private Text text_2;
+	private Text text_3;
+	private Text text_4;
+	private Text text_5;
+	private Text text_6;
+	private Text text_7;
+	private Text text_8;
+	private Text text_9;
+	private Text text_10;
+	private Text text_11;
+	private Text text_12;
+	private Label lblFirstName;
+	private Label lblLastName;
+	private Label lblNumen;
+	private Label lblAdresse;
+	private Label lblPostalCode;
+	private Label lblCity;
+	private Label lblStatus;
+	private Label lblDauphineEmail;
+	private Label lblPersonalEmail;
+	private Label lblDauphinePhone;
+	private Label lblPersonalPhone;
+	private Label lblMobilePhone;
+	private Label lblOffice;
+	private Label lblTeacherSheet;
+
+	/**
+	 * Launch the application.
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		try {
+			Teacher window = new Teacher();
+			window.open();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Open the window.
+	 */
+	public void open() {
+		Display display = Display.getDefault();
+		createContents();
+		shell.open();
+		shell.layout();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+	}
+
+	/**
+	 * Create contents of the window.
+	 */
+	protected void createContents() {
+		shell = new Shell();
+		shell.setSize(450, 365);
+		shell.setText("SWT Application");
+		
+		text = new Text(shell, SWT.BORDER);
+		text.setBounds(85, 31, 96, 19);
+		
+		text_1 = new Text(shell, SWT.BORDER);
+		text_1.setBounds(292, 31, 105, 19);
+		
+		text_2 = new Text(shell, SWT.BORDER);
+		text_2.setBounds(85, 73, 210, 19);
+		
+		text_3 = new Text(shell, SWT.BORDER);
+		text_3.setBounds(381, 113, 59, 19);
+		
+		text_4 = new Text(shell, SWT.BORDER);
+		text_4.setBounds(85, 113, 210, 19);
+		
+		text_5 = new Text(shell, SWT.BORDER);
+		text_5.setBounds(85, 148, 96, 19);
+		
+		text_6 = new Text(shell, SWT.BORDER);
+		text_6.setBounds(305, 234, 122, 19);
+		
+		text_7 = new Text(shell, SWT.BORDER);
+		text_7.setBounds(292, 148, 105, 19);
+		
+		text_8 = new Text(shell, SWT.BORDER);
+		text_8.setBounds(85, 183, 210, 19);
+		
+		text_9 = new Text(shell, SWT.BORDER);
+		text_9.setBounds(85, 204, 210, 19);
+		
+		text_10 = new Text(shell, SWT.BORDER);
+		text_10.setBounds(95, 232, 111, 19);
+		
+		text_11 = new Text(shell, SWT.BORDER);
+		text_11.setBounds(95, 270, 111, 19);
+		
+		text_12 = new Text(shell, SWT.BORDER);
+		text_12.setBounds(305, 270, 66, 19);
+		
+		lblFirstName = new Label(shell, SWT.NONE);
+		lblFirstName.setBounds(20, 36, 59, 14);
+		lblFirstName.setText("First Name");
+		
+		lblLastName = new Label(shell, SWT.NONE);
+		lblLastName.setBounds(227, 36, 59, 14);
+		lblLastName.setText("Last Name");
+		
+		lblNumen = new Label(shell, SWT.NONE);
+		lblNumen.setBounds(20, 78, 59, 14);
+		lblNumen.setText("NumEn");
+		
+		lblAdresse = new Label(shell, SWT.NONE);
+		lblAdresse.setBounds(20, 113, 59, 14);
+		lblAdresse.setText("Adresse");
+		
+		lblPostalCode = new Label(shell, SWT.NONE);
+		lblPostalCode.setBounds(305, 118, 66, 14);
+		lblPostalCode.setText("Postal code");
+		
+		lblCity = new Label(shell, SWT.NONE);
+		lblCity.setBounds(20, 153, 59, 14);
+		lblCity.setText("City");
+		
+		lblStatus = new Label(shell, SWT.NONE);
+		lblStatus.setBounds(227, 148, 59, 14);
+		lblStatus.setText("Status");
+		
+		lblDauphineEmail = new Label(shell, SWT.NONE);
+		lblDauphineEmail.setBounds(0, 186, 85, 19);
+		lblDauphineEmail.setText("Dauphine Email");
+		
+		lblPersonalEmail = new Label(shell, SWT.NONE);
+		lblPersonalEmail.setBounds(0, 209, 79, 14);
+		lblPersonalEmail.setText("Personal Email");
+		
+		lblDauphinePhone = new Label(shell, SWT.NONE);
+		lblDauphinePhone.setBounds(0, 237, 96, 14);
+		lblDauphinePhone.setText("Dauphine Phone");
+		
+		lblPersonalPhone = new Label(shell, SWT.NONE);
+		lblPersonalPhone.setBounds(212, 237, 83, 14);
+		lblPersonalPhone.setText("Personal Phone");
+		
+		lblMobilePhone = new Label(shell, SWT.NONE);
+		lblMobilePhone.setBounds(7, 273, 89, 14);
+		lblMobilePhone.setText("Mobile Phone");
+		
+		lblOffice = new Label(shell, SWT.NONE);
+		lblOffice.setBounds(260, 273, 59, 14);
+		lblOffice.setText("Office");
+		
+		lblTeacherSheet = new Label(shell, SWT.NONE);
+		lblTeacherSheet.setBounds(192, 10, 85, 14);
+		lblTeacherSheet.setText("Teacher Sheet");
+		
+		Button btnSend = new Button(shell, SWT.NONE);
+		btnSend.setBounds(183, 306, 94, 28);
+		btnSend.setText("Send");
+
+	}
+}
