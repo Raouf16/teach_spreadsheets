@@ -6,9 +6,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import org.apache.spark.sql.Column;
-
-import com.github.Raouf16.model.Main;
+import com.github.Raouf16.model.main.Main;
 import com.github.Raouf16.model.utils.teacher.*;
 
 /**
@@ -132,7 +130,11 @@ public class TeacherInformationController
         //TODO check if the numen isnt registred yet 
 
 
-        if (errorMessage.length() == 0) return true;
+        if (errorMessage.length() == 0)
+        {
+           Main.existingNumEn.contains(numEnField.getText()).explain(true);
+           return true;
+        }
         else 
         {
             // Show the error message.

@@ -11,7 +11,7 @@ import org.odftoolkit.simple.SpreadsheetDocument;
 import org.odftoolkit.simple.table.Table;
 
 import com.github.Raouf16.model.utils.teacher.*;
-import com.github.Raouf16.model.Main;
+import com.github.Raouf16.model.main.Main;
 import com.github.Raouf16.model.utils.preference.*;
 
 

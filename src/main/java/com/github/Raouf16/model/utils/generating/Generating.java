@@ -1,11 +1,9 @@
 package com.github.Raouf16.model.utils.generating;
 
 import org.apache.spark.sql.Dataset;
-import org.apache.spark.sql.RelationalGroupedDataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
-import org.apache.spark.sql.catalog.Column;
-
+import com.github.Raouf16.model.main.Main;
 
 /***
  * 
@@ -20,7 +18,7 @@ public class Generating {
 				  .appName("Java Spark SQL basic example")
 				  .config("spark.master", "local")
 				  .getOrCreate();
-		Dataset<Row> df = spark.read().option("header", true).csv("src/main/resources/com/github/Raouf16/testpref");
+		Dataset<Row> df = spark.read().option("header", true).csv(Main.preferencesFilePath);
 		
 		df.show();
 		df.select("semester").show();
