@@ -36,13 +36,13 @@
 			<version>20.0</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugin-tools/maven-plugin-annotations -->
 		<dependency>
-  			<groupId>com.sun</groupId>
-   			<artifactId>tools</artifactId>
-   			<version>1.6.0</version>
-   			<scope>system</scope>
-   			<systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath>
- 		</dependency>
+    		<groupId>org.apache.maven.plugin-tools</groupId>
+    		<artifactId>maven-plugin-annotations</artifactId>
+    		<version>3.5</version>
+		</dependency>
+
  
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
