@@ -2,7 +2,6 @@ firstName,lastName,numen,adress,postalCode,city,status,dauphineMail,personalMail
 "coucou","kki","14523","",,,,"","",,"","",""
 "broce","kfhjhd","147852","",,,,"","",,"","",""
 "kiki","koko","74582","",,,,"","",,"","",""
-,,,,,,,,,,,,
 "kiki","koko","74152","",,,,"","",,"","",""
 "coucou","kiki","789635","",,,,"","",,"","",""
 "kiki","koko","1265","",,,,"","",,"","",""
@@ -10,6 +9,4 @@ firstName,lastName,numen,adress,postalCode,city,status,dauphineMail,personalMail
 "brice","mayag","8754","",,,,"","",,"","",""
 "koko","jdnff","14785","",,,,"","",,"","",""
 "okok","jii","58745","",,,,"","",,"","",""
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-"coucou","kiki","12654","",,,,"","",,"","",""
+
