@@ -3,6 +3,7 @@ package com.github.Raouf16.model.main;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,36 +12,40 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import com.github.Raouf16.model.utils.preference.Preference;
 import com.github.Raouf16.model.utils.teacher.*;
 import com.github.Raouf16.controller.TeacherInformationController;
 import com.github.Raouf16.controller.TeacherPreferencesController;
 import com.github.Raouf16.model.csv.write.*;
 import com.github.Raouf16.model.spreadsheet.write.*;
 import org.apache.spark.sql.Column;
+import org.apache.spark.sql.Dataset;
+import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
 public class Main extends Application
 {
 
 	public static String canevasFolderPath = "src/main/resources/com/github/Raouf16/canevas/";
-	public static File fileReadingData = new File("src/main/resources/com/github/Raouf16/canevas/Lire_saisie_voeux.ods");
+	public static File fileReadingData = new File("src/main/resources/com/github/Raouf16/Lire_saisie_voeux.ods");
 	public static String teachersFilePath = "src/main/resources/com/github/Raouf16/teachers";
-	public static String preferencesFilePath = "src/main/resources/com/github/Raouf16/preferences";
+	public static String preferencesFilePath = "src/main/resources/com/github/Raouf16/csv/preferences";
 	public static String prefControlerPath = "/com/github/Raouf16/view/TeacherPreferences.fxml" ;
 	public static String teacherControlerPath = "/com/github/Raouf16/view/TeacherInformation.fxml" ;
 	private Stage primaryStage;
     private static TeacherInformationController teacherController ;
     private static TeacherPreferencesController prefController;
+    
+    
 
-    public static Column existingNumEn = SparkSession
+    public static Dataset<Row> teachers = SparkSession
             .builder()
             .appName("Java Spark SQL basic example")
             .config("spark.master", "local")
             .getOrCreate()
             .read()
             .option("header", true)
-            .csv(teachersFilePath)
-            .col("numen");
+            .csv(teachersFilePath);
 
    public static Teacher teacher ;
 
@@ -60,7 +65,6 @@ public class Main extends Application
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource(teacherControlerPath));
-            System.out.println(loader.getLocation());
             AnchorPane page = (AnchorPane) loader.load();
             // Create the dialog Stage
             Stage dialogStage = new Stage();
@@ -88,10 +92,7 @@ public class Main extends Application
 
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
-            System.out.println("OK");
             loader.setLocation(Main.class.getResource(prefControlerPath));
-            System.out.println("OK");
-
             AnchorPane page = (AnchorPane) loader.load();
 
             // Create the dialog Stage
@@ -116,8 +117,10 @@ public class Main extends Application
 		this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Teach spreadsheets");
         showTeacherEditDialog();
+        if (!teacherController.isOkClicked()) System.exit(0);
         teacher = teacherController.getTeacher();
-        showTeacherPreference();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ;
+        showTeacherPreference();
+        if (!prefController.isOkClicked()) System.exit(0);;
 	}
 
 	public Stage getPrimaryStage() {
@@ -132,12 +135,11 @@ public class Main extends Application
 
 	public static void main(String[] args) throws Exception
 	{
-		File x = new File(teacherControlerPath);
 		launch();
 		CsvFile.WriteTeacher("src/main/resources/com/github/Raouf16/teachers", teacher);
 		CsvFile.WritePreference("src/main/resources/com/github/Raouf16/preferences", teacher);
 		File teacherFile = WriteInformations.write(teacher);
-		WritePreferences.write(teacher, teacherFile, teacher.getPreferences());
+		WritePreferences.write(teacher, teacherFile, (ArrayList<Preference>) teacher.getPreferences());
 		//SpreadSheetFill s= new SpreadSheetFill();
     	//s.GenerateFS(teacher);
 	}
