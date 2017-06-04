@@ -38,7 +38,8 @@
 			<artifactId>guava</artifactId>
 			<version>20.0</version>
 		</dependency>
-
+		
+		
 		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugin-tools/maven-plugin-annotations -->
 		<dependency>
     		<groupId>org.apache.maven.plugin-tools</groupId>
@@ -75,13 +76,6 @@
 	    		<version>0.8</version>
 		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugin-tools/maven-plugin-annotations -->
-		<dependency>
-    			<groupId>org.apache.maven.plugin-tools</groupId>
-    			<artifactId>maven-plugin-annotations</artifactId>
-    			<version>3.5</version>
-		</dependency>
- 		
 		<!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
 		<dependency>
 		    <groupId>com.opencsv</groupId>

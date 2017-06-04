@@ -4,8 +4,7 @@ import java.io.File;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-
+import java.util.List;
 
 import org.odftoolkit.simple.SpreadsheetDocument;
 import org.odftoolkit.simple.table.Table;
@@ -21,7 +20,7 @@ import com.github.Raouf16.model.utils.preference.*;
  */
 public class WritePreferences {
 	
-	public static void write(Teacher t, File f, ArrayList<Preference> p) throws Exception{
+	public static void write(Teacher t, File f, List<Preference> list) throws Exception{
 			 
 			 File outputFile = f;
 			 
@@ -29,7 +28,7 @@ public class WritePreferences {
 			 // Load the sheet
 			 final SpreadsheetDocument spreadSheet = SpreadsheetDocument.loadDocument(outputFile);
 		     // We browse all the Preference list
-			 for (Preference s : p) {
+			 for (Preference s : list) {
 				 
 				 // For each preference, it might be a different Year, so we have 
 				 // to open the right sheet everytime
@@ -55,6 +54,7 @@ public class WritePreferences {
 	 * This static method is to write the preferences for the semestre1
 	 * @param you have to set the preference and the sheet
 	 * @return
+	 * @author Raouf HADDAD
 	 * @throws IOException
 	 */
 	public static void writeS1(Preference s, Table sheet){
@@ -85,6 +85,7 @@ public class WritePreferences {
 	 * This static method is to write the preferences for the semestre2
 	 * @param you have to set the preference and the sheet
 	 * @return
+	 * @author Raouf HADDAD
 	 * @throws IOException
 	 */
 	public static void writeS2(Preference s, Table sheet){
@@ -115,6 +116,7 @@ public class WritePreferences {
 	 * This static method is to save the ODS File with preferences filled 
 	 * @param the teacher and the spreadsheet
 	 * @return
+	 * @author Raouf HADDAD
 	 * @throws IOException
 	 */		 
 	 

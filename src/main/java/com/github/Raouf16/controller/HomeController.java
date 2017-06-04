@@ -1,12 +1,20 @@
 package com.github.Raouf16.controller;
 import com.github.Raouf16.model.spreadsheet.write.*;
+
 import com.github.Raouf16.model.pdf.generate.*;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
+
+/**
+ * This class is the Home Controller 
+ * @author Raouf HADDAD
+ */
+
 public class HomeController {
 	
 	private Stage dialogStage;
+	private boolean infoClicked = false;
 	 /**
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
@@ -25,22 +33,30 @@ public class HomeController {
         this.dialogStage = dialogStage;
     }
     
-    /**
-     * Returns true if the user clicked OK, false otherwise.
-     *
-     * @return
-     */
    
 	public void generateODS() throws Exception{
 		GenerateEmptyFile.generate();
 	}
 
 
-	public void generateFiche() throws Exception{
+	public void generateFicheSecretary() throws Exception{
+		ExemplePDF.generate();
+	}
+	
+	public void generateFicheProfessor() throws Exception{
+		ExemplePDF.generate();
+	}
+	
+	public void generateFichierAgrege() throws Exception{
 		ExemplePDF.generate();
 	}
 	
 	public void enterInfo() throws Exception{
-		//Main.showPersonEditDialog(new Teacher());
+		infoClicked = true;
+		dialogStage.close();
+	}
+	
+	public boolean isInfoClicked(){
+		return infoClicked;
 	}
 }

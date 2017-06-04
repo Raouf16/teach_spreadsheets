@@ -1,6 +1,7 @@
 package com.github.Raouf16.model.utils.teacher;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.github.Raouf16.model.utils.preference.*;
 
@@ -24,7 +25,7 @@ public class Teacher
 	private String mobilePhone;
 	private String dauphinePhone;
 	private String office;
-	private ArrayList<Preference> preferences = new ArrayList<Preference>();
+	private List<Preference> preferences = new ArrayList<Preference>();
 	
 	
 	//Constructor
@@ -188,12 +189,12 @@ public class Teacher
 		
 	}
 
-	public ArrayList<Preference> getPreferences() {
+	public List<Preference> getPreferences() {
 		return preferences;
 	}
 
-	public void setPreferences(ArrayList<Preference> preferences) {
-		this.preferences = preferences;
+	public void setPreferences(List<Preference> tmpPref) {
+		this.preferences = tmpPref;
 	}
 	
 	public void addPreference(Preference pref)

@@ -7,6 +7,7 @@ import org.odftoolkit.simple.table.Table;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -23,9 +24,9 @@ public class ReadData
 	 * @return
 	 * @throws IOException
 	 */
-	public static ArrayList<String> getFilieres(SpreadsheetDocument spreadSheetReadingData) throws IOException 
+	public static List<String> getFilieres(SpreadsheetDocument spreadSheetReadingData) throws IOException 
 	{
-		ArrayList <String> filieres = new ArrayList<String>();
+		List <String> filieres = new ArrayList<String>();
 		
 		int countSheets = spreadSheetReadingData.getSheetCount();
 		for (int i=2; i<countSheets; i++) filieres.add(spreadSheetReadingData.getSheetByIndex(i).getTableName());
@@ -38,12 +39,12 @@ public class ReadData
 	 * @return
 	 * @throws IOException
 	 */
-	public static ArrayList<String> getSemesters(SpreadsheetDocument spreadSheetReadingData, String formation) throws IOException 
+	public static List<String> getSemesters(SpreadsheetDocument spreadSheetReadingData, String formation) throws IOException 
 	{
 		
 		if(formation.equals("APPRENTISSAGE"))
 		{
-			ArrayList<String> semesters = new ArrayList<String>();
+			List<String> semesters = new ArrayList<String>();
 			Table sheet = spreadSheetReadingData.getSheetByName(formation);
 			String semester = (String) sheet.getCellByPosition("A3").getDisplayText();
 			System.out.println("Semestre APP:"+semester);
@@ -56,7 +57,7 @@ public class ReadData
 		}
 		else if(formation.equals("LSO"))
 		{
-			ArrayList<String> semesters = new ArrayList<String>();
+			List<String> semesters = new ArrayList<String>();
 			Table sheet = spreadSheetReadingData.getSheetByName(formation);
 			String semester = (String) sheet.getCellByPosition("A2").getDisplayText();
 			System.out.println("Semestre LSO:"+semester);
@@ -71,7 +72,7 @@ public class ReadData
 		}
 		else
 		{
-			ArrayList<String> semesters = new ArrayList<String>();
+			List<String> semesters = new ArrayList<String>();
 			Table sheet = spreadSheetReadingData.getSheetByName(formation);
 			String semester = (String) sheet.getCellByPosition("B2").getDisplayText();
 			System.out.println("Semestre OTHER:"+semester);
@@ -87,14 +88,14 @@ public class ReadData
 	/***
 	 * This static method is to get the courses in a the spreadsheet in parameters
 	 * @param year and semester
-	 * @return
+	 * @return List of courses
 	 * @throws IOException
 	 */
-	public static ArrayList<String> getCourses(SpreadsheetDocument spreadSheetReadingData, String formation, String semester)
+	public static List<String> getCourses(SpreadsheetDocument spreadSheetReadingData, String formation, String semester)
 	{
 		if(formation.equals("APPRENTISSAGE"))
 		{
-			ArrayList<String> courses = new ArrayList<String>();
+			List<String> courses = new ArrayList<String>();
 			int sem;
 			try {sem = (int)Integer.parseInt(semester);}
 			catch (NumberFormatException e) {return courses;}
@@ -114,7 +115,7 @@ public class ReadData
 		//the else is for LSO, but we have to do another if for APPRENTISSAGE
 		else if(formation.equals("LSO"))
 		{
-			ArrayList<String> coursesLSO = new ArrayList<String>();
+			List<String> coursesLSO = new ArrayList<String>();
 			int sem;
 			try {sem = (int)Integer.parseInt(semester);}
 			catch (NumberFormatException e) {return coursesLSO;}
@@ -143,7 +144,7 @@ public class ReadData
 		}
 		else
 		{
-			ArrayList<String> courses = new ArrayList<String>();
+			List<String> courses = new ArrayList<String>();
 			int sem;
 			try {sem = (int)Integer.parseInt(semester);}
 			catch (NumberFormatException e) {return courses;}

@@ -133,11 +133,7 @@ public class TeacherPreferencesController
     	courses.getItems().clear();
     }
 	
-	/**
-     * Function that show the choice only if it exists
-     *
-     * @author Raouf HADDAD
-     */
+	
 	private void loadChoices(String formation, String semester, String course) throws IOException
     {
 		String [] choices = new String[3];

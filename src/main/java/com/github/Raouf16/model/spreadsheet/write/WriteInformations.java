@@ -55,11 +55,11 @@ public class WriteInformations {
 		 	 // set Office number
 			 if(t.getOffice() != null) secondSheet.getCellByPosition("H11").setDisplayText(t.getOffice());	
 		    
-		 	// Save the file
-			String newFileName = t.getFirstName()+"_"+t.getLastName()+".ods";
-		 	File endFile = new File(Main.canevasFolderPath+newFileName);
-		 	spreadSheet.save(endFile);
-		 	return endFile;
+		 	 // Save the file
+			 String newFileName = t.getFirstName()+"_"+t.getLastName()+".ods";
+		 	 File endFile = new File(Main.canevasFolderPath+newFileName);
+		 	 spreadSheet.save(endFile);
+		 	 return endFile;
 		 
 	}
 }
