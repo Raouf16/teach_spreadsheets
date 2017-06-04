@@ -6,6 +6,11 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import org.apache.spark.sql.Column;
+import org.apache.spark.sql.Dataset;
+import org.apache.spark.sql.Row;
+import org.apache.spark.sql.functions;
+
 import com.github.Raouf16.model.main.Main;
 import com.github.Raouf16.model.utils.teacher.*;
 
@@ -127,14 +132,16 @@ public class TeacherInformationController
             errorMessage += "NUMEN invalide\n";
         }
         
-        //TODO check if the numen isnt registred yet 
-
-
+       
+        	
+        // check if the numen is not already in the csv teachers file
         if (errorMessage.length() == 0)
         {
-           Main.existingNumEn.contains(numEnField.getText()).explain(true);
-           return true;
+        	Dataset<Row> result = Main.teachers.where("numen == "+numEnField.getText());
+        	if (!result.rdd().isEmpty()) errorMessage += "Numen existant !";
         }
+        
+        if (errorMessage.length() == 0) return true;
         else 
         {
             // Show the error message.

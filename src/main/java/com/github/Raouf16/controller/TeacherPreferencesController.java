@@ -2,15 +2,21 @@ package com.github.Raouf16.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import org.odftoolkit.simple.SpreadsheetDocument;
 
@@ -59,6 +65,8 @@ public class TeacherPreferencesController
     private boolean okClicked = false;
 	private Teacher teacher = Main.teacher;
 	private SpreadsheetDocument spreadSheetReadingData;	
+	private List<Preference> tmpPref = new ArrayList<Preference> ();
+	private boolean addedPref = false;
 
 	/**
      * Initializes the controller class. This method is automatically called
@@ -70,6 +78,7 @@ public class TeacherPreferencesController
 	{
 		spreadSheetReadingData = SpreadsheetDocument.loadDocument(Main.fileReadingData);
 	}
+	
     @FXML
     private void initialize() throws IOException 
     {
@@ -125,7 +134,7 @@ public class TeacherPreferencesController
     }
 	
 	/**
-     * Function that show the choince only if it exists
+     * Function that show the choice only if it exists
      *
      * @author Raouf HADDAD
      */
@@ -166,6 +175,9 @@ public class TeacherPreferencesController
     public void setDialogStage(Stage dialogStage) 
     {
     	this.dialogStage = dialogStage;
+    	this.dialogStage.setOnCloseRequest(event -> {
+    	    handleCancel();
+    	});
     }
 
     /**
@@ -192,19 +204,30 @@ public class TeacherPreferencesController
      * Called when the user clicks ok.
      */
     @FXML
-    private void handleOk() 
+    private void handleValid() 
     {
-    	System.out.println("OK");
+    	teacher.setPreferences(tmpPref);
     	okClicked = true;
     }
-   
-
+    
+  
     /**
      * Called when the user clicks cancel.
      */
     @FXML
-    private void handleCancel() {
-        dialogStage.close();
+    private void handleCancel() 
+    {
+    	if (!addedPref) dialogStage.close();
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.initOwner(dialogStage);
+    	alert.setTitle("Vous êtes sur le point de quitter");
+    	alert.setHeaderText("Vouliez vous vraiment quitter ?");
+    	alert.setContentText("Les préférences que vous aviez ajouté seront perdus");
+    	ButtonType buttonOK = new ButtonType("OK");
+    	ButtonType buttonCancel = new ButtonType("Annuler", ButtonData.CANCEL_CLOSE);
+    	alert.getButtonTypes().setAll(buttonOK, buttonCancel);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == buttonOK) dialogStage.close();  
     }
 
 	public Teacher getTeacher() 
@@ -220,13 +243,15 @@ public class TeacherPreferencesController
 			Preference preference = new Preference();
 			preference.setYear(formations.getSelectionModel().getSelectedItem());
 			preference.setSemester(semester.getSelectionModel().getSelectedItem());
-			preference.setSubject(courses.getSelectionModel().getSelectedItem());
+			preference.setSubject(courses.getSelectionModel().getSelectedItem().replace("\n", ""));
 			preference.setChoiceCourse(courseChoice.getSelectionModel().getSelectedItem());
 			preference.setChoiceTD(cmTDChoice.getSelectionModel().getSelectedItem());
 			preference.setChoiceTP(tpChoice.getSelectionModel().getSelectedItem());
 			preference.setNbrTD(groupNumber.getSelectionModel().getSelectedItem());
 			preference.setNbrYear(experience.getText());
-			teacher.addPreference(preference);
+			tmpPref.add(preference);
+			if (!addedPref) addedPref = true;
+			//teacher.addPreference(preference);
 			refresh();
 			//addToListChoice
 			System.out.println("The preference was added");
