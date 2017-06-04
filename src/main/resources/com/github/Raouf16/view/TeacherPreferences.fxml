@@ -27,7 +27,7 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem mnemonicParsing="false" text="Close" onAction="#handleCancel" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
@@ -124,8 +124,8 @@
             <ToolBar prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="2">
               <items>
                   <Button mnemonicParsing="false" onAction="#addPreference" prefHeight="25.0" prefWidth="73.0" text="Ajouter" />
-                  <Button mnemonicParsing="false" onAction="#handleOk" text="Valider" />
-                <Button mnemonicParsing="false" text="Annuler" />
+                  <Button mnemonicParsing="false" onAction="#handleValid" text="Valider" />
+                <Button mnemonicParsing="false" text="Annuler" onAction="#handleCancel"/>
               </items>
             </ToolBar>
          </children>
