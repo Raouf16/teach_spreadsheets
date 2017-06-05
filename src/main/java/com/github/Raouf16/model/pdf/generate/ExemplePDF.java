@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
- 
+import com.github.Raouf16.model.utils.teacher.Teacher;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -28,7 +28,8 @@ import com.itextpdf.text.pdf.PdfWriter;
  * Classe qui sert plus à rien
  */
 
-public class ExemplePDF{
+public class ExemplePDF
+{
 	public Document createPDF()throws DocumentException, FileNotFoundException{
 		// define rectangle sizes
 		Rectangle pagesize = new Rectangle(500f, 720f);
@@ -40,7 +41,7 @@ public class ExemplePDF{
         return document;
 	}
  
-    public static void generate() throws DocumentException, IOException {
+    public static void generate(Teacher teacher) throws DocumentException, IOException {
         ExemplePDF pdf=new ExemplePDF();
     	Document document=pdf.createPDF();
         
@@ -69,8 +70,8 @@ public class ExemplePDF{
         pdf.insertCell(table, "ANNEE", Element.ALIGN_RIGHT, 1, bfBold12);
         pdf.insertCell(table, "ENSEIGNEMENTS", Element.ALIGN_LEFT, 1, bfBold12);
         pdf.insertCell(table, "TYPE", Element.ALIGN_LEFT, 1, bfBold12);
-       pdf.insertCell(table, "NbrH", Element.ALIGN_RIGHT, 1, bfBold12);
-      for(int i=0;i<18;i++){
+        pdf.insertCell(table, "NbrH", Element.ALIGN_RIGHT, 1, bfBold12);
+        for(int i=0;i<18;i++){
     	  
        	//insert an empty row
        	   pdf.insertCell(table, "", Element.ALIGN_LEFT, 1, bfBold12);
@@ -78,7 +79,8 @@ public class ExemplePDF{
        	   pdf.insertCell(table, "", Element.ALIGN_LEFT, 1, bfBold12);
        	   //double orderTotal, total = 0;
       }
-      
+       
+      if (teacher == null) return;
       String nom = "mayag";
       String prenom ="Brice";
       String civ="M";

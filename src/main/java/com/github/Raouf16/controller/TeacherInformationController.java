@@ -6,10 +6,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import org.apache.spark.sql.Column;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
-import org.apache.spark.sql.functions;
 
 import com.github.Raouf16.model.main.Main;
 import com.github.Raouf16.model.utils.teacher.*;

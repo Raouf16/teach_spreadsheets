@@ -1,8 +1,17 @@
 package com.github.Raouf16.controller;
 import com.github.Raouf16.model.spreadsheet.write.*;
+import com.github.Raouf16.model.utils.io.TeacherReader;
+import com.github.Raouf16.model.utils.teacher.Teacher;
 
-import com.github.Raouf16.model.pdf.generate.*;
+import java.util.ArrayList;
+import java.util.Optional;
+
+import com.github.Raouf16.model.main.EnterTeacher;
+import com.github.Raouf16.model.main.Main;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 
 
@@ -11,7 +20,8 @@ import javafx.stage.Stage;
  * @author Raouf HADDAD
  */
 
-public class HomeController {
+public class HomeController 
+{
 	
 	private Stage dialogStage;
 	private boolean infoClicked = false;
@@ -39,21 +49,92 @@ public class HomeController {
 	}
 
 
-	public void generateFicheSecretary() throws Exception{
-		ExemplePDF.generate();
+	public void generateFicheSecretary() throws Exception
+	{
+		TextInputDialog dialog = new TextInputDialog();
+		dialog.setTitle("Informations professeur");
+		dialog.setHeaderText("Nom et prénom de l'enseignant");
+		dialog.setContentText("Entrer le nom ET prénom du professeur");
+
+		// Traditional way to get the response value.
+		Optional<String> result = dialog.showAndWait();
+		Teacher wantedTeacher = null;
+		if (result.isPresent()) 
+		{
+			String [] tmpStr = result.toString().replace(" ",",").split(",");
+			String firstName = tmpStr[1], lastName = tmpStr[0];
+			ArrayList<Teacher> teachers = TeacherReader.readTeachersData(Main.teachersFilePath);
+			for (Teacher t : teachers)
+			{
+				if (t!=null && t.firstName.equals(firstName) && t.lastName.equals(lastName)) 
+				{
+					wantedTeacher = t;
+					break;
+				}
+			}
+			
+			if (wantedTeacher == null)
+			{
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setTitle("Error Dialog");
+				alert.setHeaderText("Look, an Error Dialog");
+				alert.setContentText("L'enseignant est introuvable!");
+
+				alert.showAndWait();
+			}
+			
+			else GenerateFicheService.generateEmptyFS(wantedTeacher);
+				
+		}
 	}
 	
 	public void generateFicheProfessor() throws Exception{
-		ExemplePDF.generate();
+		TextInputDialog dialog = new TextInputDialog();
+		dialog.setTitle("Informations professeur");
+		dialog.setHeaderText("Nom et prénom de l'enseignant");
+		dialog.setContentText("Entrer le nom ET prénom du professeur");
+
+		// Traditional way to get the response value.
+		Optional<String> result = dialog.showAndWait();
+		Teacher wantedTeacher = null;
+		if (result.isPresent()) 
+		{
+			String [] tmpStr = result.get().replace(" ",",").split(",");
+			String firstName = tmpStr[1], lastName = tmpStr[0];
+			System.out.println(firstName);
+			System.out.println(lastName);
+			ArrayList<Teacher> teachers = TeacherReader.readTeachersData(Main.teachersFilePath);
+			for (Teacher t : teachers)
+			{
+				if (t!=null && t.firstName.equals(firstName) && t.lastName.equals(lastName)) 
+				{
+					wantedTeacher = t;
+					System.out.println("ok");
+					break;
+				}
+			}
+			
+			if (wantedTeacher == null)
+			{
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setTitle("Error Dialog");
+				alert.setHeaderText("Look, an Error Dialog");
+				alert.setContentText("L'enseignant est introuvable!");
+
+				alert.showAndWait();
+			}
+			
+			else GenerateFicheService.generateFullFS(wantedTeacher);
+		}
 	}
 	
 	public void generateFichierAgrege() throws Exception{
-		ExemplePDF.generate();
+		//ExemplePDF.generate();
 	}
 	
-	public void enterInfo() throws Exception{
-		infoClicked = true;
-		dialogStage.close();
+	public void enterInfo() throws Exception
+	{
+		EnterTeacher.enterInfo();
 	}
 	
 	public boolean isInfoClicked(){

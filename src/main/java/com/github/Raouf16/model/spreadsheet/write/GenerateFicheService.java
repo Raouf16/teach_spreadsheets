@@ -30,7 +30,7 @@ public class GenerateFicheService {
         PdfOptions options=null;
         PdfConverter.getInstance().convert(document,new FileOutputStream(Main.canevasFolderPath+pdfFileName),options);
 	}
-	public void generateEmptyFS(Teacher t) throws Exception{
+	public static void generateEmptyFS(Teacher t) throws Exception{
 			
 		try{
             // Load the file and sheet
@@ -63,7 +63,7 @@ public class GenerateFicheService {
 		} 
 	}
 	
-	public void generateFullFS(Teacher t) throws Exception
+	public static void generateFullFS(Teacher t) throws Exception
 	{
 		try{
 			// Load the file and sheet

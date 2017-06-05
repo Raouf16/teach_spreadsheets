@@ -1,4 +1,4 @@
-numen,year,semester,subject,courseChoice,tdChoice,tpChoice,nbTD,experience
+numen,year,subject,courseChoice,tdChoice,tpChoice,nbTD,experience
 "Test","DE1","1","PRE-RENTREE : 
 Mathématiques","A","B","C","1","2"
 "test","DE1","1","Analyse 1","A","A","B","1","2"
@@ -28,3 +28,10 @@ Mathématiques","A","A","A","2","2"
 "14785","L3_Informatique","6","Introduction aux systèmes à base de connaissances","C","B",,"3","0"
 "14785","DE2","3","Probabilités discrètes et réelles","C","B",,"0","0"
 "12654","DE1","1","Analyse 1",,"B",,"2","0"
+"zina94623","DE2","4","Probabilités multidimensionnelles et théorèmes limites","A","B","B","0","0"
+"12369741","DE1","2","Algèbre linéaire 2","B","B",,"2","0"
+"78523","APPRENTISSAGE","5","Graphes : Modélisation et algorithmes",,"B",,"2","0"
+"7854216","L3_Mathématiques","6","Equations différentielles (enseignement en anglais)","C","A",,"2","0"
+"78526","DE2","4","Calcul différentiel","B",,,"0","0"
+"78526","DE2","3","Algorithmique et applications","C","C","B","3","0"
+"369852","L3_Informatique","6","Programmation linéaire","C","C","C","3","8"

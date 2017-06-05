@@ -40,10 +40,4 @@ public class TeacherReader
 		for (String [] teach : csv.readAll()) teachers.add(new Teacher(teach)) ;
 		return teachers;
 	}
-	
-	public static void main (String [] args) throws Exception
-	{
-		for (Teacher tech : readTeachersData("test.txt"))  System.out.println(tech);
-	}
-	
 }

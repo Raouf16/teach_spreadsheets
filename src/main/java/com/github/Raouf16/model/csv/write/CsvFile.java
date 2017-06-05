@@ -19,7 +19,7 @@ public class CsvFile {
 	 * @param t
 	 * @throws Exception
 	 */
-	public static void WriteTeacher (String fileName, Teacher t) throws Exception{
+	public static void writeTeacher (String fileName, Teacher t) throws Exception{
 			CSVWriter writer = new CSVWriter(new FileWriter(fileName, true));
 			String [] line=new String[13];
 			
@@ -79,7 +79,7 @@ public class CsvFile {
 	 * @param t
 	 * @throws Exception
 	 */
-	public static void WritePreference (String fileName, Teacher t) throws Exception{
+	public static void writePreference (String fileName, Teacher t) throws Exception{
 		CSVWriter writer = new CSVWriter(new FileWriter(fileName, true));
 		Preference p;
 		String [] line=new String[9];
