@@ -17,7 +17,7 @@ import com.github.Raouf16.model.utils.teacher.*;
  * @author Raouf HADDAD
  */
 public class GenerateFicheService {
-	
+	// Main to remove
 	public static void main(String[] args) throws Exception{
 		final SpreadsheetDocument spreadSheet = SpreadsheetDocument.loadDocument(Main.fileReadingData);
 	 	
