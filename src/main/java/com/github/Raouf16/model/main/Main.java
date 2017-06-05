@@ -27,7 +27,8 @@ public class Main extends Application
 {
 
 	public static String canevasFolderPath = "src/main/resources/com/github/Raouf16/canevas/";
-	public static File fileReadingData = new File("src/main/resources/com/github/Raouf16/Lire_saisie_voeux.ods");
+	public static File fileFicheSerice = new File("src/main/resources/com/github/Raouf16/canevas/Fiche_service.ods")
+	public static File fileReadingData = new File("src/main/resources/com/github/Raouf16/canevas/Lire_saisie_voeux.ods");
 	public static String teachersFilePath = "src/main/resources/com/github/Raouf16/csv/teachers";
 	public static String preferencesFilePath = "src/main/resources/com/github/Raouf16/csv/preferences";
 	public static String prefControlerPath = "/com/github/Raouf16/view/TeacherPreferences.fxml" ;

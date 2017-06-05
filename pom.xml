@@ -27,11 +27,11 @@
 	<dependencies>
 	
 		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
-<dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-log4j12</artifactId>
-    <version>1.8.0-alpha2</version>
-</dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-log4j12</artifactId>
+		    <version>1.8.0-alpha2</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.google.guava</groupId>
@@ -87,6 +87,20 @@
 			<groupId>org.apache.odftoolkit</groupId>
 			<artifactId>simple-odf</artifactId>
 			<version>0.8.1-incubating</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.odftoolkit/odfdom-java -->
+		<dependency>
+		    <groupId>org.odftoolkit</groupId>
+		    <artifactId>odfdom-java</artifactId>
+		    <version>0.8.7</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/org.odftoolkit.odfdom.converter.pdf -->
+		<dependency>
+		    <groupId>fr.opensagres.xdocreport</groupId>
+		    <artifactId>org.odftoolkit.odfdom.converter.pdf</artifactId>
+		    <version>1.0.6</version>
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->

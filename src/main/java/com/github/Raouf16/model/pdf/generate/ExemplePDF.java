@@ -25,13 +25,14 @@ import com.itextpdf.text.pdf.PdfWriter;
  
 /**
  * @author Lynda BOULILA, Katia SERSOUR, Haya COHEN
+ * Classe qui sert plus à rien
  */
 
 public class ExemplePDF{
 	public Document createPDF()throws DocumentException, FileNotFoundException{
 		// define rectangle sizes
 		Rectangle pagesize = new Rectangle(500f, 720f);
-        Document document = new Document(pagesize, 20f, 20f, 10f, 60f);
+        Document document = new Document(pagesize, 20f, 20f, 10f, 60f); 
         // Create the pdf file
         PdfWriter.getInstance(document, new FileOutputStream("fr.pdf"));
         // open then file
