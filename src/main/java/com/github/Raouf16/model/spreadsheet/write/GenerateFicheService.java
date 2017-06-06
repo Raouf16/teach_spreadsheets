@@ -1,15 +1,12 @@
 package com.github.Raouf16.model.spreadsheet.write;
 
 import java.io.File;
-import java.io.FileOutputStream;
 
-import org.odftoolkit.odfdom.converter.pdf.PdfConverter;
-import org.odftoolkit.odfdom.converter.pdf.PdfOptions;
-import org.odftoolkit.odfdom.doc.OdfDocument;
 import org.odftoolkit.simple.SpreadsheetDocument;
 import org.odftoolkit.simple.table.Table;
 
 import com.github.Raouf16.model.main.Main;
+import com.github.Raouf16.model.pdf.generate.*;
 import com.github.Raouf16.model.utils.teacher.*;
 
 /**
@@ -17,24 +14,12 @@ import com.github.Raouf16.model.utils.teacher.*;
  * @author Raouf HADDAD
  */
 public class GenerateFicheService {
-	// Main to remove
-	public static void main(String[] args) throws Exception{
-		final SpreadsheetDocument spreadSheet = SpreadsheetDocument.loadDocument(Main.fileReadingData);
-	 	
-		File outputFile = new File(Main.canevasFolderPath+"TESTFICHESERVICE.ods");
-        spreadSheet.save(outputFile);
-        String pdfFileName = "_FSVide_PDF.pdf";
-        
-
-        OdfDocument document = OdfDocument.loadDocument(outputFile);
-        PdfOptions options=null;
-        PdfConverter.getInstance().convert(document,new FileOutputStream(Main.canevasFolderPath+pdfFileName),options);
-	}
+	
 	public static void generateEmptyFS(Teacher t) throws Exception{
 			
 		try{
             // Load the file and sheet
-		 	final SpreadsheetDocument spreadSheet = SpreadsheetDocument.loadDocument(Main.fileReadingData);
+		 	final SpreadsheetDocument spreadSheet = SpreadsheetDocument.loadDocument(Main.fileFicheService);
 		 	final Table sheet = spreadSheet.getSheetByName("FService");
 			 
 	        
@@ -52,13 +37,8 @@ public class GenerateFicheService {
             spreadSheet.save(outputFile);
             
             // Convert as PDF
-            String pdfFileName = t.getFirstName()+"_"+t.getLastName()+"_FSVide_PDF.pdf";
-            
-            
-            OdfDocument document = OdfDocument.loadDocument(outputFile);
-            PdfOptions options=null;
-            PdfConverter.getInstance().convert(document,new FileOutputStream(Main.canevasFolderPath+pdfFileName),options);
-		}catch(NullPointerException e){
+            GeneratePDF.generateEmptyFS(t);
+            	}catch(NullPointerException e){
 			System.out.println("Fichier source introuvable");
 		} 
 	}
@@ -67,7 +47,7 @@ public class GenerateFicheService {
 	{
 		try{
 			// Load the file and sheet
-		 	final SpreadsheetDocument spreadSheet = SpreadsheetDocument.loadDocument(Main.fileReadingData);
+		 	final SpreadsheetDocument spreadSheet = SpreadsheetDocument.loadDocument(Main.fileFicheService);
 		 	final Table sheet = spreadSheet.getSheetByName("FService");
 		 
 	        
@@ -89,11 +69,7 @@ public class GenerateFicheService {
 	        spreadSheet.save(outputFile);
 	        
 	        // Convert as PDF
-	        String pdfFileName = t.getFirstName()+"_"+t.getLastName()+"_FSRemplie_PDF.pdf";
-	        
-	        OdfDocument document = OdfDocument.loadDocument(outputFile);
-	        PdfOptions options=null;
-	        PdfConverter.getInstance().convert(document,new FileOutputStream(Main.canevasFolderPath+pdfFileName),options);
+	        GeneratePDF.generateFullFS(t);
 		}catch(NullPointerException e){
 			System.out.println("Fichier source introuvable");
 		} 

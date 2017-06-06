@@ -15,8 +15,8 @@ public class Preference
     private String choiceCourse; // between A and C
     private String choiceTD; // between A and C	
     private String choiceTP; // between A and C
-    private int nbrTD;  // the number of td you want
-    private int nbrYear; // the number of year of experience
+    private int nbrTD = 0;  // the number of td you want
+    private int nbrYear = 0; // the number of year of experience
 
     //Constructor
 
