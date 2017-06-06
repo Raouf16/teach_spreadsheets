@@ -1,10 +1,15 @@
 package com.github.Raouf16.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
@@ -39,6 +44,12 @@ public class TeacherInformationController
     private TextField  dauphinePhoneField;
     @FXML
     private TextField  dauphineEmailField;
+    @FXML 
+    private TextField disciplineField;
+    @FXML 
+    private TextField postalCodeField;
+    @FXML 
+    private ComboBox<String> civility ;
     
    
 
@@ -54,6 +65,10 @@ public class TeacherInformationController
     @FXML
     private void initialize() 
     {
+    	String [] civ = {"Mr", "Mme", "Mlle"}; 
+    	ObservableList<String> tmp = FXCollections.observableArrayList();
+    	for (String c : civ) tmp.add(c);
+    	civility.setItems(tmp);
     }
 
     /**
