@@ -9,7 +9,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
@@ -109,6 +108,9 @@ public class TeacherInformationController
             teacher.setDauphinePhone(dauphinePhoneField.getText());
             teacher.setMobilePhone(mobilePhoneField.getText());
             teacher.setPersonalEmail(personalEmailField.getText());
+            teacher.setCivility(civility.getSelectionModel().getSelectedItem());
+            teacher.setDiscipline(disciplineField.getText());
+            teacher.setPostalCode(postalCodeField.getText());
             okClicked = true;
             dialogStage.close();
         }
@@ -131,7 +133,11 @@ public class TeacherInformationController
     private boolean isInputValid() 
     {
         String errorMessage = "";
-
+        
+        if (civility== null || civility.getSelectionModel().getSelectedItem().equals("Selection"))
+        {
+        	errorMessage += "Civilité invalide!\n";
+        }
         if (firstNameField.getText() == null || firstNameField.getText().length() == 0) 
         {
         	errorMessage += "Prenom invalide!\n";
@@ -144,8 +150,12 @@ public class TeacherInformationController
         {
             errorMessage += "NUMEN invalide\n";
         }
+        if (disciplineField.getText() == null || disciplineField.getText().length() == 0)
+        {
+        	 errorMessage += "Discipline invalide\n";
+        }
         
-       
+    
         	
         // check if the numen is not already in the csv teachers file
         if (errorMessage.length() == 0)

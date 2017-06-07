@@ -25,6 +25,8 @@ public class Teacher
 	private String mobilePhone;
 	private String dauphinePhone;
 	private String office;
+	private String civility;
+	private String discipline;
 	private List<Preference> preferences = new ArrayList<Preference>();
 	
 	
@@ -37,16 +39,19 @@ public class Teacher
 		else firstName = infos[0];
 		if (infos[1] == "") throw new Exception("Nom pas renseigné");
 		else lastName = infos[1];
-		adress = infos[2].equals("") ? null : infos[2] ;
-		postalCode = infos[3].equals("") ? null : infos[3] ;
-		city = infos[4].equals("") ? null : infos[4] ;
-		personalPhone = infos[5].equals("") ? null : infos[5] ;
-		mobilePhone = infos[6].equals("") ? null : infos[6] ;
-		personalEmail = infos[7].equals("") ? null : infos[7] ;
-		dauphineEmail = infos[8].equals("") ? infos[8] : null ;
-		status = infos[9].equals("") ? null : infos[9] ;
-		dauphinePhone = infos[10].equals("") ? null : infos[10] ;
-		office = infos[11].equals("") ? null : infos[11] ;
+		numEn = infos[2].equals("") ? null : infos[2] ;
+		civility = infos[3].equals("") ? null : infos[3] ;
+		adress = infos[4].equals("") ? null : infos[4] ;
+		postalCode = infos[5].equals("") ? null : infos[5] ;
+		city = infos[6].equals("") ? null : infos[6] ;
+		personalPhone = infos[7].equals("") ? null : infos[7] ;
+		mobilePhone = infos[8].equals("") ? null : infos[8] ;
+		personalEmail = infos[9].equals("") ? null : infos[9] ;
+		dauphineEmail = infos[10].equals("") ? null : infos[10] ;
+		status = infos[11].equals("") ? null : infos[11] ;
+		dauphinePhone = infos[12].equals("") ? null : infos[12] ;
+		office = infos[13].equals("") ? null : infos[13] ;
+		discipline = infos[14].equals("") ? null : infos[14] ;
 	}
 	
 	public Teacher() {}
@@ -204,6 +209,22 @@ public class Teacher
 
 	public boolean equals(Teacher t) {
 		return numEn.equals(t);
+	}
+
+	public String getCivility() {
+		return civility;
+	}
+
+	public void setCivility(String civility) {
+		this.civility = civility;
+	}
+
+	public String getDiscipline() {
+		return discipline;
+	}
+
+	public void setDiscipline(String discipline) {
+		this.discipline = discipline;
 	}
 	
 

@@ -42,6 +42,7 @@ public class ReadData
 	public static List<String> getSemesters(SpreadsheetDocument spreadSheetReadingData, String formation) throws IOException 
 	{
 		
+		if (formation == null) return new ArrayList<String>();
 		if(formation.equals("APPRENTISSAGE"))
 		{
 			List<String> semesters = new ArrayList<String>();
@@ -93,6 +94,7 @@ public class ReadData
 	 */
 	public static List<String> getCourses(SpreadsheetDocument spreadSheetReadingData, String formation, String semester)
 	{
+		if (formation == null) return new ArrayList<String>();
 		if(formation.equals("APPRENTISSAGE"))
 		{
 			List<String> courses = new ArrayList<String>();

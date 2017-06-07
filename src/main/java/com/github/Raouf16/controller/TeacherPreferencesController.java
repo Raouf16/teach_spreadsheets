@@ -203,6 +203,7 @@ public class TeacherPreferencesController
     {
     	teacher.setPreferences(tmpPref);
     	okClicked = true;
+    	dialogStage.close();
     }
     
   
@@ -246,9 +247,7 @@ public class TeacherPreferencesController
 			preference.setNbrYear(experience.getText());
 			tmpPref.add(preference);
 			if (!addedPref) addedPref = true;
-			//teacher.addPreference(preference);
 			refresh();
-			//addToListChoice
 			System.out.println("The preference was added");
 			initialize();
 		}		

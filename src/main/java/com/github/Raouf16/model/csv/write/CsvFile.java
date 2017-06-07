@@ -21,21 +21,23 @@ public class CsvFile {
 	 */
 	public static void writeTeacher (String fileName, Teacher t) throws Exception{
 			CSVWriter writer = new CSVWriter(new FileWriter(fileName, true));
-			String [] line=new String[13];
+			String [] line=new String[15];
 			
-			line[0]= t.getFirstName();
-			line[1]= t.getLastName();
-			line[2]= t.getNumEn();
-			line[3]=t.getAdress();
-			line[4]= t.getPostalCode();
-			line[5]= t.getCity();
-			line[6]= t.getStatus();
-			line[7]= t.getDauphineEmail();
-			line[8]= t.getPersonalEmail();
-			line[9]=t.getPersonalPhone();
-			line[10]= t.getMobilePhone();
-			line[11]= t.getDauphinePhone();
-			line[12]= t.getOffice();
+			line[0] = t.getFirstName();
+			line[1] = t.getLastName();
+			line[2] = t.getNumEn();
+			line[3] = t.getCivility();
+			line[4] = t.getAdress();
+			line[5] = t.getPostalCode();
+			line[6] = t.getCity();
+			line[7] = t.getStatus();
+			line[8] = t.getDauphineEmail();
+			line[9] = t.getPersonalEmail();
+			line[10] = t.getPersonalPhone();
+			line[11] = t.getMobilePhone();
+			line[12] = t.getDauphinePhone();
+			line[13] = t.getOffice();
+			line[14] = t.getDiscipline();
 			
 			writer.writeNext(line);
 		     
@@ -52,21 +54,25 @@ public class CsvFile {
 		Teacher t= new Teacher();
 		CSVReader reader = new CSVReader(new FileReader(fileName));
 	     String [] nextLine;
-	     while ((nextLine = reader.readNext()) != null) {
-	        if (nextLine[2].compareTo(Num)==0){
+	     while ((nextLine = reader.readNext()) != null) 
+	     {
+	        if (nextLine[2].compareTo(Num)==0)
+	        {
 	        	t.setFirstName(nextLine[0]);
 	        	t.setLastName(nextLine[1]);
 	        	t.setNumEn(nextLine[2]);
-	        	t.setAdress(nextLine[3]);
-	        	t.setPostalCode(nextLine[4]);
-	        	t.setCity(nextLine[5]);
-	        	t.setStatus(nextLine[6]);
-	        	t.setDauphineEmail(nextLine[7]);
-	        	t.setPersonalEmail(nextLine[8]);
-	        	t.setPersonalPhone(nextLine[9]);
-	        	t.setMobilePhone(nextLine[10]);
-	        	t.setDauphinePhone(nextLine[11]);
-	        	t.setOffice(nextLine[12]);
+	        	t.setCivility(nextLine[3]);
+	        	t.setAdress(nextLine[4]);
+	        	t.setPostalCode(nextLine[5]);
+	        	t.setCity(nextLine[6]);
+	        	t.setStatus(nextLine[7]);
+	        	t.setDauphineEmail(nextLine[8]);
+	        	t.setPersonalEmail(nextLine[9]);
+	        	t.setPersonalPhone(nextLine[10]);
+	        	t.setMobilePhone(nextLine[11]);
+	        	t.setDauphinePhone(nextLine[12]);
+	        	t.setOffice(nextLine[13]);
+	        	t.setDiscipline(nextLine[14]);
 	        }
 	     }
 	     //System.out.println(t);
@@ -86,7 +92,7 @@ public class CsvFile {
 		for (int i=0; i<t.getPreferences().size();i++){
 			p=t.getPreferences().get(i);
 			
-			line[0]=t.getNumEn();
+			line[0]= "\n"+t.getNumEn();
 			line[1]= p.getYear();
 			line[2]= p.getSemester();
 			line[3]= p.getSubject();

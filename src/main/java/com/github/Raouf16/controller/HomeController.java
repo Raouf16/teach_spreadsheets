@@ -53,20 +53,20 @@ public class HomeController
 	{
 		TextInputDialog dialog = new TextInputDialog();
 		dialog.setTitle("Informations professeur");
-		dialog.setHeaderText("Nom et prénom de l'enseignant");
-		dialog.setContentText("Entrez le nom ET prénom du professeur");
+		dialog.setHeaderText("Identifiant enseignant");
+		dialog.setContentText("Entrez le numen de l'enseignant");
 
 		// Traditional way to get the response value.
 		Optional<String> result = dialog.showAndWait();
 		Teacher wantedTeacher = null;
 		if (result.isPresent()) 
 		{
-			String [] tmpStr = result.get().replace(" ",",").split(",");
-			String firstName = tmpStr[1], lastName = tmpStr[0];
+			String numen = result.get();
 			ArrayList<Teacher> teachers = TeacherReader.readTeachersData(Main.teachersFilePath);
 			for (Teacher t : teachers)
 			{
-				if (t!=null && t.firstName.equals(firstName) && t.lastName.equals(lastName)) 
+				System.out.println(t.getNumEn());
+				if (t!=null && t.getNumEn().equals(numen)) 
 				{
 					wantedTeacher = t;
 					break;
