@@ -20,4 +20,4 @@ firstName,lastName,numen,adress,postalCode,city,status,dauphineMail,personalMail
 "test","app","12321231","",,,,"","",,"","",""
 "test","appre","887","",,,,"","",,"","",""
 "Raouf","HADDAD","876543","",,,,"","",,"","",""
-"Ana","Howa","8765","Adresse",,,,"MailDauphine","MailPerso",,"MobilePerso","NumBUREAU","TelDAUPHINE"
+"Ana","Howa","8765","Adresse","lol1","lol2","lol3","MailDauphine","MailPerso",,"MobilePerso","NumBUREAU","TelDAUPHINE"

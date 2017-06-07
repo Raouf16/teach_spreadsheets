@@ -202,9 +202,9 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
       
       paragraph.add("\n");
       
-      if(teacher.getPersonalPhone() != null) paragraph.add(teacher.getPersonalPhone());
+      if(teacher.getMobilePhone() != null) paragraph.add(teacher.getMobilePhone());
       paragraph.add("                              ");
-      if(teacher.getDauphinePhone() != null) paragraph.add(teacher.getDauphinePhone());
+      if(teacher.getPersonalPhone() != null) paragraph.add(teacher.getPersonalPhone());
       paragraph.add("                                             ");
       if(teacher.getOffice() != null) paragraph.add(teacher.getOffice());
       

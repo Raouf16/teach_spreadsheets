@@ -52,7 +52,7 @@ public class GenerateFicheService {
 		 
 	        
 	        // Fill the Sheet
-		 	
+		 	System.out.println("MAIL : "+t.getDauphineEmail()+" /");
 	        if(t.getCity() != null) sheet.getCellByPosition("C6").setDisplayText(t.getCity());
 	        if(t.getFirstName() != null) sheet.getCellByPosition("H6").setDisplayText(t.getFirstName());
 	        if(t.getLastName() != null) sheet.getCellByPosition("E6").setDisplayText(t.getLastName());
