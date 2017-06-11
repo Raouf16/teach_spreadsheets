@@ -15,9 +15,12 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.apache.log4j;
 
 public class EnterTeacher
 {
+	private final static Logger logger = Logger.getLogger(EnterTeacher.class);
+	
 	private static Stage primaryStage;
 	private static TeacherInformationController teacherControler;
 	private static TeacherPreferencesController prefControler;
@@ -27,6 +30,7 @@ public class EnterTeacher
 	
 	public static void enterInfo() throws Exception
 	{
+		 logger.info("Entering the enterInfo method");
 		primaryStage = Main.primaryStage ;
 		dialogStage.initModality(Modality.WINDOW_MODAL);
 		showTeacherDialog();
@@ -58,12 +62,14 @@ public class EnterTeacher
      */
 	private static void showTeacherDialog()
 	{
+		 logger.info("Entering the showTeacherDialog method");
 		try
         {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource(Main.teacherControlerPath));
             AnchorPane page = (AnchorPane) loader.load();
+            logger.info("FXML file for teacher loaded");
             // Create the dialog Stage
             dialogStage.setTitle("Informations personnelles");
             
@@ -88,12 +94,14 @@ public class EnterTeacher
 	
 	private static void showPreferencesDialog()
 	{
+		 logger.info("Entering the showPreferenceDialog method");
 		try
         {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource(Main.prefControlerPath));
             AnchorPane page = (AnchorPane) loader.load();
+            logger.info("FXML file for preferences loaded");
             // Create the dialog Stage
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Informations personnelles");

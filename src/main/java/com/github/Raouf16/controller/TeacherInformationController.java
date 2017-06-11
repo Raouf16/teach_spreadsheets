@@ -157,7 +157,7 @@ public class TeacherInformationController
         
     
         	
-        // check if the numen is not already in the csv teachers file
+        //check if the numen is not already in the csv teachers file
         if (errorMessage.length() == 0)
         {
         	Dataset<Row> result = Main.teachers.where("numen == "+numEnField.getText());
