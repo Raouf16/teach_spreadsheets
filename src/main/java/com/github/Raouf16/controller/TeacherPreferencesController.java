@@ -75,6 +75,7 @@ public class TeacherPreferencesController
 	
 	public TeacherPreferencesController() throws Exception
 	{
+		System.out.println(Main.fileReadingData.getAbsolutePath());
 		spreadSheetReadingData = SpreadsheetDocument.loadDocument(Main.fileReadingData);
 	}
 	

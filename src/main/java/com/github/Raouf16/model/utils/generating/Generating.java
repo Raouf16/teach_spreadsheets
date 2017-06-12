@@ -16,7 +16,7 @@ import com.github.Raouf16.model.main.Main;
 public class Generating 
 {
 	public static void generateAgregatedFile(){
-		SparkSession spark = SparkSession
+		/***SparkSession spark = SparkSession
 				  .builder()
 				  .appName("Java Spark SQL basic example")
 				  .config("spark.master", "local")
@@ -26,7 +26,7 @@ public class Generating
 		teachers = teachers.join(preferences, "numen");
 		teachers.show();
 		teachers = teachers.groupBy("numen").sum("nbTD");
-		teachers.show();
+		teachers.show();**/
 
 		
 	}

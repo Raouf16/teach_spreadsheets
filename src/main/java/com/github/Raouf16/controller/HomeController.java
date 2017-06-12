@@ -1,12 +1,12 @@
 package com.github.Raouf16.controller;
 import com.github.Raouf16.model.spreadsheet.write.*;
-import com.github.Raouf16.model.utils.io.TeacherReader;
+import com.github.Raouf16.model.utils.io.csv.read.CsvReader;
+import com.github.Raouf16.model.utils.teacher.EnterTeacher;
 import com.github.Raouf16.model.utils.teacher.Teacher;
 
-import java.util.ArrayList;
 import java.util.Optional;
 
-import com.github.Raouf16.model.main.EnterTeacher;
+
 import com.github.Raouf16.model.main.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -62,16 +62,7 @@ public class HomeController
 		if (result.isPresent()) 
 		{
 			String numen = result.get();
-			ArrayList<Teacher> teachers = TeacherReader.readTeachersData(Main.teachersFilePath);
-			for (Teacher t : teachers)
-			{
-				System.out.println(t.getNumEn());
-				if (t!=null && t.getNumEn().equals(numen)) 
-				{
-					wantedTeacher = t;
-					break;
-				}
-			}
+			wantedTeacher = CsvReader.getTeacherByNumEn(Main.teachersFilePath, numen) ;
 			
 			if (wantedTeacher == null)
 			{
@@ -99,18 +90,8 @@ public class HomeController
 		Teacher wantedTeacher = null;
 		if (result.isPresent()) 
 		{
-			String [] tmpStr = result.get().replace(" ",",").split(",");
-			String firstName = tmpStr[1], lastName = tmpStr[0];
-			ArrayList<Teacher> teachers = TeacherReader.readTeachersData(Main.teachersFilePath);
-			for (Teacher t : teachers)
-			{
-				if (t!=null && t.firstName.equals(firstName) && t.lastName.equals(lastName)) 
-				{
-					wantedTeacher = t;
-					break;
-				}
-			}
-			
+			String numen = result.get();
+			wantedTeacher = CsvReader.getTeacherByNumEn(Main.teachersFilePath, numen) ;
 			if (wantedTeacher == null)
 			{
 				Alert alert = new Alert(AlertType.ERROR);
@@ -131,7 +112,8 @@ public class HomeController
 	
 	public void enterInfo() throws Exception
 	{
-		EnterTeacher.enterInfo();
+		
+		(new EnterTeacher()).enterInfo();
 	}
 	
 	public boolean isInfoClicked(){

@@ -32,13 +32,11 @@ public class Teacher
 	
 	//Constructor
 	
-	public Teacher (String [] infos) throws Exception
+	public Teacher (String [] infos) throws IllegalArgumentException
 	{
 		if (infos == null) throw new IllegalArgumentException("Erreur ! entrée incorrecte");
-		if (infos[0] == "") throw new Exception("Nom pas renseigné");
-		else firstName = infos[0];
-		if (infos[1] == "") throw new Exception("Nom pas renseigné");
-		else lastName = infos[1];
+		firstName = infos[0];
+		lastName = infos[1];
 		numEn = infos[2].equals("") ? null : infos[2] ;
 		civility = infos[3].equals("") ? null : infos[3] ;
 		adress = infos[4].equals("") ? null : infos[4] ;

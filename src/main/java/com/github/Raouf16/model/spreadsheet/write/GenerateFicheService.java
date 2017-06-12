@@ -65,7 +65,7 @@ public class GenerateFicheService {
 	        
 	        // Save 
 	        String newFileName = t.getFirstName()+"_"+t.getLastName()+"_FicheServiceRemplie.ods";
-	        File outputFile = new File(Main.canevasFolderPath+newFileName);
+	        File outputFile = new File(Main.class.getResource(Main.canevasFolderPath+newFileName).getPath());
 	        spreadSheet.save(outputFile);
 	        
 	        // Convert as PDF
