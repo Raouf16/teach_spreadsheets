@@ -15,7 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.apache.log4j;
+import org.apache.log4j.Logger;
 
 public class EnterTeacher
 {

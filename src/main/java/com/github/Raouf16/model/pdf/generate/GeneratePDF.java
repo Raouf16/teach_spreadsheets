@@ -19,7 +19,7 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import org.apache.log4j;
+import org.apache.log4j.Logger;
 
 
 public class GeneratePDF
