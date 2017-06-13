@@ -9,11 +9,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 
 import com.github.Raouf16.model.main.Main;
+import com.github.Raouf16.model.utils.io.csv.read.CsvReader;
 import com.github.Raouf16.model.utils.teacher.*;
 
 /**
@@ -93,9 +95,11 @@ public class TeacherInformationController
 
     /**
      * Called when the user clicks ok.
+     * @throws IOException 
+     * @throws IllegalArgumentException 
      */
     @FXML
-    private void handleOk() 
+    private void handleOk() throws IllegalArgumentException, IOException 
     {
         if (isInputValid()) 
         {
@@ -129,8 +133,10 @@ public class TeacherInformationController
      * Validates the user input in the text fields.
      *
      * @return true if the input is valid
+     * @throws IOException 
+     * @throws IllegalArgumentException 
      */
-    private boolean isInputValid() 
+    private boolean isInputValid() throws IllegalArgumentException, IOException 
     {
         String errorMessage = "";
         
@@ -160,8 +166,8 @@ public class TeacherInformationController
         //check if the numen is not already in the csv teachers file
         if (errorMessage.length() == 0)
         {
-        	Dataset<Row> result = Main.teachers.where("numen == "+numEnField.getText());
-        	if (!result.rdd().isEmpty()) errorMessage += "Numen existant !";
+        	Teacher t = CsvReader.getTeacherByNumEn(Main.teachersFilePath, numEnField.getText());
+        	if (t != null) errorMessage += "Numen existant!";
         }
         
         if (errorMessage.length() == 0) return true;

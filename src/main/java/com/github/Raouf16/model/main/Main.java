@@ -20,30 +20,20 @@ import org.apache.spark.sql.SparkSession;
 public class Main extends Application
 {
 
-	public static String canevasFolderPath = Main.class.getResource("canevas/").getPath();
-	public static URL outputsFolderPath = Main.class.getResource("sorties/");
-	public static File fileFicheService = new File(Main.class.getResource("Fiche_service.ods").getPath());
-	public static File fileReadingData = new File(Main.class.getResource("Lire_saisie_voeux.ods").getPath());
-	public static File emptyFileChoice = new File(Main.class.getResource("canevas/Fichier_voeux_vide.ods").getPath());
-	public static String teachersFilePath = Main.class.getResource("csv/teachers").getPath();
-	public static String preferencesFilePath = Main.class.getResource("csv/preferences").getPath();
+	//public static String canevasFolderPath = "";
+	public static String outputsFolderPath = "sorties/";
+	public static File fileFicheService = new File("src/main/resources/com/github/Raouf16/model/main/canevas/Fiche_service.ods");
+	public static File fileReadingData = new File("src/main/resources/com/github/Raouf16/model/main/canevas/Lire_saisie_voeux.ods");
+	public static File emptyFileChoice = new File("src/main/resources/com/github/Raouf16/model/main/canevas/Fichier_voeux_vide.ods");
+	public static String teachersFilePath = "sorties/csv/teachers";
+	public static String preferencesFilePath = "sorties/csv/preferences" ;
 	public static URL prefControlerPath = Main.class.getResource("view/TeacherPreferences.fxml") ;
 	public static URL homePath = Main.class.getResource("view/Home.fxml") ;
 	public static URL teacherControlerPath = Main.class.getResource("view/TeacherInformation.fxml");
 	public static Stage primaryStage;
     private static HomeController homeControl;
 
-    
-    
-
-    public static Dataset<Row> teachers = SparkSession
-            .builder()
-            .appName("Java Spark SQL basic example")
-            .config("spark.master", "local")
-            .getOrCreate()
-            .read()
-            .option("header", true)
-            .csv(teachersFilePath);
+  
 
    public static Teacher teacher ;
 

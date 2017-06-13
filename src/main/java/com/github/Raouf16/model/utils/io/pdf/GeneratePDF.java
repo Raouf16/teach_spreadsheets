@@ -37,7 +37,7 @@ public class GeneratePDF
         Document document = new Document(pagesize, 20f, 20f, 10f, 60f); 
         // Create the pdf file
         String pdfFileName = t.getFirstName()+"_"+t.getLastName()+"_FicheService.pdf";
-        PdfWriter.getInstance(document, new FileOutputStream(Main.outputsFolderPath+pdfFileName));
+        PdfWriter.getInstance(document, new FileOutputStream(Main.outputsFolderPath+"pdf/"+pdfFileName));
         // open then file
         document.open();
         logger.info("file opened");

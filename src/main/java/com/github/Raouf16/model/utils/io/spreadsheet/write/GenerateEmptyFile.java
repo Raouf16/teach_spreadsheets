@@ -20,7 +20,7 @@ public class GenerateEmptyFile {
 			// Open the file
 			final SpreadsheetDocument spreadSheet = SpreadsheetDocument.loadDocument(file);
 			// Save to file 
-			 File outputFile = Main.emptyFileChoice ;
+			 File outputFile = new File(Main.outputsFolderPath+"excel/"+Main.emptyFileChoice.getName());
 			 spreadSheet.save(outputFile);
 			 
 		}catch(NullPointerException e){

@@ -57,7 +57,7 @@ public class WriteInformations {
 		    
 		 	 // Save the file
 			 String newFileName = t.getFirstName()+"_"+t.getLastName()+".ods";
-		 	 File endFile = new File(Main.canevasFolderPath+newFileName);
+		 	 File endFile = new File(Main.outputsFolderPath+"excel/"+newFileName);
 		 	 spreadSheet.save(endFile);
 		 	 return endFile;
 		 

@@ -12,11 +12,6 @@
 	</properties>
 	
 	<build>
-		<resources>
-     		<resource>
-       			<directory>src/com/github/Raouf16</directory>
-     		</resource>
-   		</resources>
 		<plugins>
 			<plugin>
     			<groupId>com.zenjava</groupId>
@@ -51,6 +46,13 @@
 			<version>20.0</version>
 		</dependency>
 		
+		<dependency>
+		   <groupId>com.sun</groupId>
+		   <artifactId>tools</artifactId>
+		   <version>1.7.0</version>
+		   <scope>system</scope>
+		   <systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath>
+ 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugin-tools/maven-plugin-annotations -->
 		<dependency>

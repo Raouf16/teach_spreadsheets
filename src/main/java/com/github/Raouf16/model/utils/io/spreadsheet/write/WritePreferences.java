@@ -201,7 +201,7 @@ public class WritePreferences {
 		 	// Save the file
 			String newFileName = t.firstName+"_"+t.lastName+"_"+"pref.ods";
 		 	try {
-				spreadSheet.save(Main.canevasFolderPath+newFileName);
+				spreadSheet.save(Main.outputsFolderPath+"excel/"+newFileName);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} 
