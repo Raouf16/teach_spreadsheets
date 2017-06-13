@@ -20,8 +20,8 @@ import java.util.Optional;
 import org.odftoolkit.simple.SpreadsheetDocument;
 
 import com.github.Raouf16.model.main.Main;
-import com.github.Raouf16.model.spreadsheet.read.ReadBorder;
-import com.github.Raouf16.model.spreadsheet.read.ReadData;
+import com.github.Raouf16.model.utils.io.spreadsheet.read.ReadBorder;
+import com.github.Raouf16.model.utils.io.spreadsheet.read.ReadData;
 import com.github.Raouf16.model.utils.preference.*;
 import com.github.Raouf16.model.utils.teacher.*;
 

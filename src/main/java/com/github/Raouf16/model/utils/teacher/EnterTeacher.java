@@ -6,9 +6,9 @@ import java.io.IOException;
 import com.github.Raouf16.controller.TeacherInformationController;
 import com.github.Raouf16.controller.TeacherPreferencesController;
 import com.github.Raouf16.model.utils.io.csv.write.CsvWriter;
+import com.github.Raouf16.model.utils.io.spreadsheet.write.WriteInformations;
+import com.github.Raouf16.model.utils.io.spreadsheet.write.WritePreferences;
 import com.github.Raouf16.model.main.Main;
-import com.github.Raouf16.model.spreadsheet.write.WriteInformations;
-import com.github.Raouf16.model.spreadsheet.write.WritePreferences;
 import com.github.Raouf16.model.utils.teacher.Teacher;
 
 import javafx.fxml.FXMLLoader;

@@ -30,9 +30,4 @@ public class Generating
 
 		
 	}
-
-	public static void main (String []args){
-
-		Generating.generateAgregatedFile();
-	}
 }

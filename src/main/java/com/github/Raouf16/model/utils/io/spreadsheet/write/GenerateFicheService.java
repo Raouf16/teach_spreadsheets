@@ -1,4 +1,4 @@
-package com.github.Raouf16.model.spreadsheet.write;
+package com.github.Raouf16.model.utils.io.spreadsheet.write;
 
 import java.io.File;
 
@@ -6,7 +6,8 @@ import org.odftoolkit.simple.SpreadsheetDocument;
 import org.odftoolkit.simple.table.Table;
 
 import com.github.Raouf16.model.main.Main;
-import com.github.Raouf16.model.pdf.generate.*;
+import com.github.Raouf16.model.utils.io.pdf.*;
+import com.github.Raouf16.model.utils.io.pdf.GeneratePDF;
 import com.github.Raouf16.model.utils.teacher.*;
 
 /**

@@ -1,6 +1,8 @@
 package com.github.Raouf16.controller;
-import com.github.Raouf16.model.spreadsheet.write.*;
+import com.github.Raouf16.model.utils.io.spreadsheet.write.*;
 import com.github.Raouf16.model.utils.io.csv.read.CsvReader;
+import com.github.Raouf16.model.utils.io.spreadsheet.write.GenerateEmptyFile;
+import com.github.Raouf16.model.utils.io.spreadsheet.write.GenerateFicheService;
 import com.github.Raouf16.model.utils.teacher.EnterTeacher;
 import com.github.Raouf16.model.utils.teacher.Teacher;
 
