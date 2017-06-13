@@ -1,7 +1,6 @@
 package com.github.Raouf16.model.utils.io.spreadsheet.read;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import org.odftoolkit.simple.SpreadsheetDocument;
 import org.odftoolkit.simple.style.StyleTypeDefinitions.CellBordersType;
@@ -19,7 +18,7 @@ public class ReadBorder {
 	 * @throws IOException
 	 * @author Raouf HADDAD
 	 */
-	public static boolean isCourseDiagonalBorder(SpreadsheetDocument spreadSheetReadingData, String formation, String sem, String course)
+	public boolean isCourseDiagonalBorder(SpreadsheetDocument spreadSheetReadingData, String formation, String sem, String course)
 	{
 		//There is no course choice for Apprentissage & LSO
 		if (formation == null) return true;
@@ -72,7 +71,7 @@ public class ReadBorder {
 	 * @throws IOException
 	 * @author Raouf HADDAD
 	 */
-	public static boolean isTdDiagonalBorder(SpreadsheetDocument spreadSheetReadingData, String formation, String sem, String course)
+	public boolean isTdDiagonalBorder(SpreadsheetDocument spreadSheetReadingData, String formation, String sem, String course)
 	{
 		//There is only TD choices for Apprentissage so always return false (no border)
 		if (formation == null) return true;
@@ -123,7 +122,7 @@ public class ReadBorder {
 	 * @throws IOException
 	 * @author Raouf HADDAD
 	 */
-	public static boolean isTpDiagonalBorder(SpreadsheetDocument spreadSheetReadingData, String formation, String sem, String course)
+	public boolean isTpDiagonalBorder(SpreadsheetDocument spreadSheetReadingData, String formation, String sem, String course)
 	{
 		//There is no TP choice for Apprentissage & LSO
 		if (formation == null) return true;

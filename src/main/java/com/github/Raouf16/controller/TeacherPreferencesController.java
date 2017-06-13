@@ -145,15 +145,16 @@ public class TeacherPreferencesController
 		cmTDChoice.getItems().clear();
 		tpChoice.getItems().clear();
 		
-    	if (ReadBorder.isCourseDiagonalBorder(spreadSheetReadingData, formation, semester, course) == false)
+		ReadBorder rb = new ReadBorder();
+    	if (rb.isCourseDiagonalBorder(spreadSheetReadingData, formation, semester, course) == false)
     	{
     		courseChoice.getItems().setAll(choices);
     	}
-    	if (ReadBorder.isTdDiagonalBorder(spreadSheetReadingData, formation, semester, course) == false)
+    	if (rb.isTdDiagonalBorder(spreadSheetReadingData, formation, semester, course) == false)
     	{
     		cmTDChoice.getItems().setAll(choices);
     	}
-    	if (ReadBorder.isTpDiagonalBorder(spreadSheetReadingData, formation, semester, course) == false)
+    	if (rb.isTpDiagonalBorder(spreadSheetReadingData, formation, semester, course) == false)
     	{
     		tpChoice.getItems().setAll(choices);
     	}
