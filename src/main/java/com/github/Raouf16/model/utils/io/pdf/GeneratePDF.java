@@ -90,7 +90,7 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
       
       paragraph.add("\n");
      
-      paragraph.add("");
+      paragraph.add(teacher.getCivility());
       paragraph.add("                      ");
       paragraph.add(teacher.getLastName());
       paragraph.add("                                              ");
@@ -103,15 +103,13 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
       
       paragraph.add("\n\n");
       
-      paragraph.add("                        ");
-      if(teacher.getStatus() != null) paragraph.add(teacher.getStatus());
-      paragraph.add("                                                  ");
-      paragraph.add("");
+      paragraph.add("                                                           ");
+      paragraph.add(teacher.getDiscipline());
       
       paragraph.add("\n\n");
       
       paragraph.add("                 EMAIL : ");
-      if(teacher.getDauphineEmail() != null) paragraph.add(teacher.getDauphineEmail());
+      if(teacher.getMobilePhone() != null) paragraph.add(teacher.getMobilePhone());
       
       paragraph.add("\n\n");
       
@@ -175,7 +173,7 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
       
       paragraph.add("\n");
      
-      paragraph.add("");
+      paragraph.add(teacher.getCivility());
       paragraph.add("                      ");
       paragraph.add(teacher.getLastName());
       paragraph.add("                                              ");
@@ -188,15 +186,13 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
       
       paragraph.add("\n\n");
       
-      paragraph.add("                        ");
-      if(teacher.getStatus() != null) paragraph.add(teacher.getStatus());
-      paragraph.add("                                                  ");
-      paragraph.add("");
+      paragraph.add("                                                              ");
+      paragraph.add(teacher.getDiscipline());
       
       paragraph.add("\n\n");
       
       paragraph.add("                 EMAIL : ");
-      if(teacher.getDauphineEmail() != null) paragraph.add(teacher.getDauphineEmail());
+      if(teacher.getMobilePhone() != null) paragraph.add(teacher.getMobilePhone());
       
       paragraph.add("\n\n");
       
@@ -206,11 +202,11 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
       
       paragraph.add("\n");
       
-      if(teacher.getMobilePhone() != null) paragraph.add(teacher.getMobilePhone());
+      if(teacher.getStatus() != null) paragraph.add(teacher.getStatus());
       paragraph.add("                              ");
-      if(teacher.getPersonalPhone() != null) paragraph.add(teacher.getPersonalPhone());
-      paragraph.add("                                             ");
       if(teacher.getOffice() != null) paragraph.add(teacher.getOffice());
+      paragraph.add("                                             ");
+      if(teacher.getDauphinePhone() != null) paragraph.add(teacher.getDauphinePhone());
       
   	paragraph.add(table);
         document.add(paragraph);

@@ -60,7 +60,6 @@ public class WritePreferences {
 			int y = 3;
 			 //We look for the right cell
 			do{
-				 System.out.println("Je suis rentré lso infini");
 				 //If we found a cell that have the same subject as the preference
 				y += 1;
 			}while(sheet.getCellByPosition("A"+y).getDisplayText().equals(s.getSubject()) == false);

@@ -10,3 +10,4 @@ firstName,lastName,numen,civility,address,postalCode,city,status,dauphineMail,pe
 "ok","ok","9999","Mme","","",,,"","",,"","","","info"
 "ok","ok","7777","Mr","","",,,"","",,"","","","inf"
 "lola","loli","3214","Mr","","",,,"","",,"","","","indo"
+"firstname","lastname","12312312","Mr","Adresse","codepostal",,,"maildaudau","mailpersso",,"mobile","bureau","teldaudau","discipline"

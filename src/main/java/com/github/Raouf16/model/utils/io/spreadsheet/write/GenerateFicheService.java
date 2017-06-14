@@ -28,7 +28,7 @@ public class GenerateFicheService {
 	        if(t.getFirstName() != null) sheet.getCellByPosition("H6").setDisplayText(t.getFirstName());
 	        if(t.getLastName() != null) sheet.getCellByPosition("E6").setDisplayText(t.getLastName());
 	        if(t.getStatus() != null) sheet.getCellByPosition("C10").setDisplayText(t.getStatus());
-	        if(t.getDauphineEmail() != null) sheet.getCellByPosition("E13").setDisplayText(t.getDauphineEmail());
+	        if(t.getMobilePhone() != null) sheet.getCellByPosition("E13").setDisplayText(t.getMobilePhone());
 	        
 	        
             // Save
@@ -53,15 +53,15 @@ public class GenerateFicheService {
 	        
 	        // Fill the Sheet
 		 	System.out.println("MAIL : "+t.getDauphineEmail()+" /");
-	        if(t.getCity() != null) sheet.getCellByPosition("C6").setDisplayText(t.getCity());
+	        if(t.getCivility() != null) sheet.getCellByPosition("C6").setDisplayText(t.getCivility());
 	        if(t.getFirstName() != null) sheet.getCellByPosition("H6").setDisplayText(t.getFirstName());
 	        if(t.getLastName() != null) sheet.getCellByPosition("E6").setDisplayText(t.getLastName());
 	        if(t.getStatus() != null) sheet.getCellByPosition("C10").setDisplayText(t.getStatus());
-	        if(t.getDauphineEmail() != null) sheet.getCellByPosition("E13").setDisplayText(t.getDauphineEmail());
-	        if(t.getDauphinePhone() != null) sheet.getCellByPosition("F18").setDisplayText(t.getDauphinePhone());
-	        if(t.getMobilePhone() != null) sheet.getCellByPosition("C18").setDisplayText(t.getMobilePhone());
-	        if(t.getOffice() != null) sheet.getCellByPosition("H18").setDisplayText(t.getOffice());
-	        sheet.getCellByPosition("F10").setDisplayText("N/A");
+	        if(t.getMobilePhone() != null) sheet.getCellByPosition("E13").setDisplayText(t.getMobilePhone());
+	        if(t.getOffice() != null) sheet.getCellByPosition("F18").setDisplayText(t.getOffice());
+	        if(t.getStatus() != null) sheet.getCellByPosition("C18").setDisplayText(t.getStatus());
+	        if(t.getDauphinePhone() != null) sheet.getCellByPosition("H18").setDisplayText(t.getDauphinePhone());
+	        if(t.getDiscipline() != null) sheet.getCellByPosition("F10").setDisplayText(t.getDiscipline());
 	        
 	        // Save 
 	        String newFileName = t.getFirstName()+"_"+t.getLastName()+"_FicheServiceRemplie.ods";
