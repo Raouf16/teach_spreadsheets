@@ -166,7 +166,8 @@ public class TeacherInformationController
         //check if the numen is not already in the csv teachers file
         if (errorMessage.length() == 0)
         {
-        	Teacher t = CsvReader.getTeacherByNumEn(Main.teachersFilePath, numEnField.getText());
+        	CsvReader cr = new CsvReader();
+        	Teacher t = cr.getTeacherByNumEn(Main.teachersFilePath, numEnField.getText());
         	if (t != null) errorMessage += "Numen existant!";
         }
         

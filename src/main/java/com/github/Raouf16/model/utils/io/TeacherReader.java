@@ -23,14 +23,14 @@ public class TeacherReader
 	 * @return list of the read teachers
 	 * @throws FileNotFoundException
 	 */
-	public static Teacher readTeacherData(String fileName) throws Exception
+	public Teacher readTeacherData(String fileName) throws Exception
 	{
 		FileReader reader = new FileReader(fileName);
 		CSVReader csv = new CSVReader(reader, ',');
 		return new Teacher(csv.readNext());	
 	}
 	
-	public static ArrayList <Teacher> readTeachersData(String fileName) throws Exception
+	public ArrayList <Teacher> readTeachersData(String fileName) throws Exception
 	{
 		ArrayList <Teacher> teachers = new ArrayList <Teacher>();
 		FileReader reader = new FileReader(fileName);

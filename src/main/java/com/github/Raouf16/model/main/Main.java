@@ -13,9 +13,6 @@ import javafx.stage.Stage;
 
 import com.github.Raouf16.model.utils.teacher.*;
 import com.github.Raouf16.controller.HomeController;
-import org.apache.spark.sql.Dataset;
-import org.apache.spark.sql.Row;
-import org.apache.spark.sql.SparkSession;
 
 public class Main extends Application
 {

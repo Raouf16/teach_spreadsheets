@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import com.github.Raouf16.controller.TeacherInformationController;
 import com.github.Raouf16.controller.TeacherPreferencesController;
+import com.github.Raouf16.model.utils.io.csv.read.CsvReader;
 import com.github.Raouf16.model.utils.io.csv.write.CsvWriter;
 import com.github.Raouf16.model.utils.io.spreadsheet.write.WriteInformations;
 import com.github.Raouf16.model.utils.io.spreadsheet.write.WritePreferences;
@@ -41,16 +42,22 @@ public class EnterTeacher
 			return;
 		}
 		Main.teacher = teacher = teacherControler.getTeacher();
-		CsvWriter.writeTeacher(Main.teachersFilePath, teacher);
+		
+		CsvWriter cw = new CsvWriter();
+		cw.writeTeacher(Main.teachersFilePath, teacher);
 		showPreferencesDialog();
 		if (!prefControler.isOkClicked()) 
 		{
 			dialogStage.close();
 			return;
 		}
-		CsvWriter.writePreference(Main.preferencesFilePath, teacher);
-		File teacherFile = WriteInformations.write(teacher);
-		WritePreferences.write(teacher, teacherFile, teacher.getPreferences());
+		cw.writePreference(Main.preferencesFilePath, teacher);
+		
+		WriteInformations wi = new WriteInformations();
+		File teacherFile = wi.write(teacher);
+		
+		WritePreferences wp = new WritePreferences();
+		wp.write(teacher, teacherFile, teacher.getPreferences());
 	}
 	
 	/**

@@ -24,7 +24,7 @@ public class ReadData
 	 * @return
 	 * @throws IOException
 	 */
-	public static List<String> getFilieres(SpreadsheetDocument spreadSheetReadingData) throws IOException 
+	public List<String> getFilieres(SpreadsheetDocument spreadSheetReadingData) throws IOException 
 	{
 		List <String> filieres = new ArrayList<String>();
 		
@@ -39,7 +39,7 @@ public class ReadData
 	 * @return
 	 * @throws IOException
 	 */
-	public static List<String> getSemesters(SpreadsheetDocument spreadSheetReadingData, String formation) throws IOException 
+	public List<String> getSemesters(SpreadsheetDocument spreadSheetReadingData, String formation) throws IOException 
 	{
 		
 		if (formation == null) return new ArrayList<String>();
@@ -87,12 +87,12 @@ public class ReadData
 	}
 	
 	/***
-	 * This static method is to get the courses in a the spreadsheet in parameters
+	 * This static method is to get the courses from a spreadsheet 
 	 * @param year and semester
 	 * @return List of courses
 	 * @throws IOException
 	 */
-	public static List<String> getCourses(SpreadsheetDocument spreadSheetReadingData, String formation, String semester)
+	public List<String> getCourses(SpreadsheetDocument spreadSheetReadingData, String formation, String semester)
 	{
 		if (formation == null) return new ArrayList<String>();
 		if(formation.equals("APPRENTISSAGE"))
@@ -114,7 +114,6 @@ public class ReadData
 			}
 			return courses;
 		}
-		//the else is for LSO, but we have to do another if for APPRENTISSAGE
 		else if(formation.equals("LSO"))
 		{
 			List<String> coursesLSO = new ArrayList<String>();

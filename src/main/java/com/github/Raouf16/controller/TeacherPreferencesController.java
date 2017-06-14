@@ -82,12 +82,14 @@ public class TeacherPreferencesController
     @FXML
     private void initialize() throws IOException 
     {
+    	
+    	ReadData rd = new ReadData();
         // Initialize the teacher's information
     	teacher = Main.teacher;
     	firstNameField.setText(teacher.firstName);
     	lastNameField.setText(teacher.lastName);
     	numEnField.setText(teacher.numEn);
-    	formationsData.addAll(ReadData.getFilieres(spreadSheetReadingData));
+    	formationsData.addAll(rd.getFilieres(spreadSheetReadingData));
     	formations.setItems(formationsData);
     	formations.setOnAction((event) -> {
     	    String formation = formations.getSelectionModel().getSelectedItem();
@@ -119,8 +121,9 @@ public class TeacherPreferencesController
     
     private void loadCourses(String sem) 
     {
+    	ReadData rd = new ReadData();
     	courses.getItems().clear();
-		courses.getItems().addAll(ReadData.getCourses(spreadSheetReadingData, 
+		courses.getItems().addAll(rd.getCourses(spreadSheetReadingData, 
 								  formations.getSelectionModel().getSelectedItem(),
 								  semester.getSelectionModel().getSelectedItem()));
 	}
@@ -128,8 +131,9 @@ public class TeacherPreferencesController
     
 	private void loadSemesters(String formation) throws IOException
     {
+		ReadData rd = new ReadData();
 		semester.getItems().clear();
-    	semester.getItems().addAll(ReadData.getSemesters(spreadSheetReadingData, formation));
+    	semester.getItems().addAll(rd.getSemesters(spreadSheetReadingData, formation));
     	courses.getItems().clear();
     }
 	

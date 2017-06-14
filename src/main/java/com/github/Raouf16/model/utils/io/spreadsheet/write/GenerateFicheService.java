@@ -6,7 +6,6 @@ import org.odftoolkit.simple.SpreadsheetDocument;
 import org.odftoolkit.simple.table.Table;
 
 import com.github.Raouf16.model.main.Main;
-import com.github.Raouf16.model.utils.io.pdf.*;
 import com.github.Raouf16.model.utils.io.pdf.GeneratePDF;
 import com.github.Raouf16.model.utils.teacher.*;
 
@@ -16,7 +15,7 @@ import com.github.Raouf16.model.utils.teacher.*;
  */
 public class GenerateFicheService {
 	
-	public static void generateEmptyFS(Teacher t) throws Exception{
+	public void generateEmptyFS(Teacher t) throws Exception{
 			
 		try{
             // Load the file and sheet
@@ -44,7 +43,7 @@ public class GenerateFicheService {
 		} 
 	}
 	
-	public static void generateFullFS(Teacher t) throws Exception
+	public void generateFullFS(Teacher t) throws Exception
 	{
 		try{
 			// Load the file and sheet

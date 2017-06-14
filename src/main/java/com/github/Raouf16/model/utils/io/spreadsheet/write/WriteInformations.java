@@ -17,7 +17,7 @@ import com.github.Raouf16.model.utils.teacher.*;
  */
 public class WriteInformations {
 
-	public static File write(Teacher t) throws Exception
+	public File write(Teacher t) throws Exception
 	{
 		 
 			 // Load the sheet

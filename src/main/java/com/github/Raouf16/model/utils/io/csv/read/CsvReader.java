@@ -23,7 +23,7 @@ public class CsvReader
 	 * @return the teacher object if the numen exists, else null
 	 * @throws Exception 
 	 */
-	public static Teacher getTeacherByNumEn(String fileName, String numen) throws IOException, IllegalArgumentException
+	public Teacher getTeacherByNumEn(String fileName, String numen) throws IOException, IllegalArgumentException
 	{
 		if (fileName == null) throw new IllegalArgumentException();
 		for (Teacher t : getTeachers(fileName))
@@ -39,7 +39,7 @@ public class CsvReader
 	 * @return
 	 * @throws Exception
 	 */
-	public static ArrayList <Teacher> getTeachers(String filePath) throws IOException, IllegalArgumentException
+	public ArrayList <Teacher> getTeachers(String filePath) throws IOException, IllegalArgumentException
 	{
 		ArrayList <Teacher> teachers = new ArrayList <Teacher>();
 		FileReader reader = new FileReader(filePath);

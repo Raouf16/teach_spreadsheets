@@ -12,7 +12,7 @@ import com.github.Raouf16.model.main.Main;
  */
 public class GenerateEmptyFile {
 	
-	public static void generate() throws Exception {
+	public void generate() throws Exception {
 
 		try{
 			// Load the file.
@@ -20,7 +20,7 @@ public class GenerateEmptyFile {
 			// Open the file
 			final SpreadsheetDocument spreadSheet = SpreadsheetDocument.loadDocument(file);
 			// Save to file 
-			 File outputFile = new File(Main.outputsFolderPath+"excel/"+Main.emptyFileChoice.getName());
+			 File outputFile = new File(Main.outputsFolderPath+"excel/"+"Fichier_Saisie_Voeux_Vide");
 			 spreadSheet.save(outputFile);
 			 
 		}catch(NullPointerException e){

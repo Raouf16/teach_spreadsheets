@@ -1,5 +1,4 @@
 package com.github.Raouf16.controller;
-import com.github.Raouf16.model.utils.io.spreadsheet.write.*;
 import com.github.Raouf16.model.utils.io.csv.read.CsvReader;
 import com.github.Raouf16.model.utils.io.spreadsheet.write.GenerateEmptyFile;
 import com.github.Raouf16.model.utils.io.spreadsheet.write.GenerateFicheService;
@@ -19,7 +18,7 @@ import org.apache.log4j.Logger;
 
 
 /**
- * This class is the Home Controller 
+ * This class is the Home Controller, here we manage what the home interface buttons do
  * @author Raouf HADDAD
  */
 
@@ -49,10 +48,11 @@ public class HomeController
     
    
 	public void generateODS() throws Exception{
-		GenerateEmptyFile.generate();
+		GenerateEmptyFile gef = new GenerateEmptyFile();
+		gef.generate();
 	}
 
-
+	//Generate "FIche de service" filled with teacher informations
 	public void generateFicheSecretary() throws Exception
 	{
 		TextInputDialog dialog = new TextInputDialog();
@@ -66,8 +66,9 @@ public class HomeController
 		Teacher wantedTeacher = null;
 		if (result.isPresent()) 
 		{
+			CsvReader cr = new CsvReader();
 			String numen = result.get();
-			wantedTeacher = CsvReader.getTeacherByNumEn(Main.teachersFilePath, numen) ;
+			wantedTeacher = cr.getTeacherByNumEn(Main.teachersFilePath, numen) ;
 			
 			if (wantedTeacher == null)
 			{
@@ -79,11 +80,14 @@ public class HomeController
 				alert.showAndWait();
 			}
 			
-			else GenerateFicheService.generateFullFS(wantedTeacher);
+			else{
+				GenerateFicheService gfs = new GenerateFicheService();
+				gfs.generateFullFS(wantedTeacher);
+			}
 				
 		}
 	}
-	
+	//Generate empty "FIche de service" without teacher informations
 	public void generateFicheProfessor() throws Exception{
 		TextInputDialog dialog = new TextInputDialog();
 		dialog.setTitle("Informations professeur");
@@ -96,8 +100,9 @@ public class HomeController
 		Teacher wantedTeacher = null;
 		if (result.isPresent()) 
 		{
+			CsvReader cr = new CsvReader();
 			String numen = result.get();
-			wantedTeacher = CsvReader.getTeacherByNumEn(Main.teachersFilePath, numen) ;
+			wantedTeacher = cr.getTeacherByNumEn(Main.teachersFilePath, numen) ;
 			if (wantedTeacher == null)
 			{
 				Alert alert = new Alert(AlertType.ERROR);
@@ -108,7 +113,10 @@ public class HomeController
 				alert.showAndWait();
 			}
 			
-			else GenerateFicheService.generateEmptyFS(wantedTeacher);
+			else{
+				GenerateFicheService gfs = new GenerateFicheService();
+				gfs.generateEmptyFS(wantedTeacher);
+			}
 		}
 	}
 	

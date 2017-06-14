@@ -20,7 +20,7 @@ import com.github.Raouf16.model.utils.preference.*;
  */
 public class WritePreferences {
 	
-	public static void write(Teacher t, File f, List<Preference> list) throws Exception{
+	public void write(Teacher t, File f, List<Preference> list) throws Exception{
 			 
 			 File outputFile = f;
 			 int sem;
@@ -55,7 +55,7 @@ public class WritePreferences {
 	 * @author Raouf HADDAD
 	 * @throws IOException
 	 */
-	public static void writeS1(Preference s, Table sheet){
+	public void writeS1(Preference s, Table sheet){
 		if(s.getYear().equals("LSO")){
 			int y = 3;
 			 //We look for the right cell
@@ -124,7 +124,7 @@ public class WritePreferences {
 	 * @author Raouf HADDAD
 	 * @throws IOException
 	 */
-	public static void writeS2(Preference s, Table sheet){
+	public void writeS2(Preference s, Table sheet){
 		
 		if(s.getYear().equals("LSO")){
 			
@@ -197,7 +197,7 @@ public class WritePreferences {
 	 * @throws IOException
 	 */		 
 	 
-	public static void save(Teacher t, SpreadsheetDocument spreadSheet) throws Exception{	 
+	public void save(Teacher t, SpreadsheetDocument spreadSheet) throws Exception{	 
 		 	// Save the file
 			String newFileName = t.firstName+"_"+t.lastName+"_"+"pref.ods";
 		 	try {
