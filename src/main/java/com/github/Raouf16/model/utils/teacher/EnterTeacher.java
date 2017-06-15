@@ -17,11 +17,12 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class EnterTeacher
 {
-	private final static Logger logger = Logger.getLogger(EnterTeacher.class);
+	static final Logger LOGGER = LoggerFactory.getLogger(EnterTeacher.class);
 	
 	private static Stage primaryStage;
 	private static TeacherInformationController teacherControler;
@@ -32,7 +33,7 @@ public class EnterTeacher
 	
 	public void enterInfo() throws Exception
 	{
-		 logger.info("Entering the enterInfo method");
+		 LOGGER.info("Entering the enterInfo method");
 		primaryStage = Main.primaryStage ;
 		dialogStage.initModality(Modality.WINDOW_MODAL);
 		showTeacherDialog();
@@ -70,14 +71,14 @@ public class EnterTeacher
      */
 	private void showTeacherDialog()
 	{
-		 logger.info("Entering the showTeacherDialog method");
+		 LOGGER.info("Entering the showTeacherDialog method");
 		try
         {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.teacherControlerPath);
             AnchorPane page = (AnchorPane) loader.load();
-            logger.info("FXML file for teacher loaded");
+            LOGGER.info("FXML file for teacher loaded");
             // Create the dialog Stage
             dialogStage.setTitle("Informations personnelles");
             
@@ -102,14 +103,14 @@ public class EnterTeacher
 	
 	private void showPreferencesDialog()
 	{
-		 logger.info("Entering the showPreferenceDialog method");
+		 LOGGER.info("Entering the showPreferenceDialog method");
 		try
         {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.prefControlerPath);
             AnchorPane page = (AnchorPane) loader.load();
-            logger.info("FXML file for preferences loaded");
+            LOGGER.info("FXML file for preferences loaded");
             // Create the dialog Stage
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Informations personnelles");

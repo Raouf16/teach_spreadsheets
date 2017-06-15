@@ -19,12 +19,14 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 
 public class GeneratePDF
 {
-	private final static Logger logger = Logger.getLogger(GeneratePDF.class);
+	static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 	
 	/**
 	 * @author Lynda BOULILA, Katia SERSOUR, Haya COHEN
@@ -40,7 +42,7 @@ public class GeneratePDF
         PdfWriter.getInstance(document, new FileOutputStream(Main.outputsFolderPath+"pdf/"+pdfFileName));
         // open then file
         document.open();
-        logger.info("file opened");
+        LOGGER.info("file opened");
         return document;
 	}
  
@@ -52,7 +54,7 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
     	
         GeneratePDF pdf = new GeneratePDF();
     	Document document = pdf.createPDF(teacher);
-    	logger.info("PDF created");
+    	LOGGER.info("PDF created");
         
         // Set the Title 
     	//Font titre = new Font(FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLUE);
@@ -135,7 +137,7 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
     	
         GeneratePDF pdf = new GeneratePDF();
     	Document document = pdf.createPDF(teacher);
-    	logger.info("PDF with personnal information created");
+    	LOGGER.info("PDF with personnal information created");
         
         // Set the Title 
     	//Font titre = new Font(FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLUE);
@@ -212,7 +214,7 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
         document.add(paragraph);
         // close the file
         document.close();
-        logger.info("Document closed");
+        LOGGER.info("Document closed");
     }
    
      
