@@ -1,0 +1,12 @@
+com.github.Raouf16
+com.github.Raouf16.controller
+com.github.Raouf16.model.deprecated.generating
+com.github.Raouf16.model.main
+com.github.Raouf16.model.utils.io
+com.github.Raouf16.model.utils.io.csv.read
+com.github.Raouf16.model.utils.io.csv.write
+com.github.Raouf16.model.utils.io.pdf
+com.github.Raouf16.model.utils.io.spreadsheet.read
+com.github.Raouf16.model.utils.io.spreadsheet.write
+com.github.Raouf16.model.utils.preference
+com.github.Raouf16.model.utils.teacher

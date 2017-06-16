@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import com.github.Raouf16.controller.TeacherInformationController;
 import com.github.Raouf16.controller.TeacherPreferencesController;
+import com.github.Raouf16.model.utils.io.csv.read.CsvReader;
 import com.github.Raouf16.model.utils.io.csv.write.CsvWriter;
 import com.github.Raouf16.model.utils.io.spreadsheet.write.WriteInformations;
 import com.github.Raouf16.model.utils.io.spreadsheet.write.WritePreferences;
@@ -16,11 +17,12 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class EnterTeacher
 {
-	private final static Logger logger = Logger.getLogger(EnterTeacher.class);
+	static final Logger LOGGER = LoggerFactory.getLogger(EnterTeacher.class);
 	
 	private static Stage primaryStage;
 	private static TeacherInformationController teacherControler;
@@ -31,7 +33,7 @@ public class EnterTeacher
 	
 	public void enterInfo() throws Exception
 	{
-		 logger.info("Entering the enterInfo method");
+		 LOGGER.info("Entering the enterInfo method");
 		primaryStage = Main.primaryStage ;
 		dialogStage.initModality(Modality.WINDOW_MODAL);
 		showTeacherDialog();
@@ -41,16 +43,22 @@ public class EnterTeacher
 			return;
 		}
 		Main.teacher = teacher = teacherControler.getTeacher();
-		CsvWriter.writeTeacher(Main.teachersFilePath, teacher);
+		
+		CsvWriter cw = new CsvWriter();
+		cw.writeTeacher(Main.teachersFilePath, teacher);
 		showPreferencesDialog();
 		if (!prefControler.isOkClicked()) 
 		{
 			dialogStage.close();
 			return;
 		}
-		CsvWriter.writePreference(Main.preferencesFilePath, teacher);
-		File teacherFile = WriteInformations.write(teacher);
-		WritePreferences.write(teacher, teacherFile, teacher.getPreferences());
+		cw.writePreference(Main.preferencesFilePath, teacher);
+		
+		WriteInformations wi = new WriteInformations();
+		File teacherFile = wi.write(teacher);
+		
+		WritePreferences wp = new WritePreferences();
+		wp.write(teacher, teacherFile, teacher.getPreferences());
 	}
 	
 	/**
@@ -60,17 +68,17 @@ public class EnterTeacher
      *
      * @param teacher the person object to be edited
      * @return true if the user clicked OK, false otherwise.
+	 * @throws IOException 
      */
-	private void showTeacherDialog()
+	private void showTeacherDialog() throws IOException
 	{
-		 logger.info("Entering the showTeacherDialog method");
-		try
-        {
+		 LOGGER.info("Entering the showTeacherDialog method");
+		
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.teacherControlerPath);
             AnchorPane page = (AnchorPane) loader.load();
-            logger.info("FXML file for teacher loaded");
+            LOGGER.info("FXML file for teacher loaded");
             // Create the dialog Stage
             dialogStage.setTitle("Informations personnelles");
             
@@ -85,24 +93,19 @@ public class EnterTeacher
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
 
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-            return ;
-        }
+      
 		
 	}
 	
-	private void showPreferencesDialog()
+	private void showPreferencesDialog() throws IOException
 	{
-		 logger.info("Entering the showPreferenceDialog method");
-		try
-        {
+		 LOGGER.info("Entering the showPreferenceDialog method");
+		
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.prefControlerPath);
             AnchorPane page = (AnchorPane) loader.load();
-            logger.info("FXML file for preferences loaded");
+            LOGGER.info("FXML file for preferences loaded");
             // Create the dialog Stage
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Informations personnelles");
@@ -118,11 +121,7 @@ public class EnterTeacher
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
 
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-            return ;
-        }
+        
 	}
 
 }

@@ -20,7 +20,7 @@ import com.github.Raouf16.model.utils.preference.*;
  */
 public class WritePreferences {
 	
-	public static void write(Teacher t, File f, List<Preference> list) throws Exception{
+	public void write(Teacher t, File f, List<Preference> list) throws Exception{
 			 
 			 File outputFile = f;
 			 int sem;
@@ -32,8 +32,10 @@ public class WritePreferences {
 				 // to open the right sheet everytime
 				 final Table sheet = spreadSheet.getSheetByName(s.getYear());
 				 
-				 try {sem = (int)Integer.parseInt(s.getSemester());}
-					catch (NumberFormatException e){return;}
+				 try {sem = Integer.parseInt(s.getSemester());}
+					catch (NumberFormatException e){
+						System.out.println(e);
+						return;}
 				 
 				// For semesters 1, 3 or 5
 				 if(sem % 2 != 0){
@@ -55,12 +57,11 @@ public class WritePreferences {
 	 * @author Raouf HADDAD
 	 * @throws IOException
 	 */
-	public static void writeS1(Preference s, Table sheet){
+	public void writeS1(Preference s, Table sheet){
 		if(s.getYear().equals("LSO")){
 			int y = 3;
 			 //We look for the right cell
 			do{
-				 System.out.println("Je suis rentré lso infini");
 				 //If we found a cell that have the same subject as the preference
 				y += 1;
 			}while(sheet.getCellByPosition("A"+y).getDisplayText().equals(s.getSubject()) == false);
@@ -124,7 +125,7 @@ public class WritePreferences {
 	 * @author Raouf HADDAD
 	 * @throws IOException
 	 */
-	public static void writeS2(Preference s, Table sheet){
+	public void writeS2(Preference s, Table sheet){
 		
 		if(s.getYear().equals("LSO")){
 			
@@ -197,11 +198,11 @@ public class WritePreferences {
 	 * @throws IOException
 	 */		 
 	 
-	public static void save(Teacher t, SpreadsheetDocument spreadSheet) throws Exception{	 
+	public void save(Teacher t, SpreadsheetDocument spreadSheet) throws Exception{	 
 		 	// Save the file
 			String newFileName = t.firstName+"_"+t.lastName+"_"+"pref.ods";
 		 	try {
-				spreadSheet.save(Main.canevasFolderPath+newFileName);
+				spreadSheet.save(Main.outputsFolderPath+"excel/"+newFileName);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} 

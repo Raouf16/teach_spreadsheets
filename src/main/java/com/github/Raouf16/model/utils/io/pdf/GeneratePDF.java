@@ -19,12 +19,14 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 
 public class GeneratePDF
 {
-	private final static Logger logger = Logger.getLogger(GeneratePDF.class);
+	static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 	
 	/**
 	 * @author Lynda BOULILA, Katia SERSOUR, Haya COHEN
@@ -37,10 +39,10 @@ public class GeneratePDF
         Document document = new Document(pagesize, 20f, 20f, 10f, 60f); 
         // Create the pdf file
         String pdfFileName = t.getFirstName()+"_"+t.getLastName()+"_FicheService.pdf";
-        PdfWriter.getInstance(document, new FileOutputStream(Main.outputsFolderPath+pdfFileName));
+        PdfWriter.getInstance(document, new FileOutputStream(Main.outputsFolderPath+"pdf/"+pdfFileName));
         // open then file
         document.open();
-        logger.info("file opened");
+        LOGGER.info("file opened");
         return document;
 	}
  
@@ -52,7 +54,7 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
     	
         GeneratePDF pdf = new GeneratePDF();
     	Document document = pdf.createPDF(teacher);
-    	logger.info("PDF created");
+    	LOGGER.info("PDF created");
         
         // Set the Title 
     	//Font titre = new Font(FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLUE);
@@ -90,7 +92,7 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
       
       paragraph.add("\n");
      
-      paragraph.add("");
+      paragraph.add(teacher.getCivility());
       paragraph.add("                      ");
       paragraph.add(teacher.getLastName());
       paragraph.add("                                              ");
@@ -103,15 +105,13 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
       
       paragraph.add("\n\n");
       
-      paragraph.add("                        ");
-      if(teacher.getStatus() != null) paragraph.add(teacher.getStatus());
-      paragraph.add("                                                  ");
-      paragraph.add("");
+      paragraph.add("                                                           ");
+      paragraph.add(teacher.getDiscipline());
       
       paragraph.add("\n\n");
       
       paragraph.add("                 EMAIL : ");
-      if(teacher.getDauphineEmail() != null) paragraph.add(teacher.getDauphineEmail());
+      if(teacher.getMobilePhone() != null) paragraph.add(teacher.getMobilePhone());
       
       paragraph.add("\n\n");
       
@@ -137,7 +137,7 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
     	
         GeneratePDF pdf = new GeneratePDF();
     	Document document = pdf.createPDF(teacher);
-    	logger.info("PDF with personnal information created");
+    	LOGGER.info("PDF with personnal information created");
         
         // Set the Title 
     	//Font titre = new Font(FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLUE);
@@ -175,7 +175,7 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
       
       paragraph.add("\n");
      
-      paragraph.add("");
+      paragraph.add(teacher.getCivility());
       paragraph.add("                      ");
       paragraph.add(teacher.getLastName());
       paragraph.add("                                              ");
@@ -188,15 +188,13 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
       
       paragraph.add("\n\n");
       
-      paragraph.add("                        ");
-      if(teacher.getStatus() != null) paragraph.add(teacher.getStatus());
-      paragraph.add("                                                  ");
-      paragraph.add("");
+      paragraph.add("                                                              ");
+      paragraph.add(teacher.getDiscipline());
       
       paragraph.add("\n\n");
       
       paragraph.add("                 EMAIL : ");
-      if(teacher.getDauphineEmail() != null) paragraph.add(teacher.getDauphineEmail());
+      if(teacher.getMobilePhone() != null) paragraph.add(teacher.getMobilePhone());
       
       paragraph.add("\n\n");
       
@@ -206,17 +204,17 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
       
       paragraph.add("\n");
       
-      if(teacher.getMobilePhone() != null) paragraph.add(teacher.getMobilePhone());
+      if(teacher.getStatus() != null) paragraph.add(teacher.getStatus());
       paragraph.add("                              ");
-      if(teacher.getPersonalPhone() != null) paragraph.add(teacher.getPersonalPhone());
-      paragraph.add("                                             ");
       if(teacher.getOffice() != null) paragraph.add(teacher.getOffice());
+      paragraph.add("                                             ");
+      if(teacher.getDauphinePhone() != null) paragraph.add(teacher.getDauphinePhone());
       
   	paragraph.add(table);
         document.add(paragraph);
         // close the file
         document.close();
-        logger.info("Document closed");
+        LOGGER.info("Document closed");
     }
    
      

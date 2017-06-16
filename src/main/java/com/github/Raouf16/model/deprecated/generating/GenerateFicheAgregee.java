@@ -1,4 +1,4 @@
-package com.github.Raouf16.model.utils.generating;
+package com.github.Raouf16.model.deprecated.generating;
 
 
 import org.apache.spark.sql.Dataset;
@@ -13,7 +13,7 @@ import com.github.Raouf16.model.main.Main;
  * Classe ayant pour but de générer les fichiers agrégés
  *
  */
-public class Generating 
+public class GenerateFicheAgregee 
 {
 	public static void generateAgregatedFile(){
 		/***SparkSession spark = SparkSession

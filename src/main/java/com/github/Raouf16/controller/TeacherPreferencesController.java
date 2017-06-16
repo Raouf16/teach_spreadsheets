@@ -64,7 +64,7 @@ public class TeacherPreferencesController
     private boolean okClicked = false;
 	private Teacher teacher = Main.teacher;
 	private SpreadsheetDocument spreadSheetReadingData;	
-	private List<Preference> tmpPref = new ArrayList<Preference> ();
+	private List<Preference> tmpPref = new ArrayList<> ();
 	private boolean addedPref = false;
 
 	/**
@@ -80,61 +80,57 @@ public class TeacherPreferencesController
 	}
 	
     @FXML
-    private void initialize() throws IOException 
+    private void initialize() 
     {
+    	
+    	ReadData rd = new ReadData();
         // Initialize the teacher's information
     	teacher = Main.teacher;
     	firstNameField.setText(teacher.firstName);
     	lastNameField.setText(teacher.lastName);
     	numEnField.setText(teacher.numEn);
-    	formationsData.addAll(ReadData.getFilieres(spreadSheetReadingData));
+    	formationsData.addAll(rd.getFilieres(spreadSheetReadingData));
     	formations.setItems(formationsData);
     	formations.setOnAction((event) -> {
     	    String formation = formations.getSelectionModel().getSelectedItem();
-    	    try {
-    	    	if (formation != null) loadSemesters(formation);
-    	    }
-    	    catch (IOException e) {}
+    	    if (formation != null) loadSemesters(formation);
     	});
     	
     	semester.setItems(semesterData);
     	semester.setOnAction((event) -> {
-    	    String sem = semester.getSelectionModel().getSelectedItem();
-    	    loadCourses(sem);
+    	    loadCourses();
     	});
     	
     	courses.setOnAction((event) -> {
     	    String course = courses.getSelectionModel().getSelectedItem();
     	    String sem = semester.getSelectionModel().getSelectedItem();
     	    String formation = formations.getSelectionModel().getSelectedItem();
-    	    try {
-				loadChoices(formation, sem, course);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+    	    loadChoices(formation, sem, course);
     	});
     
     }
 
     
-    private void loadCourses(String sem) 
+    private void loadCourses() 
     {
+    	ReadData rd = new ReadData();
     	courses.getItems().clear();
-		courses.getItems().addAll(ReadData.getCourses(spreadSheetReadingData, 
+		courses.getItems().addAll(rd.getCourses(spreadSheetReadingData, 
 								  formations.getSelectionModel().getSelectedItem(),
 								  semester.getSelectionModel().getSelectedItem()));
 	}
     
     
-	private void loadSemesters(String formation) throws IOException
+	private void loadSemesters(String formation)
     {
+		ReadData rd = new ReadData();
 		semester.getItems().clear();
-    	semester.getItems().addAll(ReadData.getSemesters(spreadSheetReadingData, formation));
+    	semester.getItems().addAll(rd.getSemesters(spreadSheetReadingData, formation));
     	courses.getItems().clear();
     }
 	
 	
-	private void loadChoices(String formation, String semester, String course) throws IOException
+	private void loadChoices(String formation, String semester1, String course)
     {
 		String [] choices = new String[3];
     	choices[0] = "A";
@@ -145,15 +141,16 @@ public class TeacherPreferencesController
 		cmTDChoice.getItems().clear();
 		tpChoice.getItems().clear();
 		
-    	if (ReadBorder.isCourseDiagonalBorder(spreadSheetReadingData, formation, semester, course) == false)
+		ReadBorder rb = new ReadBorder();
+    	if (rb.isCourseDiagonalBorder(spreadSheetReadingData, formation, semester1, course) == false)
     	{
     		courseChoice.getItems().setAll(choices);
     	}
-    	if (ReadBorder.isTdDiagonalBorder(spreadSheetReadingData, formation, semester, course) == false)
+    	if (rb.isTdDiagonalBorder(spreadSheetReadingData, formation, semester1, course) == false)
     	{
     		cmTDChoice.getItems().setAll(choices);
     	}
-    	if (ReadBorder.isTpDiagonalBorder(spreadSheetReadingData, formation, semester, course) == false)
+    	if (rb.isTpDiagonalBorder(spreadSheetReadingData, formation, semester1, course) == false)
     	{
     		tpChoice.getItems().setAll(choices);
     	}
@@ -233,7 +230,7 @@ public class TeacherPreferencesController
 	}
 	
 	@FXML 
-	private void addPreference() throws IOException
+	private void addPreference()
 	{
 		if (isInputValid())
 		{
@@ -286,17 +283,14 @@ public class TeacherPreferencesController
 
 
         if (errorMessage.length() == 0) return true;
-        else 
-        {
-            // Show the error message.
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.initOwner(dialogStage);
-            alert.setTitle("Invalid Fields");
-            alert.setHeaderText("Corrigez les champs incorrectes");
-            alert.setContentText(errorMessage);
-            alert.showAndWait();
-            return false;
-        }
+		// Show the error message.
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.initOwner(dialogStage);
+		alert.setTitle("Invalid Fields");
+		alert.setHeaderText("Corrigez les champs incorrectes");
+		alert.setContentText(errorMessage);
+		alert.showAndWait();
+		return false;
     }
 	
 }

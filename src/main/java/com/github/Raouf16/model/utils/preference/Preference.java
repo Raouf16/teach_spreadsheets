@@ -85,6 +85,8 @@ public class Preference
 	public void setSemester(String semester) {
 		this.semester = semester;
 	}
+	
+	@Override
 	public String toString()
 	{
 		String s = "";
