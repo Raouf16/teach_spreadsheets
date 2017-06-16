@@ -151,14 +151,4 @@ public class CsvWriter {
 		return t;
 	}
 	
-	public static void main (String [] args) throws IOException{
-		Teacher t= new Teacher();
-		t.setNumEn("1234");
-		//WriteTeacher("test.txt",t);
-		
-		t = ReadTeacher("src/main/resources/com/github/Raouf16/CSVteacher","1234");
-		System.out.println(t);
-		
-		//ReadPreference("src/main/resources/com/github/Raouf16/CSVpref",t);
-	}
 }
