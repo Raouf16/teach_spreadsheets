@@ -15,11 +15,13 @@ import com.github.Raouf16.model.utils.teacher.*;
  */
 public class GenerateFicheService {
 	
+	private SpreadsheetDocument spreadSheet;
+	private SpreadsheetDocument spreadSheet2;
+
 	public void generateEmptyFS(Teacher t) throws Exception{
 			
 		try{
-            // Load the file and sheet
-		 	final SpreadsheetDocument spreadSheet = SpreadsheetDocument.loadDocument(Main.fileFicheService);
+            spreadSheet = SpreadsheetDocument.loadDocument(Main.fileFicheService);
 		 	final Table sheet = spreadSheet.getSheetByName("FService");
 			 
 	        
@@ -39,16 +41,15 @@ public class GenerateFicheService {
             // Convert as PDF
             GeneratePDF.generateEmptyFS(t);
             	}catch(NullPointerException e){
-			System.out.println("Fichier source introuvable");
+			System.out.println("Fichier source introuvable"+e);
 		} 
 	}
 	
 	public void generateFullFS(Teacher t) throws Exception
 	{
 		try{
-			// Load the file and sheet
-		 	final SpreadsheetDocument spreadSheet = SpreadsheetDocument.loadDocument(Main.fileFicheService);
-		 	final Table sheet = spreadSheet.getSheetByName("FService");
+			spreadSheet2 = SpreadsheetDocument.loadDocument(Main.fileFicheService);
+		 	final Table sheet = spreadSheet2.getSheetByName("FService");
 		 
 	        
 	        // Fill the Sheet
@@ -66,12 +67,12 @@ public class GenerateFicheService {
 	        // Save 
 	        String newFileName = t.getFirstName()+"_"+t.getLastName()+"_FicheServiceRemplie.ods";
 	        File outputFile = new File(Main.outputsFolderPath+"excel/"+newFileName);
-	        spreadSheet.save(outputFile);
+	        spreadSheet2.save(outputFile);
 	        
 	        // Convert as PDF
 	        GeneratePDF.generateFullFS(t);
 		}catch(NullPointerException e){
-			System.out.println("Fichier source introuvable");
+			System.out.println("Fichier source introuvable"+e);
 		} 
 	}
 

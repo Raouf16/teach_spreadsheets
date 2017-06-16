@@ -30,7 +30,7 @@ public class ReadBorder {
 		}
 		else{
 			int semester;
-			try {semester = (int)Integer.parseInt(sem);}
+			try {semester = Integer.parseInt(sem);}
 			catch (NumberFormatException e) {return false;}
 			String range1, range2;
 			Table sheet = spreadSheetReadingData.getSheetByName(formation);
@@ -46,7 +46,7 @@ public class ReadBorder {
 			String subject;
 			for (int i=4; i<countRows; i++)
 			{
-				subject = (String) sheet.getCellByPosition(range1+i).getDisplayText();
+				subject = sheet.getCellByPosition(range1+i).getDisplayText();
 				if (subject.equals(course)){
 					/* There is a problem with ODFTookit, their function getBorder return NULL
 					 * if the border doesn't exists, but if there is a border, It doesn't return
@@ -83,7 +83,7 @@ public class ReadBorder {
 			return true;
 		}
 		int semester;
-		try {semester = (int)Integer.parseInt(sem);}
+		try {semester = Integer.parseInt(sem);}
 		catch (NumberFormatException e) {return false;}
 		String range1, range2;
 		Table sheet = spreadSheetReadingData.getSheetByName(formation);
@@ -99,7 +99,7 @@ public class ReadBorder {
 		String subject;
 		for (int i=4; i<countRows; i++)
 		{
-			subject = (String) sheet.getCellByPosition(range1+i).getDisplayText();
+			subject = sheet.getCellByPosition(range1+i).getDisplayText();
 			if (subject.equals(course)){
 				/* There is a problem with ODFTookit, their function getBorder return NULL
 				 * if the border doesn't exists, but if there is a border, It doesn't return
@@ -134,7 +134,7 @@ public class ReadBorder {
 		}
 		else{
 			int semester;
-			try {semester = (int)Integer.parseInt(sem);}
+			try {semester = Integer.parseInt(sem);}
 			catch (NumberFormatException e) {return false;}
 			String range1, range2;
 			Table sheet = spreadSheetReadingData.getSheetByName(formation);
@@ -150,7 +150,7 @@ public class ReadBorder {
 			String subject;
 			for (int i=4; i<countRows; i++)
 			{
-				subject = (String) sheet.getCellByPosition(range1+i).getDisplayText();
+				subject = sheet.getCellByPosition(range1+i).getDisplayText();
 				if (subject.equals(course)){
 					/* There is a problem with ODFTookit, their function getBorder return NULL
 					 * if the border doesn't exists, but if there is a border, It doesn't return

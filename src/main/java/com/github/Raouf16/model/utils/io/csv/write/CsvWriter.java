@@ -17,6 +17,8 @@ public class CsvWriter {
 	private static CSVReader reader;
 	private CSVWriter writer2;
 	private CSVReader reader2;
+	private FileWriter writer3;
+	private FileWriter writer4;
 
 	/**
 	 * This method can write a line in the csv file "filename" about a teacher.
@@ -25,7 +27,8 @@ public class CsvWriter {
 	 * @throws Exception
 	 */
 	public void writeTeacher (String fileName, Teacher t) throws Exception{
-			writer = new CSVWriter(new FileWriter(fileName, true));
+			writer3 = new FileWriter(fileName, true);
+			writer = new CSVWriter(writer3);
 			String [] line=new String[15];
 			
 			line[0] = t.getFirstName();
@@ -91,7 +94,8 @@ public class CsvWriter {
 	 * @throws Exception
 	 */
 	public void writePreference (String fileName, Teacher t) throws Exception{
-		writer2 = new CSVWriter(new FileWriter(fileName, true));
+		writer4 = new FileWriter(fileName, true);
+		writer2 = new CSVWriter(writer4);
 		Preference p;
 		String [] line=new String[9];
 		for (int i=0; i<t.getPreferences().size();i++){

@@ -41,7 +41,7 @@ public class CsvReader
 	 */
 	public ArrayList <Teacher> getTeachers(String filePath) throws IOException, IllegalArgumentException
 	{
-		ArrayList <Teacher> teachers = new ArrayList <Teacher>();
+		ArrayList <Teacher> teachers = new ArrayList <>();
 		FileReader reader = new FileReader(filePath);
 		@SuppressWarnings("resource")
 		CSVReader csv = new CSVReader(reader, ',');

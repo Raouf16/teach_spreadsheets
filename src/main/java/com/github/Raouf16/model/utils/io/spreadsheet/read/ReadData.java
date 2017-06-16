@@ -22,11 +22,10 @@ public class ReadData
 	/***
 	 * This static method is to get the years from the spreadsheet
 	 * @return
-	 * @throws IOException
 	 */
-	public List<String> getFilieres(SpreadsheetDocument spreadSheetReadingData) throws IOException 
+	public List<String> getFilieres(SpreadsheetDocument spreadSheetReadingData) 
 	{
-		List <String> filieres = new ArrayList<String>();
+		List <String> filieres = new ArrayList<>();
 		
 		int countSheets = spreadSheetReadingData.getSheetCount();
 		for (int i=2; i<countSheets; i++) filieres.add(spreadSheetReadingData.getSheetByIndex(i).getTableName());
@@ -37,49 +36,48 @@ public class ReadData
 	 * This static method is to get Semesters from the spreadsheet
 	 * @param year
 	 * @return
-	 * @throws IOException
 	 */
-	public List<String> getSemesters(SpreadsheetDocument spreadSheetReadingData, String formation) throws IOException 
+	public List<String> getSemesters(SpreadsheetDocument spreadSheetReadingData, String formation) 
 	{
 		
-		if (formation == null) return new ArrayList<String>();
+		if (formation == null) return new ArrayList<>();
 		if(formation.equals("APPRENTISSAGE"))
 		{
-			List<String> semesters = new ArrayList<String>();
+			List<String> semesters = new ArrayList<>();
 			Table sheet = spreadSheetReadingData.getSheetByName(formation);
-			String semester = (String) sheet.getCellByPosition("A3").getDisplayText();
+			String semester = sheet.getCellByPosition("A3").getDisplayText();
 			System.out.println("Semestre APP:"+semester);
 			semester = semester.trim();
 			semesters.add(""+semester.charAt(semester.length()-1));
-			semester = (String) sheet.getCellByPosition("G3").getDisplayText();
+			semester = sheet.getCellByPosition("G3").getDisplayText();
 			semester = semester.trim();
 			semesters.add(""+semester.charAt(semester.length()-1));
 			return semesters;
 		}
 		else if(formation.equals("LSO"))
 		{
-			List<String> semesters = new ArrayList<String>();
+			List<String> semesters = new ArrayList<>();
 			Table sheet = spreadSheetReadingData.getSheetByName(formation);
-			String semester = (String) sheet.getCellByPosition("A2").getDisplayText();
+			String semester = sheet.getCellByPosition("A2").getDisplayText();
 			System.out.println("Semestre LSO:"+semester);
 			System.out.println(semester);
 			semester = semester.trim();
 			System.out.println(semester);
 			semesters.add(""+semester.charAt(semester.length()-1));
-			semester = (String) sheet.getCellByPosition("A12").getDisplayText();
+			semester = sheet.getCellByPosition("A12").getDisplayText();
 			semester = semester.trim();
 			semesters.add(""+semester.charAt(semester.length()-1));
 			return semesters;
 		}
 		else
 		{
-			List<String> semesters = new ArrayList<String>();
+			List<String> semesters = new ArrayList<>();
 			Table sheet = spreadSheetReadingData.getSheetByName(formation);
-			String semester = (String) sheet.getCellByPosition("B2").getDisplayText();
+			String semester = sheet.getCellByPosition("B2").getDisplayText();
 			System.out.println("Semestre OTHER:"+semester);
 			semester = semester.trim();
 			semesters.add(""+semester.charAt(semester.length()-1));
-			semester = (String) sheet.getCellByPosition("P2").getDisplayText();
+			semester = sheet.getCellByPosition("P2").getDisplayText();
 			semester = semester.trim();
 			semesters.add(""+semester.charAt(semester.length()-1));
 			return semesters;
@@ -94,13 +92,15 @@ public class ReadData
 	 */
 	public List<String> getCourses(SpreadsheetDocument spreadSheetReadingData, String formation, String semester)
 	{
-		if (formation == null) return new ArrayList<String>();
+		if (formation == null) return new ArrayList<>();
 		if(formation.equals("APPRENTISSAGE"))
 		{
-			List<String> courses = new ArrayList<String>();
+			List<String> courses = new ArrayList<>();
 			int sem;
-			try {sem = (int)Integer.parseInt(semester);}
-			catch (NumberFormatException e) {return courses;}
+			try {sem = Integer.parseInt(semester);}
+			catch (NumberFormatException e) {
+				System.out.println(e);
+				return courses;}
 			String range ;
 			Table sheet = spreadSheetReadingData.getSheetByName(formation);
 			if (sem % 2 != 0) range = "A" ;
@@ -108,18 +108,20 @@ public class ReadData
 			String course ;
 			for (int i=5; i<15; i++)
 			{
-				course = (String) sheet.getCellByPosition(range+i).getDisplayText();
+				course = sheet.getCellByPosition(range+i).getDisplayText();
 				if (course.length() == 0) break;
-				else courses.add(course);
+				courses.add(course);
 			}
 			return courses;
 		}
 		else if(formation.equals("LSO"))
 		{
-			List<String> coursesLSO = new ArrayList<String>();
+			List<String> coursesLSO = new ArrayList<>();
 			int sem;
-			try {sem = (int)Integer.parseInt(semester);}
-			catch (NumberFormatException e) {return coursesLSO;}
+			try {sem = Integer.parseInt(semester);}
+			catch (NumberFormatException e) {
+				System.out.println(e);
+				return coursesLSO;}
 			int row1;
 			int row2;
 			String range;
@@ -137,18 +139,20 @@ public class ReadData
 			String course ;
 			for (int i = row1; i<row2; i++)
 			{
-				course = (String) sheet.getCellByPosition(range+i).getDisplayText();
+				course = sheet.getCellByPosition(range+i).getDisplayText();
 				if (course.length() == 0) break;
-				else coursesLSO.add(course);
+				coursesLSO.add(course);
 			}
 			return coursesLSO;
 		}
 		else
 		{
-			List<String> courses = new ArrayList<String>();
+			List<String> courses = new ArrayList<>();
 			int sem;
-			try {sem = (int)Integer.parseInt(semester);}
-			catch (NumberFormatException e) {return courses;}
+			try {sem = Integer.parseInt(semester);}
+			catch (NumberFormatException e){
+				System.out.println(e);
+				return courses;}
 			String range ;
 			Table sheet = spreadSheetReadingData.getSheetByName(formation);
 			if (sem % 2 != 0) range = "B" ;
@@ -157,9 +161,9 @@ public class ReadData
 			String course ;
 			for (int i=4; i<countRows; i++)
 			{
-				course = (String) sheet.getCellByPosition(range+i).getDisplayText();
+				course = sheet.getCellByPosition(range+i).getDisplayText();
 				if (course.length() == 0) break;
-				else courses.add(course);
+				courses.add(course);
 			}
 			return courses;
 		}

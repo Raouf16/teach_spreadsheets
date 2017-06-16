@@ -32,8 +32,10 @@ public class WritePreferences {
 				 // to open the right sheet everytime
 				 final Table sheet = spreadSheet.getSheetByName(s.getYear());
 				 
-				 try {sem = (int)Integer.parseInt(s.getSemester());}
-					catch (NumberFormatException e){return;}
+				 try {sem = Integer.parseInt(s.getSemester());}
+					catch (NumberFormatException e){
+						System.out.println(e);
+						return;}
 				 
 				// For semesters 1, 3 or 5
 				 if(sem % 2 != 0){

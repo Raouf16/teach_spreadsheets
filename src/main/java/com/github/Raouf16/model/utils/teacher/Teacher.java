@@ -27,7 +27,7 @@ public class Teacher
 	private String office;
 	private String civility;
 	private String discipline;
-	private List<Preference> preferences = new ArrayList<Preference>();
+	private List<Preference> preferences = new ArrayList<>();
 	
 	
 	//Constructor

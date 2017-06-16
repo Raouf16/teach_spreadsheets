@@ -32,7 +32,7 @@ public class TeacherReader
 	
 	public ArrayList <Teacher> readTeachersData(String fileName) throws Exception
 	{
-		ArrayList <Teacher> teachers = new ArrayList <Teacher>();
+		ArrayList <Teacher> teachers = new ArrayList <>();
 		FileReader reader = new FileReader(fileName);
 		@SuppressWarnings("resource")
 		CSVReader csv = new CSVReader(reader, ',');
