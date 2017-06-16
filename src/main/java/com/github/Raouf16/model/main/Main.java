@@ -13,9 +13,12 @@ import javafx.stage.Stage;
 
 import com.github.Raouf16.model.utils.teacher.*;
 import com.github.Raouf16.controller.HomeController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Main extends Application
 {
+	static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
 	//public static String canevasFolderPath = "";
 	public static String outputsFolderPath = "sorties/";
@@ -37,6 +40,8 @@ public class Main extends Application
 
    public void showHome()
    {
+	   LOGGER.info("Entering the showHome method");
+	   
        try
        {
            // Load the fxml file and create a new stage for the popup dialog.
@@ -44,6 +49,8 @@ public class Main extends Application
            loader.setLocation(Main.homePath);
 
            AnchorPane page = (AnchorPane) loader.load();
+           LOGGER.info("Load successful");
+           
            // Create the dialog Stage
            Stage dialogStage = new Stage();
            dialogStage.setTitle("Menu Principal");
@@ -51,6 +58,7 @@ public class Main extends Application
            dialogStage.initOwner(primaryStage);
            Scene scene = new Scene(page);
            dialogStage.setScene(scene);
+           LOGGER.info("Creation successful");
 
            // Set the person into the controller.
            homeControl = loader.getController();
@@ -61,6 +69,7 @@ public class Main extends Application
 
        } catch (IOException e)
        {
+    	   LOGGER.error("Error while loading file. Message:" + e.getMessage());
            e.printStackTrace();
            return ;
        }
@@ -87,6 +96,8 @@ public class Main extends Application
 
 	public static void main(String[] args) throws Exception
 	{
+		LOGGER.info("début de l'application");
 		launch();
+		LOGGER.info("fin de l'application");
 	}
 }

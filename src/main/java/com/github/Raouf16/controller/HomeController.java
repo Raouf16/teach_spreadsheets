@@ -14,7 +14,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -24,7 +25,7 @@ import org.apache.log4j.Logger;
 
 public class HomeController 
 {
-	private final static Logger logger = Logger.getLogger(HomeController.class);
+	static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 	
 	private Stage dialogStage;
 	private boolean infoClicked = false;
@@ -59,7 +60,7 @@ public class HomeController
 		dialog.setTitle("Informations professeur");
 		dialog.setHeaderText("Identifiant enseignant");
 		dialog.setContentText("Entrez le numen de l'enseignant");
-		logger.info("Fiche secretary generated");
+		LOGGER.info("Fiche secretary generated");
 
 		// Traditional way to get the response value.
 		Optional<String> result = dialog.showAndWait();
@@ -93,7 +94,7 @@ public class HomeController
 		dialog.setTitle("Informations professeur");
 		dialog.setHeaderText("Nom et prénom de l'enseignant");
 		dialog.setContentText("Entrez le nom ET prénom du professeur");
-		logger.info("Fiche professor generated");
+		LOGGER.info("Fiche professor generated");
 
 		// Traditional way to get the response value.
 		Optional<String> result = dialog.showAndWait();
