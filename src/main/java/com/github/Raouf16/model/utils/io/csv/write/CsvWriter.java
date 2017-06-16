@@ -13,6 +13,11 @@ import com.opencsv.CSVWriter;
  *
  */
 public class CsvWriter {
+	private CSVWriter writer;
+	private static CSVReader reader;
+	private CSVWriter writer2;
+	private CSVReader reader2;
+
 	/**
 	 * This method can write a line in the csv file "filename" about a teacher.
 	 * @param fileName
@@ -20,7 +25,7 @@ public class CsvWriter {
 	 * @throws Exception
 	 */
 	public void writeTeacher (String fileName, Teacher t) throws Exception{
-			CSVWriter writer = new CSVWriter(new FileWriter(fileName, true));
+			writer = new CSVWriter(new FileWriter(fileName, true));
 			String [] line=new String[15];
 			
 			line[0] = t.getFirstName();
@@ -52,7 +57,7 @@ public class CsvWriter {
 	 */
 	public static Teacher ReadTeacher (String fileName, String Num) throws Exception{
 		Teacher t= new Teacher();
-		CSVReader reader = new CSVReader(new FileReader(fileName));
+		reader = new CSVReader(new FileReader(fileName));
 	     String [] nextLine;
 	     while ((nextLine = reader.readNext()) != null) 
 	     {
@@ -86,7 +91,7 @@ public class CsvWriter {
 	 * @throws Exception
 	 */
 	public void writePreference (String fileName, Teacher t) throws Exception{
-		CSVWriter writer = new CSVWriter(new FileWriter(fileName, true));
+		writer2 = new CSVWriter(new FileWriter(fileName, true));
 		Preference p;
 		String [] line=new String[9];
 		for (int i=0; i<t.getPreferences().size();i++){
@@ -102,9 +107,9 @@ public class CsvWriter {
 			line[7]= Integer.toString(p.getNbrTD());
 			line[8]= Integer.toString(p.getNbrYear());
 			
-			writer.writeNext(line);
+			writer2.writeNext(line);
 		}
-			writer.close();
+			writer2.close();
 	}
 	/**
 	 * This method can read all preference of a teacher.
@@ -115,9 +120,9 @@ public class CsvWriter {
 	 */
 	public Teacher ReadPreference (String fileName, Teacher t) throws Exception{
 		String numEn=t.getNumEn();
-		CSVReader reader = new CSVReader(new FileReader(fileName));
+		reader2 = new CSVReader(new FileReader(fileName));
 	     String [] nextLine;
-	     while ((nextLine = reader.readNext()) != null) {
+	     while ((nextLine = reader2.readNext()) != null) {
 	        if (nextLine[0].compareTo(numEn)==0){
 	        	Preference p= new Preference();
 	        	
@@ -134,7 +139,7 @@ public class CsvWriter {
 	        }
 	     }
 	     System.out.println(t);
-	    reader.close();
+	    reader2.close();
 		return t;
 	}
 	

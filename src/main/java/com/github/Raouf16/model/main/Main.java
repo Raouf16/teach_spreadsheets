@@ -27,7 +27,7 @@ public class Main extends Application
 	public static URL prefControlerPath = Main.class.getResource("view/TeacherPreferences.fxml") ;
 	public static URL homePath = Main.class.getResource("view/Home.fxml") ;
 	public static URL teacherControlerPath = Main.class.getResource("view/TeacherInformation.fxml");
-	public static Stage primaryStage;
+	public Stage primaryStage;
     private static HomeController homeControl;
 
   
@@ -68,9 +68,9 @@ public class Main extends Application
    
 
 	@Override
-	public void start(Stage primaryStage) throws IOException
+	public void start(Stage primaryStage1) throws IOException
 	{
-		this.primaryStage = primaryStage;
+		this.primaryStage = primaryStage1;
         this.primaryStage.setTitle("Teach SpreadSheets");
         showHome();
 	}
