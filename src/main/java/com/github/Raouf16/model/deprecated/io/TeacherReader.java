@@ -1,4 +1,4 @@
-package com.github.Raouf16.model.utils.io;
+package com.github.Raouf16.model.deprecated.io;
 
 import java.io.FileReader;
 import java.util.ArrayList;
