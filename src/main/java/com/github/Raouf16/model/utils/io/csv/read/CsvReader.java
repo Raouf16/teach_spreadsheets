@@ -37,7 +37,7 @@ public class CsvReader
 	 * This method is used to read all the csv file input
 	 * @param fileName : csv file path
 	 * @return
-	 * @throws Exception
+	 * @throws IOException, IllegalArgumentException
 	 */
 	public ArrayList <Teacher> getTeachers(String filePath) throws IOException, IllegalArgumentException
 	{

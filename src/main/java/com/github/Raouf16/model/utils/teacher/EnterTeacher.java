@@ -68,12 +68,12 @@ public class EnterTeacher
      *
      * @param teacher the person object to be edited
      * @return true if the user clicked OK, false otherwise.
+	 * @throws IOException 
      */
-	private void showTeacherDialog()
+	private void showTeacherDialog() throws IOException
 	{
 		 LOGGER.info("Entering the showTeacherDialog method");
-		try
-        {
+		
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.teacherControlerPath);
@@ -93,19 +93,14 @@ public class EnterTeacher
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
 
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-            return ;
-        }
+      
 		
 	}
 	
-	private void showPreferencesDialog()
+	private void showPreferencesDialog() throws IOException
 	{
 		 LOGGER.info("Entering the showPreferenceDialog method");
-		try
-        {
+		
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.prefControlerPath);
@@ -126,11 +121,7 @@ public class EnterTeacher
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
 
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-            return ;
-        }
+        
 	}
 
 }

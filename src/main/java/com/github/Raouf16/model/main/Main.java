@@ -38,12 +38,11 @@ public class Main extends Application
    public static Teacher teacher ;
 
 
-   public void showHome()
+   public void showHome() throws IOException
    {
 	   LOGGER.info("Entering the showHome method");
 	   
-       try
-       {
+      
            // Load the fxml file and create a new stage for the popup dialog.
            FXMLLoader loader = new FXMLLoader();
            loader.setLocation(Main.homePath);
@@ -67,12 +66,8 @@ public class Main extends Application
            // Show the dialog and wait until the user closes it
            dialogStage.showAndWait();
 
-       } catch (IOException e)
-       {
-    	   LOGGER.error("Error while loading file. Message:" + e.getMessage());
-           e.printStackTrace();
-           return ;
-       }
+     
+      
    }
    
 
@@ -96,8 +91,14 @@ public class Main extends Application
 
 	public static void main(String[] args) throws Exception
 	{
+		try{
 		LOGGER.info("d�but de l'application");
 		launch();
 		LOGGER.info("fin de l'application");
+		}catch(Throwable e){
+			LOGGER.error("ERREUR DU AU LANCEMENT DE L'APPLI");
+			throw e;
+			
+		}
 	}
 }

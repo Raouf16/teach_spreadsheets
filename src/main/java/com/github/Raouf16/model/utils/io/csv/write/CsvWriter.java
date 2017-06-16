@@ -24,9 +24,10 @@ public class CsvWriter {
 	 * This method can write a line in the csv file "filename" about a teacher.
 	 * @param fileName
 	 * @param t
+	 * @throws IOException 
 	 * @throws Exception
 	 */
-	public void writeTeacher (String fileName, Teacher t) throws Exception{
+	public void writeTeacher (String fileName, Teacher t) throws IOException {
 			writer3 = new FileWriter(fileName, true);
 			writer = new CSVWriter(writer3);
 			String [] line=new String[15];
@@ -56,9 +57,9 @@ public class CsvWriter {
 	 * It returns the Teacher in which all information is stored.
 	 * @param fileName
 	 * @param Numen
-	 * @throws Exception
+	 * @throws IOException
 	 */
-	public static Teacher ReadTeacher (String fileName, String Num) throws Exception{
+	public static Teacher ReadTeacher (String fileName, String Num) throws IOException{
 		Teacher t= new Teacher();
 		reader = new CSVReader(new FileReader(fileName));
 	     String [] nextLine;
@@ -83,17 +84,20 @@ public class CsvWriter {
 	        	t.setDiscipline(nextLine[14]);
 	        }
 	     }
-	     //System.out.println(t);
-	    reader.close();
-		return t;
+	  
+	    if (reader!=null ){
+	    	reader.close();
+	    	
+	    }
+	    return t;
 	}
 	/**
 	 * This method can write all preferences of the teacher in "fileName".
 	 * @param fileName
 	 * @param t
-	 * @throws Exception
+	 * @throws IOException
 	 */
-	public void writePreference (String fileName, Teacher t) throws Exception{
+	public void writePreference (String fileName, Teacher t) throws IOException{
 		writer4 = new FileWriter(fileName, true);
 		writer2 = new CSVWriter(writer4);
 		Preference p;
@@ -120,9 +124,9 @@ public class CsvWriter {
 	 * @param fileName
 	 * @param t
 	 * @return
-	 * @throws Exception
+	 * @throws IOException
 	 */
-	public Teacher ReadPreference (String fileName, Teacher t) throws Exception{
+	public Teacher ReadPreference (String fileName, Teacher t) throws IOException{
 		String numEn=t.getNumEn();
 		reader2 = new CSVReader(new FileReader(fileName));
 	     String [] nextLine;
@@ -147,7 +151,7 @@ public class CsvWriter {
 		return t;
 	}
 	
-	public static void main (String [] args) throws Exception{
+	public static void main (String [] args) throws IOException{
 		Teacher t= new Teacher();
 		t.setNumEn("1234");
 		//WriteTeacher("test.txt",t);
