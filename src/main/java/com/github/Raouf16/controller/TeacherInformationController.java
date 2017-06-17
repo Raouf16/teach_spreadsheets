@@ -140,7 +140,7 @@ public class TeacherInformationController
     {
         String errorMessage = "";
         
-        if (civility== null || civility.getSelectionModel().getSelectedItem().equals("Selection"))
+        if (civility == null || civility.getSelectionModel().getSelectedItem() == null)
         {
         	errorMessage += "Civilité invalide!\n";
         }
