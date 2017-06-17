@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
 
 public class GeneratePDF
 {
-	static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
+	static final Logger LOGGER = LoggerFactory.getLogger(GeneratePDF.class);
 	
 	/**
 	 * @author Lynda BOULILA, Katia SERSOUR, Haya COHEN
@@ -40,9 +40,10 @@ public class GeneratePDF
         // Create the pdf file
         String pdfFileName = t.getFirstName()+"_"+t.getLastName()+"_FicheService.pdf";
         PdfWriter.getInstance(document, new FileOutputStream(Main.outputsFolderPath+"pdf/"+pdfFileName));
+        LOGGER.info("file PDF created");
         // open then file
         document.open();
-        LOGGER.info("file opened");
+        LOGGER.info("file PDF opened");
         return document;
 	}
  

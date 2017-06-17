@@ -32,9 +32,9 @@ public class Teacher
 	
 	//Constructor
 	
-	public Teacher (String [] infos) throws IllegalArgumentException
+	public Teacher (String [] infos) throws NullPointerException
 	{
-		if (infos == null) throw new IllegalArgumentException("Erreur ! entrée incorrecte");
+		if (infos == null) throw new NullPointerException("Erreur ! entrée incorrecte");
 		firstName = infos[0];
 		lastName = infos[1];
 		numEn = infos[2].equals("") ? null : infos[2] ;

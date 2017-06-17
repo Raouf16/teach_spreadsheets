@@ -15,11 +15,8 @@ public class PreferenceTest {
 		p.setYear("2017");
 		//expected from the geter is 2017
 		String expected ="2017";
-		if(expected.compareTo(p.getYear())== 0){
-			System.out.println ("test set get succed");	
-		}else{
-			System.out.println ("test set get failed");	
-		}
+		assertEquals(expected,p.getYear());
+		
 		
 		
 	}
@@ -30,11 +27,8 @@ public class PreferenceTest {
 		p.setSubject("sujet");
 		//expected from the geter is sujet
 		String expected ="sujet";
-		if(expected.compareTo(p.getSubject())== 0){
-			System.out.println ("test set get for subject succed");	
-		}else{
-			System.out.println ("test set get for subject failed");	
-		}
+		assertEquals(expected,p.getSubject());
+		
 		
 		
 	}
@@ -46,12 +40,7 @@ public class PreferenceTest {
 		p.setNbrTD("5");
 		//expected from the geter is 5 as an int
 		int expected =5;
-		if(expected == p.getNbrTD()){
-			System.out.println ("test set get for nbrTD succed");	
-		}else{
-			System.out.println ("test set get for nbrTD failed");	
-		}
-		
+		assertEquals(expected,p.getNbrTD());
 		
 	}
 }

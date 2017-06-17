@@ -39,7 +39,7 @@ public class CsvReader
 	 * @return
 	 * @throws IOException, NullPointerException
 	 */
-	public ArrayList <Teacher> getTeachers(String filePath) throws IOException, NullPointerException
+	public static ArrayList <Teacher> getTeachers(String filePath) throws IOException, NullPointerException
 	{
 		try(FileReader reader = new FileReader(filePath)){
 		ArrayList <Teacher> teachers = new ArrayList <>();

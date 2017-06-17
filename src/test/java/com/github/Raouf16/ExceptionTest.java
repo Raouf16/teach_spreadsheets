@@ -12,7 +12,7 @@ public class ExceptionTest {
 		ArrayList<Integer> List = new ArrayList<>();
 		List.add(1);
 		List.add(2);
-		List.get(2);
+		List.get(3);
 		
 	}
 	
