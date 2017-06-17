@@ -57,7 +57,6 @@ public class GenerateFicheService {
 	        if(t.getCivility() != null) sheet.getCellByPosition("C6").setDisplayText(t.getCivility());
 	        if(t.getFirstName() != null) sheet.getCellByPosition("H6").setDisplayText(t.getFirstName());
 	        if(t.getLastName() != null) sheet.getCellByPosition("E6").setDisplayText(t.getLastName());
-	        if(t.getStatus() != null) sheet.getCellByPosition("C10").setDisplayText(t.getStatus());
 	        if(t.getMobilePhone() != null) sheet.getCellByPosition("E13").setDisplayText(t.getMobilePhone());
 	        if(t.getOffice() != null) sheet.getCellByPosition("F18").setDisplayText(t.getOffice());
 	        if(t.getStatus() != null) sheet.getCellByPosition("C18").setDisplayText(t.getStatus());

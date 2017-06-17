@@ -11,3 +11,5 @@ firstName,lastName,numen,civility,address,postalCode,city,status,dauphineMail,pe
 "ok","ok","7777","Mr","","",,,"","",,"","","","inf"
 "lola","loli","3214","Mr","","",,,"","",,"","","","indo"
 "firstname","lastname","12312312","Mr","Adresse","codepostal",,,"maildaudau","mailpersso",,"mobile","bureau","teldaudau","discipline"
+"CAILLOUX","Olivier","123456789","Mr","9 Rue Olivier","92000",,,"cailloux@daudau.fr","Olivier@cailloux.fr",,"0670101010","0151101010","0111111111","JAVA"
+"Rauf","HADDAD","4321","Mr","9 Rue Raouf","92110",,,"raouf@daudau.fr","raouf@raouf.fr",,"0673301010","D33","011111111","INFO"
