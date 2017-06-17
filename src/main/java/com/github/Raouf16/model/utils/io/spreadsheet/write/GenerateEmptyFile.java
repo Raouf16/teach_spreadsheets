@@ -21,11 +21,11 @@ public class GenerateEmptyFile {
 			File file = Main.fileReadingData ;
 			spreadSheet = SpreadsheetDocument.loadDocument(file);
 			// Save to file 
-			 File outputFile = new File(Main.outputsFolderPath+"excel/"+"Fichier_Saisie_Voeux_Vide");
+			 File outputFile = new File(Main.outputsFolderPath+"excel/"+"Fichier_Saisie_Voeux_Vide.ods");
 			 spreadSheet.save(outputFile);
 			 
 		}catch(NullPointerException e){
-			System.out.println("Fichier source introuvable"+e);
+			System.out.println("Fichier source introuvable "+e);
 		} 
 		 
 	}

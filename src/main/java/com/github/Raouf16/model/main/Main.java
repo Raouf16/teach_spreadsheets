@@ -92,7 +92,7 @@ public class Main extends Application
 	public static void main(String[] args) throws Exception
 	{
 		try{
-		LOGGER.info("d�but de l'application");
+		LOGGER.info("Debut de l'application");
 		launch();
 		LOGGER.info("fin de l'application");
 		}catch(Throwable e){

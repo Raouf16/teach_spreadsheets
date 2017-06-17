@@ -105,7 +105,7 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
       
       paragraph.add("\n\n");
       
-      paragraph.add("                                                           ");
+      paragraph.add("                                                                  ");
       paragraph.add(teacher.getDiscipline());
       
       paragraph.add("\n\n");
@@ -188,7 +188,7 @@ public static void generateEmptyFS(Teacher teacher) throws DocumentException, IO
       
       paragraph.add("\n\n");
       
-      paragraph.add("                                                              ");
+      paragraph.add("                                                                    ");
       paragraph.add(teacher.getDiscipline());
       
       paragraph.add("\n\n");
