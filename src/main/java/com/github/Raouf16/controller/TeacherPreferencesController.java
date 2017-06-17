@@ -12,7 +12,6 @@ import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -132,6 +131,7 @@ public class TeacherPreferencesController
 	
 	private void loadChoices(String formation, String semester1, String course)
     {
+		
 		String [] choices = new String[3];
     	choices[0] = "A";
     	choices[1] = "B";
@@ -144,20 +144,27 @@ public class TeacherPreferencesController
 		ReadBorder rb = new ReadBorder();
     	if (rb.isCourseDiagonalBorder(spreadSheetReadingData, formation, semester1, course) == false)
     	{
+    		courseChoice.setDisable(false);
     		courseChoice.getItems().setAll(choices);
     	}
+    	else courseChoice.setDisable(true);
+    	
     	if (rb.isTdDiagonalBorder(spreadSheetReadingData, formation, semester1, course) == false)
     	{
+    		cmTDChoice.setDisable(false);
     		cmTDChoice.getItems().setAll(choices);
     	}
+    	else cmTDChoice.setDisable(true);
+    	
     	if (rb.isTpDiagonalBorder(spreadSheetReadingData, formation, semester1, course) == false)
     	{
+    		tpChoice.setDisable(false);
     		tpChoice.getItems().setAll(choices);
-    	}
+    	}	
+    	else tpChoice.setDisable(true);
     	
     	choices = new String[4];
     	for (int i=1; i<5; i++) choices[i-1] = ""+i;
-    	
     	groupNumber.getItems().setAll(choices);
     }
     /**
@@ -192,16 +199,47 @@ public class TeacherPreferencesController
     {
         return okClicked;
     }
+    
+    /**
+     * Called to check if all the fields are empty
+     */
+    
+    public boolean areEmptyFields()
+    {
+    	boolean empty = false;
+    	if (formations.getSelectionModel().getSelectedItem() == null || formations.getSelectionModel().getSelectedItem().length() == 0) 
+	        empty = true;
+    	else empty = false;
+        if (semester.getSelectionModel().getSelectedItem() == null || semester.getSelectionModel().getSelectedItem().length() == 0) 
+        	empty = true;
+        else empty = false;
+        if (courses.getSelectionModel().getSelectedItem() == null || courses.getSelectionModel().getSelectedItem().length() == 0) 
+        	empty = true;
+        else empty = false;
+        if (groupNumber.getSelectionModel().getSelectedItem() == null || courses.getSelectionModel().getSelectedItem().length() == 0)
+        	empty = true;
+        else empty = false;
+        if (experience.getText() == null || experience.getText().length() == 0)
+        	empty = true;
+        else empty = false;
+   
+        return empty;
+    }
 
     /**
-     * Called when the user clicks ok.
+     * Called when the user clicks valid.
      */
     @FXML
     private void handleValid() 
     {
-    	teacher.setPreferences(tmpPref);
-    	okClicked = true;
-    	dialogStage.close();
+    	if (!areEmptyFields()) addPreference();
+    	else
+    	{
+    		teacher.setPreferences(tmpPref);
+    		okClicked = true;
+        	dialogStage.close();
+    	}
+    	
     }
     
   
@@ -221,7 +259,7 @@ public class TeacherPreferencesController
     	ButtonType buttonCancel = new ButtonType("Annuler", ButtonData.CANCEL_CLOSE);
     	alert.getButtonTypes().setAll(buttonOK, buttonCancel);
         Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == buttonOK) dialogStage.close();  
+        if (result.get() == buttonOK) dialogStage.close();
     }
 
 	public Teacher getTeacher() 
@@ -246,7 +284,6 @@ public class TeacherPreferencesController
 			tmpPref.add(preference);
 			if (!addedPref) addedPref = true;
 			refresh();
-			System.out.println("The preference was added");
 			initialize();
 		}		
 	}
